@@ -1,0 +1,52 @@
+.pokemonGrid {
+    background-color: rgb(129, 1, 1);
+    padding: 25px 50px 50px 50px;
+    text-align: center;
+}
+    
+
+.grid-container {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.gcBG {
+    border-radius: 50px;
+    background-color: white;
+}
+
+.grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+
+    margin: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.giExtras {
+    position: relative;
+    background-color: grey;
+}
+
+.giExtras:hover {
+    transform: scale(0.95, 0.95);
+    color: white;
+}
+
+  .btnShowContainer {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    border-width: 5px;
+    border-color: grey;
+  }
+
+  .btnShowContainer:active {
+      background-color: rgb(228, 228, 228);
+  }
