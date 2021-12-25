@@ -15,8 +15,12 @@ function PokemonProvider() {
         'zapdos',
         'moltres',
         'articuno',
+        'raikou',
+        'entei',
+        'suicune',
         'mew', 
         'mewtwo',
+        'raikoiu'
     ];
 
     return (pkmList.map((pkmName) => {

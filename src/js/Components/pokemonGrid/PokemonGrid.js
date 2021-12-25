@@ -4,7 +4,7 @@ import PkmContainer from './PkmContainer';
 import PkbBtn from './PkbBtn';
 
 const PokemonGrid = () => {
-    const [showContainer, setShowContainer] = useState(true);
+    const [showContainer, setShowContainer] = useState(false);
 
     const toggleShowContainer = () => {
         setShowContainer((prevSc) => {
@@ -15,7 +15,7 @@ const PokemonGrid = () => {
     return (
         <div className="pokemonGrid">
             <PkbBtn clicked={showContainer} toggleShowContainer={toggleShowContainer}/>
-            {showContainer && <PkmContainer />}
+            {showContainer? <PkmContainer /> : <h1 id="pressPrompt">PRESS ME!</h1>}
         </div>
     )
 }
