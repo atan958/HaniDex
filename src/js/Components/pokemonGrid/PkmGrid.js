@@ -5,7 +5,7 @@ import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
 import FilterBar from './FilterBar'
 
-const PkmGrid = ({ pkmObjList }) => {
+const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(false);
 
@@ -23,7 +23,7 @@ const PkmGrid = ({ pkmObjList }) => {
             {showContainer? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmObjList={filteredPkmList}/> 
+                    <PkmContainer pkmObjList={filteredPkmList} loadingPkm={loadingPkm}/> 
                 </>
                 : 
                 <>

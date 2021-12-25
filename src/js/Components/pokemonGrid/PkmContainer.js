@@ -1,14 +1,26 @@
 import PkmItem from './PkmItem'
 
-const PkmContainer = ({ pkmObjList }) => {
+const PkmContainer = ({ pkmObjList, loadingPkm }) => {
     const pkmItemList = pkmObjList.map((pkmObj, i) => {
         return renderPokemonItem(pkmObj);
     });
 
     return (
-        <div className="grid-container gcBG">
-            {pkmItemList}
-        </div>
+        <>
+        {loadingPkm? 
+            <div className="gcBG">
+                <div className="loadingPkm-container-container">
+                    <div className="loadingPkm-container">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+        :
+            <div className="grid-container gcBG">
+                {pkmItemList}
+            </div>
+        }
+        </>
     )
 }
 

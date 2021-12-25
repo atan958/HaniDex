@@ -3,22 +3,24 @@
     padding: 25px 50px 50px 50px;
     text-align: center;
     margin: 0px 0px 0px 0px;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px - 150px);
     min-width: 1090px;
 }
 
 .grid-container {
-    margin-top: 25px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     padding: 20px;
 }
 
 .gcBG {
+    margin-top: 25px;
     border-radius: 50px;
     background-color: white;
     overflow: visible;
+    
     min-width: 990px;
+    min-height: 345px;
 }
 
 .grid-item {
@@ -41,6 +43,43 @@
 .giExtras:hover {
     transform: scale(0.98, 0.99);
     color: white;
+}
+
+.loadingPkm-container-container {
+    font-size: 50px;
+
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+
+    padding: 140px 0;
+}
+
+.loadingPkm-container:hover {
+    color: red;
+}
+
+.loadingPkm-container {
+    font-size: 50px;
+    font-family: serif;
+    color: black;
+    text-align: center;
+    animation: animate 
+        1.5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 /*-----------------------------------------------------------------------------------*/

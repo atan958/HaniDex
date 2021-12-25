@@ -7,15 +7,22 @@ import PokemonProvider from './js/Utilities/PokemonProvider';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
+  const [loadingPkm, setLoadingPkm] = useState(true);
 
   console.log('Rendered at ' + new Date());
   useEffect(() => {
     console.log('Effected at ' + new Date());
     setTimeout(() => {
+      
       setPokemon((prevPkm) => {
         let pokemon = PokemonProvider();
         return prevPkm.concat(pokemon)
       })
+
+      setLoadingPkm((prevLdPkm) => {
+        return !prevLdPkm;
+      });
+
     }, 3000);
   },[]);
   
@@ -28,7 +35,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <PkmGrid pkmObjList={pokemon}/>
+      <PkmGrid pkmObjList={pokemon} loadingPkm={loadingPkm}/>
       <Footer />
     </>
   );
