@@ -18,7 +18,7 @@ const PokemonContainer = () => {
 
 const renderPokemonItem = (pkmObj) => {
     let pkmPng = require(`../../../pokemon-assets/assets/img/pokemon/${pkmObj.name}.png`);
-    let pkmImg = <img src={pkmPng} width="100" height="120"></img>;
+    let pkmImg = <img src={pkmPng} width="150" height="180"></img>;
     let pkmData = { ...pkmObj, img: pkmImg };
     
     return <PokemonItem key={pkmObj.name} pkmData={pkmData}/>;

@@ -2,8 +2,10 @@
     background-color: rgb(129, 1, 1);
     padding: 25px 50px 50px 50px;
     text-align: center;
+    margin: 0px 0px 0px 0px;
+    min-height: calc(100vh - 100px);
+    min-width: 1090px;
 }
-    
 
 .grid-container {
     margin-top: 25px;
@@ -15,6 +17,8 @@
 .gcBG {
     border-radius: 50px;
     background-color: white;
+    overflow: visible;
+    min-width: 990px;
 }
 
 .grid-item {

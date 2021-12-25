@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../../../css/PokemonGrid.css'
-import PokemonContainer from './PokemonContainer';
+import PkmContainer from './PkmContainer';
+import PkbBtn from './PkbBtn';
 
 const PokemonGrid = () => {
     const [showContainer, setShowContainer] = useState(true);
@@ -13,8 +14,8 @@ const PokemonGrid = () => {
 
     return (
         <div className="pokemonGrid">
-            <button className="btnShowContainer" onClick={toggleShowContainer}></button>
-            {showContainer && <PokemonContainer />}
+            <PkbBtn clicked={showContainer} toggleShowContainer={toggleShowContainer}/>
+            {showContainer && <PkmContainer />}
         </div>
     )
 }

@@ -17,6 +17,7 @@
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    height: 49px;
   }
   
   li a {

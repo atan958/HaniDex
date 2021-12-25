@@ -1,5 +1,5 @@
 .footer {
-    position: fixed;
+    /*position: fixed;*/
     left: 0;
     bottom: 0;
     width: 100%;
@@ -9,5 +9,8 @@
  }
 
  .ftrExtras {
-     margin-top: 25px;
+     margin-top: 0px;
+     height: 100px;
+     min-height: 100px;
+
  }
