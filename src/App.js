@@ -6,7 +6,6 @@ import PokemonProvider from './js/Utilities/PokemonProvider';
 
 
 function App() {
-  const [search, setSearch] = useState('');
   const [pokemon, setPokemon] = useState([]);
 
   console.log('Rendered at ' + new Date());
@@ -29,7 +28,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <PokemonGrid pkmObjList={pokemon} search={search} setSearch={setSearch}/>
+      <PokemonGrid pkmObjList={pokemon}/>
       <Footer />
     </>
   );

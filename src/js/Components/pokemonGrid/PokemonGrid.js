@@ -5,7 +5,8 @@ import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
 import FilterBar from './FilterBar'
 
-const PokemonGrid = ({ pkmObjList, search, setSearch }) => {
+const PokemonGrid = ({ pkmObjList }) => {
+    const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(false);
 
     const toggleShowContainer = () => {
@@ -14,25 +15,30 @@ const PokemonGrid = ({ pkmObjList, search, setSearch }) => {
         });
     }
 
+    let filteredPkmList = filterBySearch(pkmObjList, search);
+
     return (
         <div className="pokemonGrid">
             <PkbBtn clicked={showContainer} toggleShowContainer={toggleShowContainer}/>
             {showContainer? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmObjList={pkmObjList}/> 
+                    <PkmContainer pkmObjList={filteredPkmList}/> 
                 </>
                 : 
                 <>
-                    <h1 id="pressPrompt">PRESS ME!</h1>
+                    <h1 id="pressPrompt">WELCOME TO MY DOMAIN</h1>
                     <Angelo />
                 </>}
         </div>
     )
 }
 
-const filterBySearch = () => {
-
+const filterBySearch = (pkmObjList, search) => {
+    let filteredPkmList = pkmObjList.filter((pkmObj) => {
+        return pkmObj.name.includes(search);
+    });
+    return filteredPkmList;
 }
 
 
