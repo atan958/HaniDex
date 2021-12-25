@@ -1,8 +1,13 @@
 const PkbBtn = ({ clicked, toggleShowContainer }) => {
 
     return (
-        <div>
-            <button className="btnShowContainer" onClick={toggleShowContainer} style={clicked? {backgroundColor : 'red'} : null}></button>
+        <div className="pkb-container">
+            <div className="pkbImg-container">
+                <div className="pkbBtn-container">
+                    <button className="btnShowContainer" onClick={toggleShowContainer} style={clicked? {backgroundColor : 'red'} : null}/>
+                </div>
+            </div>
+            
         </div>
     )
 }

@@ -20,7 +20,7 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background-color: #ffffff4f;
   }
   
   .container:hover .overlay {
@@ -28,8 +28,8 @@
   }
   
   .text {
-    color: white;
-    font-size: 20px;
+    color: #810101;
+    font-size: 30px;
     position: absolute;
     top: 50%;
     left: 50%;

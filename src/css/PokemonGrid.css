@@ -1,5 +1,5 @@
 .pokemonGrid {
-    background-color: rgb(129, 1, 1);
+    background-color: #810101;
     padding: 25px 50px 50px 50px;
     text-align: center;
     margin: 0px 0px 0px 0px;
@@ -33,7 +33,7 @@
 }
 
 .giExtras {
-    position: relative;         /* I don't thin needed */
+    position: relative;         /* I don't think needed */
     background-color: grey;
     max-width: 430px;
 }
@@ -43,7 +43,26 @@
     color: white;
 }
 
-/*-----------------------*/
+/*-----------------------------------------------------------------------------------*/
+.pkb-container {
+    padding: 25px 0px 25px 0px;
+
+    /*--hCenter--*/
+    margin: auto;
+    width: 7%;
+    padding: 10px;
+}
+
+.pkbImg-container {
+    background-image: url("../angelo-assets/pokeball-logo.png");
+    width: 128px;
+    height: 128px;
+}
+
+.pkbBtn-container {
+    /*--vCenter--*/
+    padding: 37px 0;
+}
 
 .btnShowContainer {
     width: 50px;
@@ -58,10 +77,14 @@
     background-color: rgb(204, 204, 204);
 }
 
+.btnShowContainer:hover {
+    transform: scale(0.95,0.95);
+}
+
 #pressPrompt {
     color: white;
 }
-
+/*-----------------------------------------------------------------------------------*/
 .filter-container {
     display: block;
     color: white;
@@ -70,7 +93,7 @@
     text-decoration: none;
     
     padding: 0px;
-    margin: 50px 0px 0px 0px;
+    margin: 25px 0px 0px 0px;
     border-radius: 20px;
 
     width: 100%;
