@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const PokemonItem = ({ pkmData }) => {
+const PkmItem = ({ pkmData }) => {
     const [selected, setSelected] = useState(false);
     const toggleSelected = () => {
         setSelected((prevSelected) => {
@@ -18,4 +18,4 @@ const PokemonItem = ({ pkmData }) => {
     )
 }
 
-export default PokemonItem
+export default PkmItem

@@ -5,7 +5,7 @@ import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
 import FilterBar from './FilterBar'
 
-const PokemonGrid = ({ pkmObjList }) => {
+const PkmGrid = ({ pkmObjList }) => {
     const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(false);
 
@@ -43,4 +43,4 @@ const filterBySearch = (pkmObjList, search) => {
 
 
 
-export default PokemonGrid;
+export default PkmGrid;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import NavBar from './js/Components/navBar/NavBar'
-import PokemonGrid from './js/Components/pokemonGrid/PokemonGrid'
+import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
 import PokemonProvider from './js/Utilities/PokemonProvider';
 
@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <PokemonGrid pkmObjList={pokemon}/>
+      <PkmGrid pkmObjList={pokemon}/>
       <Footer />
     </>
   );

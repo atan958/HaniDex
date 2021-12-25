@@ -1,6 +1,6 @@
-import PokemonItem from './PokemonItem'
+import PkmItem from './PkmItem'
 
-const PokemonContainer = ({ pkmObjList }) => {
+const PkmContainer = ({ pkmObjList }) => {
     const pkmItemList = pkmObjList.map((pkmObj, i) => {
         return renderPokemonItem(pkmObj);
     });
@@ -25,7 +25,7 @@ const renderPokemonItem = (pkmObj) => {
         pkmData = { ...pkmObj, ...{name: 'undef', img: pkmImg} };
         console.log('error mayt');
     }
-    return <PokemonItem key={pkmObj.name} pkmData={pkmData}/>;
+    return <PkmItem key={pkmObj.name} pkmData={pkmData}/>;
 }
 
-export default PokemonContainer
+export default PkmContainer
