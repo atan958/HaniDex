@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import NavBar from './js/Components/navBar/NavBar'
 import PokemonGrid from './js/Components/pokemonGrid/PokemonGrid'
-import Footer from './js/Components/Footer'
+import Footer from './js/Components/footer/Footer'
 
 function App() {
   const [search, setSearch] = useState('');
