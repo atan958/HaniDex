@@ -3,7 +3,7 @@ import '../../../css/PokemonGrid.css'
 import PkmContainer from './PkmContainer';
 import PkbBtn from './PkbBtn';
 
-const PokemonGrid = () => {
+const PokemonGrid = ({ pkmObjList }) => {
     const [showContainer, setShowContainer] = useState(false);
 
     const toggleShowContainer = () => {
@@ -15,9 +15,13 @@ const PokemonGrid = () => {
     return (
         <div className="pokemonGrid">
             <PkbBtn clicked={showContainer} toggleShowContainer={toggleShowContainer}/>
-            {showContainer? <PkmContainer /> : <h1 id="pressPrompt">PRESS ME!</h1>}
+            {showContainer? <PkmContainer pkmObjList={pkmObjList}/> : <h1 id="pressPrompt">PRESS ME!</h1>}
         </div>
     )
+}
+
+const filterBySearch = () => {
+
 }
 
 
