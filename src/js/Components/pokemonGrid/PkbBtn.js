@@ -1,10 +1,10 @@
-const PkbBtn = ({ clicked, toggleShowContainer }) => {
+const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
 
     return (
         <div className="pkb-container">
             <div className="pkbImg-container">
                 <div className="pkbBtn-container">
-                    <button className="btnShowContainer" onClick={toggleShowContainer} style={clicked? {backgroundColor : 'red'} : null}/>
+                    <button className={`pkb-btn ${loadingPkm && 'pkbBtn-animation'}`} onClick={togglePkbBtn}/>
                 </div>
             </div>
             
@@ -13,3 +13,5 @@ const PkbBtn = ({ clicked, toggleShowContainer }) => {
 }
 
 export default PkbBtn
+
+//<button className="btnShowContainer" onClick={togglePkbBtn} style={pkbBtnOn? {backgroundColor : 'grey'} : null}/>

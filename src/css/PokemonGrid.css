@@ -60,6 +60,9 @@
 }
 
 .loadingPkm-container {
+    cursor:default;
+
+    /*--animation--*/
     font-size: 50px;
     font-family: serif;
     color: black;
@@ -82,7 +85,7 @@
     }
 }
 
-/*-----------------------------------------------------------------------------------*/
+/*---------------------------------Pokeball----------------------------------*/
 .pkb-container {
     padding: 25px 0px 25px 0px;
 
@@ -100,30 +103,57 @@
 
 .pkbBtn-container {
     /*--vCenter--*/
-    padding: 37px 0;
+    padding: 45.5px 0;
 }
 
-.btnShowContainer {
-    width: 50px;
-    height: 50px;
+.pkb-btn {
+    width: 38px;
+    height: 38px;
+
     cursor: pointer;
+
     border-radius: 50%;
-    border-width: 5px;
+    border-width: 0px;
     border-color: grey;
 }
 
-.btnShowContainer:active {
-    background-color: rgb(204, 204, 204);
-}
-
-.btnShowContainer:hover {
+.pkb-btn:active {
     transform: scale(0.95,0.95);
+    background-color: rgb(209, 209, 209);
 }
 
-#pressPrompt {
-    color: white;
+.pkb-btn:hover {
+    /*--For some reason, scaling doesn't look as good--*/
+    width: 34px;
+    height: 34px;
+    
+    border-width: 3px;
+    border-color: black;
 }
-/*-----------------------------------------------------------------------------------*/
+
+.pkbBtn-animation {
+    background-color: red;
+    text-align: center;
+    animation: animate 
+        1s linear infinite;
+}
+
+@keyframes pkbBtn-animate {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/*--------------------------------FilterBar------------------------------------*/
+
 .filter-container {
     display: block;
     color: white;

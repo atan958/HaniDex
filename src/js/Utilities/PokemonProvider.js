@@ -22,6 +22,8 @@ function PokemonProvider() {
         'mewtwo',
         'raikoiu',
     ];
+    
+    //Note: Should toLowerCase() either from here or where you're using the name
 
     return (pkmList.map((pkmName) => {
         return { name: pkmName };
