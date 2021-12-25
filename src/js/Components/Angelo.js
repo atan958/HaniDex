@@ -8,7 +8,7 @@ const Angelo = () => {
             <div class="container">
                 <img src={angelo}></img>
                 <div class="overlay">
-                    <div class="text">The button Donkey</div>
+                    <div class="text">Howdy!</div>
                 </div>
             </div>
         </div>

@@ -59,3 +59,28 @@
 #pressPrompt {
     color: white;
 }
+
+.liInput {
+    display: block;
+    color: white;
+    background-color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+    height: 49px;
+    width: 700px;
+  }
+
+  .searchInput {
+    margin: 12px 0px 0px 50%;
+    width: 40%;
+    height: 22px;
+    background-color: white;
+    color: black;
+    padding: 0px 0px 0px 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    outline: none;
+  }

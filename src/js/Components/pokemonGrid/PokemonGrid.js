@@ -3,8 +3,9 @@ import '../../../css/PokemonGrid.css'
 import PkmContainer from './PkmContainer';
 import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
+import FilterBar from './FilterBar'
 
-const PokemonGrid = ({ pkmObjList }) => {
+const PokemonGrid = ({ pkmObjList, search, setSearch }) => {
     const [showContainer, setShowContainer] = useState(false);
 
     const toggleShowContainer = () => {
@@ -17,11 +18,14 @@ const PokemonGrid = ({ pkmObjList }) => {
         <div className="pokemonGrid">
             <PkbBtn clicked={showContainer} toggleShowContainer={toggleShowContainer}/>
             {showContainer? 
-                <PkmContainer pkmObjList={pkmObjList}/> 
+                <>
+                    <FilterBar search={search} setSearch={setSearch}/>
+                    <PkmContainer pkmObjList={pkmObjList}/> 
+                </>
                 : 
                 <>
-                <h1 id="pressPrompt">PRESS ME!</h1>
-                <Angelo />
+                    <h1 id="pressPrompt">PRESS ME!</h1>
+                    <Angelo />
                 </>}
         </div>
     )
