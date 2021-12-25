@@ -36,7 +36,7 @@ const PokemonGrid = ({ pkmObjList }) => {
 
 const filterBySearch = (pkmObjList, search) => {
     let filteredPkmList = pkmObjList.filter((pkmObj) => {
-        return pkmObj.name.includes(search);
+        return pkmObj.name.includes(search.toLowerCase());
     });
     return filteredPkmList;
 }
