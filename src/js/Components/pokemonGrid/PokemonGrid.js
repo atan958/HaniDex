@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../../../css/PokemonGrid.css'
 import PkmContainer from './PkmContainer';
 import PkbBtn from './PkbBtn';
+import Angelo from '../Angelo.js'
 
 const PokemonGrid = ({ pkmObjList }) => {
     const [showContainer, setShowContainer] = useState(false);
@@ -15,7 +16,13 @@ const PokemonGrid = ({ pkmObjList }) => {
     return (
         <div className="pokemonGrid">
             <PkbBtn clicked={showContainer} toggleShowContainer={toggleShowContainer}/>
-            {showContainer? <PkmContainer pkmObjList={pkmObjList}/> : <h1 id="pressPrompt">PRESS ME!</h1>}
+            {showContainer? 
+                <PkmContainer pkmObjList={pkmObjList}/> 
+                : 
+                <>
+                <h1 id="pressPrompt">PRESS ME!</h1>
+                <Angelo />
+                </>}
         </div>
     )
 }
