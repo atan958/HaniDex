@@ -60,27 +60,46 @@
     color: white;
 }
 
-.liInput {
+.filter-container {
     display: block;
     color: white;
     background-color: #333;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 0px 0px 0px 0px;
     text-decoration: none;
+    
     padding: 0px;
-    margin: 0px;
-    height: 49px;
-    width: 700px;
+    margin: 50px 0px 0px 0px;
+    border-radius: 20px;
+
+    width: 100%;
+    min-height: 120px;
+
+    position: relative;
+    text-align: left;
   }
 
-  .searchInput {
-    margin: 12px 0px 0px 50%;
-    width: 40%;
-    height: 22px;
+  .search-container {
+        float: left;
+        width: 40%;
+        padding: 30px;
+  }
+
+  .search-input {
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: Bold;
+
+    width: 70%;
+    height: 34px;
+
     background-color: white;
     color: black;
-    padding: 0px 0px 0px 5px;
-    font-size: 12px;
+
+    padding: 5px;
     border-radius: 5px;
+    margin: 0px 0px 0px 0px;
+
     outline: none;
+    float: none;
   }
+

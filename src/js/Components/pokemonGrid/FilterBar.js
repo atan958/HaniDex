@@ -2,7 +2,7 @@ import SearchBar from './SearchBar'
 
 const FilterBar = ({search, setSearch}) => {
     return (
-        <div>
+        <div className="filter-container">
             <SearchBar search={search} setSearch={setSearch}/>
         </div>
     )
