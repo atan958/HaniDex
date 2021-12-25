@@ -20,7 +20,7 @@ function PokemonProvider() {
         'suicune',
         'mew', 
         'mewtwo',
-        'raikoiu'
+        'raikoiu',
     ];
 
     return (pkmList.map((pkmName) => {

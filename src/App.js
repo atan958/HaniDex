@@ -7,7 +7,24 @@ import PokemonProvider from './js/Utilities/PokemonProvider';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [pokemon, setPokemon] = useState(PokemonProvider());
+  const [pokemon, setPokemon] = useState([]);
+
+  console.log('Rendered at ' + new Date());
+  useEffect(() => {
+    console.log('Effected at ' + new Date());
+    setTimeout(() => {
+      setPokemon((prevPkm) => {
+        let pokemon = PokemonProvider();
+        return prevPkm.concat(pokemon)
+      })
+    }, 3000);
+  },[]);
+  
+  /*
+  const getPokemon = async () => {
+    return PokeApiController.getPokemon();
+  }
+  */
 
   return (
     <>
