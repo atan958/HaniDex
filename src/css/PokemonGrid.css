@@ -9,7 +9,6 @@
 }
 
 .grid-container {
- 
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     padding: 20px;
@@ -18,7 +17,9 @@
 .pkmItem-container-container {
     margin-top: 25px;
     border-radius: 50px;
-    background-color: rgb(219, 219, 219);
+    border-width: 10px;
+    border-color: black;
+    background-color: rgb(184, 184, 184);
     overflow: visible;
     
     min-width: 990px;
@@ -26,8 +27,6 @@
 }
 
 .grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
     font-size: 30px;
     text-align: center;
 
@@ -46,6 +45,17 @@
     color: white;
 }
 
+.pkmItem-notSelected {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+.pkmItem-selected {
+    color: gold;
+    border-width: 5px;
+    padding: 16px;
+}
+
 .loadingPkm-container-container {
     font-size: 50px;
 
@@ -57,7 +67,6 @@
 }
 
 .loadingPkm-container:hover {
-    color: red;
 }
 
 .loadingPkm-container {
@@ -66,7 +75,6 @@
     /*--animation--*/
     font-size: 50px;
     font-family: 'Courier New', Courier, monospace;
-    color: black;
     text-align: center;
     animation: animate 
         1.5s linear infinite;
@@ -78,6 +86,7 @@
     }
 
     50% {
+        color: white;
         opacity: 0.7;
     }
 
@@ -164,7 +173,7 @@
 .filter-container {
     display: block;
     color: white;
-    background-color: #333;
+    background-color: rgb(0, 0, 0);
     padding: 0px 0px 0px 0px;
     text-decoration: none;
     

@@ -29,7 +29,7 @@ const PkmItem = ({ pkmData, addPkm }) => {
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
 
     return (
-        <div className={`grid-item pkmItem-container fadeIn-animation`}  style={selected? { backgroundColor: '#b44b4b'} : null} onClick={toggleSelected} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
+        <div className={`grid-item pkmItem-container fadeIn-animation ${selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  style={selected? { backgroundColor: '#b44b4b' } : null} onClick={toggleSelected} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
             <div className={` ${hovered && 'shake-animation'}`}>{pkmData.img}</div>
             <h4>{pkmName}</h4>
         </div>
