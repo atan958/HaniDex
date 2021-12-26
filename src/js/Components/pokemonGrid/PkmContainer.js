@@ -1,10 +1,18 @@
 import PkmItem from './PkmItem'
 
-const PkmContainer = ({ pkmObjList, loadingPkm, addPkm }) => {
-    const pkmItemList = pkmObjList.map((pkmObj, i) => {
+const PkmContainer = ({ pkmDataList, loadingPkm, addPkm }) => {
+    
+    /*
+    const pkmItemList = pkmDataList.map((pkmObj, i) => {
         return renderPokemonItem(pkmObj, addPkm);
-        return;
     });
+    */
+
+    
+    const pkmItemList = pkmDataList.map((pkmData) => {
+        return <PkmItem key={pkmData.name} pkmData={pkmData} addPkm={addPkm}/>
+    });
+    
 
     return (
         <>

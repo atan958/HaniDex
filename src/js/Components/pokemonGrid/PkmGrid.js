@@ -27,17 +27,21 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     });
 
     const addPkm = (pkmData) => {
-        console.log('Adding Pokemon ' + pkmData.name);
         if (selectedPkm.length < 6) {
+            console.log('Adding Pokemon ' + pkmData.name);
             setSelectedPkm((prevSelectedPkm) => {
                 let newSelectedPkm = [...prevSelectedPkm, pkmData];
                 console.log('Selected Pkm: ' + newSelectedPkm[0].name);
                 console.log('Num Pkm: ' + newSelectedPkm.length);
                 return newSelectedPkm;
             });
+        } else {
+            console.log("REACHED LIMIT");
         }
+        
     }
 
+    // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
     let filteredPkmList = filterBySearch(pkmObjList, search);
 
     return (
@@ -47,7 +51,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
             {showContainer? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmObjList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm}/> 
+                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm}/> 
                 </>
                 : 
                 <>

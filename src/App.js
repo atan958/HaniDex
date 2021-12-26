@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import NavBar from './js/Components/navBar/NavBar'
 import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
-import PokemonProvider from './js/Utilities/PokemonProvider';
+import { providePokemonData } from './js/Utilities/PokemonProvider';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     setTimeout(() => {
       setPokemon((prevPkm) => {
         console.log('Pokemon are set at ' + numRnd.current);
-        let pokemon = PokemonProvider();
+        let pokemon = providePokemonData();
         return prevPkm.concat(pokemon)
       })
     }, 5000);
