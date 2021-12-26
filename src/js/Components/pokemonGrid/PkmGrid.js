@@ -18,7 +18,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     let filteredPkmList = filterBySearch(pkmObjList, search);
 
     return (
-        <div className="pokemonGrid">
+        <div className="pkmGrid-container">
             <PkbBtn loadingPkm={loadingPkm} togglePkbBtn={toggleShowContainer}/>
             {showContainer? 
                 <>
