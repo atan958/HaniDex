@@ -1,10 +1,10 @@
 const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
 
     return (
-        <div className="pkb-container">
+        <div className={`pkb-container ${loadingPkm && 'pkbDrop-effect'}`}>
             <div className={`pkbImg-container ${loadingPkm && 'pkbShake-animation'}`}>
                 <div className="pkbBtn-container">
-                    <button className={`pkb-btn ${loadingPkm && 'pkbBtnGlow-animation'}`} onClick={togglePkbBtn}/>
+                    <button className={`pkb-btn ${loadingPkm? 'pkbBtnGlow-animation' : 'pkmCaught-effect'}`} onClick={togglePkbBtn}/>
                 </div>
             </div>
             

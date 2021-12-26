@@ -133,22 +133,31 @@
 }
 
 .pkbBtnGlow-animation {
-    background-color: red;
+    width: 34px;
+    height: 34px;
+
+    border-width: 3px;
+    border-color: black;
+
     text-align: center;
     animation: pkbBtnGlow-animate 
         1s linear infinite;
+    animation-delay: 0.4s;
 }
 
 @keyframes pkbBtnGlow-animate {
     0% {
+        background-color: red;
         opacity: 0;
     }
 
     50% {
+        background-color: red;
         opacity: 0.7;
     }
 
     100% {
+        background-color: red;
         opacity: 0;
     }
 }
@@ -156,6 +165,7 @@
 .pkbShake-animation {
     animation: pkb-shake 2.5s;
     animation-iteration-count: infinite;
+    animation-delay: 0.4s;
 }
 
 @keyframes pkb-shake {
@@ -171,6 +181,30 @@
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+.pkbDrop-effect {
+    position: relative;
+    top:0px;
+
+    animation: pkb-drop 0.5s ease forwards;
+  }
+  
+  @keyframes pkb-drop{
+    0%{opacity: 0}
+    0%{transform: translate(-90px,-150px)}
+    40%{transform: translate(-10px,50px)}
+    100%{transform: translateY(0px)}
+  }
+  
+  .pkmCaught-effect {
+    animation: pkm-caught 0.5s;
+  }
+  
+  @keyframes pkm-caught{
+    0%{width: 34px; height: 34px; border-width: 3px; border-color: black}
+    100%{opacity: 1; background-color: rgb(214, 214, 214);}
+    
+  }
 
 #pressPrompt {
     color: white;

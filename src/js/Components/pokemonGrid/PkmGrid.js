@@ -29,7 +29,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
                 </>
                 : 
                 <>
-                    <h1 id="pressPrompt">WELCOME TO MY DOMAIN</h1>
+                    <h1 id="pressPrompt" className="fadein-effect">WELCOME TO MY DOMAIN</h1>
                     <Angelo />
                 </>}
         </div>
