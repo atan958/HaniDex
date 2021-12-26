@@ -1,10 +1,12 @@
+import '../../../animations/landing/pkb-anm.css'
+
 const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
 
     return (
-        <div className={`pkb-container ${loadingPkm && 'pkbDrop-effect'}`}>
+        <div className={`pkb-container ${loadingPkm && 'pkbDrop-animation'}`}>
             <div className={`pkbImg-container ${loadingPkm && 'pkbShake-animation'}`}>
                 <div className="pkbBtn-container">
-                    <button className={`pkb-btn ${loadingPkm? 'pkbBtnGlow-animation' : 'pkmCaught-effect'}`} onClick={togglePkbBtn}/>
+                    <button className={`pkb-btn ${loadingPkm? 'pkbBtnGlow-animation' : 'pkbBtnCaught-animation'}`} onClick={togglePkbBtn}/>
                 </div>
             </div>
             
