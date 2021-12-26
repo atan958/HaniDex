@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../../../css/PokemonGrid.css'
 import PkmContainer from './PkmContainer';
+import PkmTeam from './PkmTeam'
 import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
 import FilterBar from './FilterBar'
@@ -8,6 +9,7 @@ import FilterBar from './FilterBar'
 const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(false);
+    const [selectedPkm, setSelectedPkm] = useState([]);
 
     const toggleShowContainer = () => {
         setShowContainer((prevSc) => {

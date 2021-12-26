@@ -1,3 +1,4 @@
+
 .pkmGrid-container {
     background-color: #810101;
     padding: 25px 50px 50px 50px;
@@ -64,7 +65,7 @@
 
     /*--animation--*/
     font-size: 50px;
-    font-family: serif;
+    font-family: 'Courier New', Courier, monospace;
     color: black;
     text-align: center;
     animation: animate 
@@ -131,14 +132,14 @@
     border-color: black;
 }
 
-.pkbBtn-animation {
+.pkbBtnGlow-animation {
     background-color: red;
     text-align: center;
-    animation: animate 
+    animation: pkbBtnGlow-animate 
         1s linear infinite;
 }
 
-@keyframes pkbBtn-animate {
+@keyframes pkbBtnGlow-animate {
     0% {
         opacity: 0;
     }
@@ -150,6 +151,25 @@
     100% {
         opacity: 0;
     }
+}
+
+.pkbShake-animation {
+    animation: pkb-shake 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pkb-shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 #pressPrompt {
@@ -201,3 +221,4 @@
     float: none;
   }
 
+  /*--------------------------------PkmTeam------------------------------------*/
