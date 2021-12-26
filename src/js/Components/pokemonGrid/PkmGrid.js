@@ -1,5 +1,8 @@
 import { useState } from 'react'
+
 import '../../../css/PokemonGrid.css'
+import '../../../animations/global-anm.css'
+
 import PkmContainer from './PkmContainer';
 import PkmTeam from './PkmTeam'
 import PkbBtn from './PkbBtn';
@@ -29,7 +32,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
                 </>
                 : 
                 <>
-                    <h1 id="pressPrompt" className="fadein-effect">WELCOME TO MY DOMAIN</h1>
+                    <h1 id="pressPrompt" className="fadeIn-animation">WELCOME TO MY DOMAIN</h1>
                     <Angelo />
                 </>}
         </div>

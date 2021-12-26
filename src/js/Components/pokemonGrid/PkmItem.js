@@ -11,7 +11,7 @@ const PkmItem = ({ pkmData }) => {
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
 
     return (
-        <div className="grid-item pkmItem fadein-effect"  style={selected? { backgroundColor: '#b44b4b'} : null} onClick={toggleSelected}>
+        <div className="grid-item pkmItem-container fadeIn-animation"  style={selected? { backgroundColor: '#b44b4b'} : null} onClick={toggleSelected}>
             {pkmData.img}
             <h4>{pkmName}</h4>
         </div>

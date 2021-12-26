@@ -8,7 +8,7 @@ const PkmContainer = ({ pkmObjList, loadingPkm }) => {
     return (
         <>
         {loadingPkm? 
-            <div className="pkmItem-container">
+            <div className="pkmItem-container-container">
                 <div className="loadingPkm-container-container">
                     <div className="loadingPkm-container">
                         Loading...
@@ -16,7 +16,7 @@ const PkmContainer = ({ pkmObjList, loadingPkm }) => {
                 </div>
             </div>
         :
-            <div className="grid-container pkmItem-container">
+            <div className="grid-container pkmItem-container-container">
                 {pkmItemList}
             </div>
         }

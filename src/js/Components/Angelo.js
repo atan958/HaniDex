@@ -4,7 +4,7 @@ const angelo = require('../../angelo-assets/beautifulman.png');
 
 const Angelo = () => {
     return (
-        <div className='centered fadein-effect'>
+        <div className='centered fadeIn-animation'>
             <div class="container">
                 <img src={angelo}></img>
                 <div class="overlay">

@@ -9,12 +9,13 @@
 }
 
 .grid-container {
+ 
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     padding: 20px;
 }
 
-.pkmItem-container {
+.pkmItem-container-container {
     margin-top: 25px;
     border-radius: 50px;
     background-color: rgb(219, 219, 219);
@@ -35,13 +36,12 @@
     cursor: pointer;
 }
 
-.pkmItem {
+.pkmItem-container {
     position: relative;         /* I don't think needed */
     background-color: grey;
-    max-width: 430px;
 }
 
-.pkmItem:hover {
+.pkmItem-container:hover {
     transform: scale(0.98, 0.99);
     color: white;
 }
