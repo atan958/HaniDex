@@ -20,7 +20,7 @@ const PkmItem = ({ pkmData, addPkm }) => {
     }
 
     useEffect(() => {
-        firstUpdate.current? 
+        firstUpdate.current?                // prevents adding at first render
             firstUpdate.current = false 
             :  
             addPkm({...pkmData});

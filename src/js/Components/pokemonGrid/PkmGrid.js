@@ -42,7 +42,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
 
     return (
         <div className="pkmGrid-container">
-            {showContainer && <PkmTeam />}
+            {showContainer && <PkmTeam pkmTeam={selectedPkm}/>}
             <PkbBtn loadingPkm={loadingPkm} togglePkbBtn={toggleShowContainer}/>
             {showContainer? 
                 <>

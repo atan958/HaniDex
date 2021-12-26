@@ -13,17 +13,14 @@
 @keyframes pkbBtn-glow {
     0% {
         background-color: red;
-        opacity: 0;
     }
 
     50% {
-        background-color: red;
-        opacity: 0.7;
+        background-color: white;
     }
 
     100% {
         background-color: red;
-        opacity: 0;
     }
 }
 
