@@ -1,8 +1,8 @@
 import PkmItem from './PkmItem'
 
-const PkmContainer = ({ pkmObjList, loadingPkm }) => {
+const PkmContainer = ({ pkmObjList, loadingPkm, addPkm }) => {
     const pkmItemList = pkmObjList.map((pkmObj, i) => {
-        return renderPokemonItem(pkmObj);
+        return renderPokemonItem(pkmObj, addPkm);
     });
 
     return (
@@ -24,7 +24,7 @@ const PkmContainer = ({ pkmObjList, loadingPkm }) => {
     )
 }
 
-const renderPokemonItem = (pkmObj) => {
+const renderPokemonItem = (pkmObj, addPkm) => {
     let pkmPng, pkmImg, pkmData;
     try {
         pkmPng = require(`../../../pokemon-assets/assets/img/pokemon/${pkmObj.name}.png`);
@@ -35,9 +35,9 @@ const renderPokemonItem = (pkmObj) => {
         pkmPng = require(`../../../pokemon-assets/assets/img/pokemon/missingno.png`);
         pkmImg = <img src={pkmPng} width="75" height="160" style={{ marginTop: '20px'}}></img>;
         pkmData = { ...pkmObj, ...{name: 'undef', img: pkmImg} };
-        console.log('error mayt');
+        console.log('error mayt ' + pkmObj.name);
     }
-    return <PkmItem key={pkmObj.name} pkmData={pkmData}/>;
+    return <PkmItem key={pkmObj.name} pkmData={pkmData} addPkm={addPkm}/>;
 }
 
 export default PkmContainer

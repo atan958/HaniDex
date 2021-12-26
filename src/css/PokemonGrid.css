@@ -200,7 +200,7 @@
     height: 100px;
 
     margin: 0px;
-    z-index: 10;
+    z-index: 5;
 
     padding: 20px 20px 0px 20px;
     /*background-color:black;*/
@@ -218,6 +218,7 @@
   }
 
   .teamTitle {
-    font-size: bold;
+    font-weight: bold;
+    font-size: 20px;
     color: gold;
   }
