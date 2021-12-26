@@ -139,6 +139,22 @@
     margin: 2px 0px 0px 2px;
 }
 
+/*-- pkbLoading removes the hover effect which messes up button -- */
+.pkbLoading-btn {
+    width: 38px;
+    height: 38px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    border-width: 0px;
+}
+
+.pkbLoading-btn:active {
+    transform: scale(0.95,0.95);
+    background-color: rgb(209, 209, 209);
+}
+
 #pressPrompt {
     color: white;
 }
