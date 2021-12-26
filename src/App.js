@@ -15,11 +15,13 @@ function App() {
     setTimeout(() => {
       
       setPokemon((prevPkm) => {
+        console.log('setPkm');
         let pokemon = PokemonProvider();
         return prevPkm.concat(pokemon)
       })
 
       setLoadingPkm((prevLdPkm) => {
+        console.log('setLdPkm');
         return !prevLdPkm;
       });
 

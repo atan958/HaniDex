@@ -14,7 +14,7 @@
     padding: 20px;
 }
 
-.gcBG {
+.pkmItem-container {
     margin-top: 25px;
     border-radius: 50px;
     background-color: rgb(219, 219, 219);
@@ -35,13 +35,13 @@
     cursor: pointer;
 }
 
-.giExtras {
+.pkmItem {
     position: relative;         /* I don't think needed */
     background-color: grey;
     max-width: 430px;
 }
 
-.giExtras:hover {
+.pkmItem:hover {
     transform: scale(0.98, 0.99);
     color: white;
 }
