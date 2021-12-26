@@ -1,11 +1,11 @@
 .pkbBtnGlow-animation {
-    width: 34px;
-    height: 34px;
+  width: 34px;
+  height: 34px;
 
-    border-width: 3px;
-    border-color: black;
-
-    text-align: center;
+  border-width: 3px;
+  border-color: black;
+  margin: 2px 0px 0px 1.5px;
+  
     animation: pkbBtn-glow 1s linear infinite;
     animation-delay: 0.4s;
 }
@@ -81,7 +81,7 @@
   }
   
   @keyframes pkbBtn-caught{
-    0%{width: 34px; height: 34px; border-width: 3px; border-color: black}
+    0%{width: 34px; height: 34px; border-width: 3px; border-color: black;  margin: 1.5px 0px 0px 1.5px;}
     100%{opacity: 1; background-color: rgb(214, 214, 214);}
     
   }

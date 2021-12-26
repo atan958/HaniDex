@@ -2,7 +2,7 @@
 .pkmGrid-container {
     background-color: #810101;
     padding: 25px 50px 50px 50px;
-    text-align: center;
+
     margin: 0px 0px 0px 0px;
     min-height: calc(100vh - 100px - 150px);
     min-width: 1090px;
@@ -88,11 +88,12 @@
 
 /*---------------------------------Pokeball----------------------------------*/
 .pkb-container {
-    padding: 25px 0px 25px 0px;
+    /*--vCenter--*/
+    padding: 70px 0;
 
     /*--hCenter--*/
     margin: auto;
-    width: 7%;
+    width: 128px;
     padding: 10px;
 }
 
@@ -100,11 +101,17 @@
     background-image: url("../angelo-assets/pokeball-logo.png");
     width: 128px;
     height: 128px;
+
+    position: relative;
 }
 
 .pkbBtn-container {
+    margin: auto;
+    width: 30%;
+    height: 36px;
+
     /*--vCenter--*/
-    padding: 45.5px 0;
+    padding: 45px 0 0px 2px;
 }
 
 .pkb-btn {
@@ -115,7 +122,6 @@
 
     border-radius: 50%;
     border-width: 0px;
-    border-color: grey;
 }
 
 .pkb-btn:active {
@@ -130,6 +136,7 @@
 
     border-width: 3px;
     border-color: black;
+    margin: 2px 0px 0px 2px;
 }
 
 #pressPrompt {
@@ -182,3 +189,11 @@
   }
 
   /*--------------------------------PkmTeam------------------------------------*/
+
+  .pkmTeam {
+      float:right;
+      background-color: white;
+      position: absolute;
+      float: right;
+
+  }
