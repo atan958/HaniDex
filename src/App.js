@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import NavBar from './js/Components/navBar/NavBar'
 import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
@@ -8,25 +8,34 @@ import PokemonProvider from './js/Utilities/PokemonProvider';
 function App() {
   const [pokemon, setPokemon] = useState([]);
   const [loadingPkm, setLoadingPkm] = useState(true);
+  const numRnd = useRef(0);
 
-  console.log('Rendered at ' + new Date());
+  numRnd.current += 1;
+  console.log('render #' + numRnd.current);
+
   useEffect(() => {
-    console.log('Effected at ' + new Date());
+    console.log('Setting pokemon at ' + numRnd.current);
+    
+    // This timeout will be called at a render and will use the same state/values from that render
     setTimeout(() => {
-      
       setPokemon((prevPkm) => {
-        console.log('setPkm');
+        console.log('Pokemon are set at ' + numRnd.current);
         let pokemon = PokemonProvider();
         return prevPkm.concat(pokemon)
       })
-
-      setLoadingPkm((prevLdPkm) => {
-        console.log('setLdPkm');
-        return !prevLdPkm;
-      });
-
     }, 5000);
   },[]);
+
+  // Sets the loading state whenever pokemon changes
+  // Executes this after second DOM render updated
+  useEffect(() => {
+    console.log('render #' + numRnd.current + " from setLdPkm");
+    console.log('Pokemon changed at ' + numRnd.current);
+    pokemon.length > 0 ?
+    setLoadingPkm(false)
+    :
+    setLoadingPkm(true);
+  }, [pokemon]);
   
   /*
   const getPokemon = async () => {

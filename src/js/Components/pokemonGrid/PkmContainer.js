@@ -3,6 +3,7 @@ import PkmItem from './PkmItem'
 const PkmContainer = ({ pkmObjList, loadingPkm, addPkm }) => {
     const pkmItemList = pkmObjList.map((pkmObj, i) => {
         return renderPokemonItem(pkmObj, addPkm);
+        return;
     });
 
     return (
@@ -39,5 +40,7 @@ const renderPokemonItem = (pkmObj, addPkm) => {
     }
     return <PkmItem key={pkmObj.name} pkmData={pkmData} addPkm={addPkm}/>;
 }
+
+
 
 export default PkmContainer
