@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 
-const PkmItem = ({ pkmData, addPkm, rmvPkm }) => {
+import '../../../animations/pkm-grid/pkmItem-anm.css'
+
+
+const PkmItem = ({ pkmData, addPkm, rmvPkm, numPkmSelected }) => {
     const [selected, setSelected] = useState(pkmData.selected);
     const [hovered, setHovered] = useState(false);
     const firstUpdate = useRef(true);
@@ -10,9 +13,11 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm }) => {
 
     const toggleSelected = () => {
         // Need to check whether Team.length < 6 otherwise state is toggled despite not adding/removing pokemon
-        setSelected((prevSelected) => {
-            return !prevSelected;
-        });
+        if (numPkmSelected < 6 || pkmData.selected) {
+            setSelected((prevSelected) => {
+                return !prevSelected;
+            });
+        }
     }
 
     useEffect(() => {
@@ -26,7 +31,6 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm }) => {
                 rmvPkm(pkmData)
             );
     },[selected]);
-
 
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
 
