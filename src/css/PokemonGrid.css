@@ -41,7 +41,7 @@
 }
 
 .pkmItem-container:hover {
-    transform: scale(0.98, 0.99);
+    transform: scale(0.98, 0.98);
     color: white;
 }
 
@@ -221,35 +221,82 @@
 
   /*--------------------------------PkmTeam------------------------------------*/
 
-  .pkmTeam-container-container {
+  .pkmTeam-container {
+    pointer-events:visiblePainted;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     
     float: right;
-    width: 100px;
+    width: auto;
     height: 100px;
 
-    margin: 0px;
+    margin: 20px 30px;
+    padding: 0px;
     z-index: 5;
 
-    padding: 20px 20px 0px 20px;
+    display: grd;
+    grid-template-columns: auto 64px;
+    
     /*background-color:black;*/
   }
 
-  .pkmTeam-container {
-    margin: auto;
-    padding: 5px;
-    /*background-color:yellow;*/
-  }
-
-  .pkmTeam {
-    cursor: pointer;
+  .pkmTeamIcon-container {
     margin: 0px;
+    padding: 0px;
+
+    /*background-color:yellow;*/
+    float: right;
+    position: relative;
+
+    width: 64px;
+    height: 100px;
+  }
+  
+  .pkmTeamIcon-container-extension {
+      margin: 0px 0px 0px 20px;
   }
 
-  .teamTitle {
+  .pkmTeamIcon {
+    cursor: pointer;
+    margin: 8px 0px;
+  }
+
+  .pkmTeamTitle {
+    cursor: pointer;
     font-weight: bold;
     font-size: 20px;
     color: gold;
+    height: 20px;
+  }
+
+  .pkmTeamGrid-container {
+    position: relative;
+    float: left;
+
+    display: grid;
+    grid-template-columns: calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
+
+    background-color: #0a008f;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 5px 0px;
+
+    width: 450px;
+    height: 85px;
+  }
+
+  .pkmTeamMember-container {
+      cursor: pointer;
+      background-color: rgb(208, 255, 0);
+      margin: 5px;
+      padding: 0px;
+      position: relative;
+      width: 66px;
+      height: 74px;
+  }
+
+  .pkmTeamMember-container:hover {
+      background-color: rgb(211, 5, 5);
   }

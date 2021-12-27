@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 import '../../../animations/pkm-grid/pkmItem-anm.css'
 
-
 const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm }) => {
     const [hovered, setHovered] = useState(false);
 
