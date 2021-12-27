@@ -27,7 +27,7 @@ function App() {
   },[]);
 
   // Sets the loading state whenever pokemon changes
-  // Executes this after second DOM render updated
+  // Executes this after second DOM render mounted (i.e. once pokemon are loaded)
   useEffect(() => {
     console.log('render #' + numRnd.current + " from setLdPkm");
     console.log('Pokemon changed at ' + numRnd.current);

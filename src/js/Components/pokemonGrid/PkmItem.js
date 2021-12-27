@@ -5,15 +5,11 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm }) => {
     const [hovered, setHovered] = useState(false);
     const firstUpdate = useRef(true);
 
-    const hoverOn = () => {
-        setHovered(true)
-    }
-
-    const hoverOff = () => {
-        setHovered(false)
-    }
+    const hoverOn = () => {setHovered(true)}
+    const hoverOff = () => {setHovered(false)}
 
     const toggleSelected = () => {
+        // Need to check whether Team.length < 6 otherwise state is toggled despite not adding/removing pokemon
         setSelected((prevSelected) => {
             return !prevSelected;
         });
