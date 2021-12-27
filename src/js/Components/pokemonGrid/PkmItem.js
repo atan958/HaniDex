@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 const PkmItem = ({ pkmData, addPkm, rmvPkm }) => {
-    const [selected, setSelected] = useState(false);
+    const [selected, setSelected] = useState(pkmData.selected);
     const [hovered, setHovered] = useState(false);
     const firstUpdate = useRef(true);
 
