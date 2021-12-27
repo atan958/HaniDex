@@ -27,21 +27,25 @@ const PkmTeamGrid = ({ hoverOn, pkmTeam }) => {
 
 const PkmTeamMember = ({ pkmMember }) => {
     const [hovered, setHovered] = useState(false);
-    let pkmName, pkmImg;
+    let pkmName, pkmImg, rmvBtn;
 
     try {
         pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
-        pkmImg = <img src={pkmMember.png} width="62" height="70"></img>
+        pkmImg = <img src={pkmMember.png} width="62" height="70" ></img>
+        rmvBtn = <button className={`rmvMember-btn`} onClick={() => alert('Removed ' + pkmMember.name)}>X</button>;
     } 
     catch(e) {
         pkmName = '--';
         pkmImg = null;
+        rmvBtn = null;
     }
 
     return (
-        <div className="pkmTeamMember-container tooltip" onMouseOver={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>
-            {pkmImg}
+        <div className={`pkmTeamMember-container tooltip`} onMouseOver={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>
             {hovered && <span className="tooltiptext fasterFadeIn-animation">{pkmName}</span>}
+            <div className={`${hovered && 'shake-animation'}`}>{pkmImg}</div>
+            
+            {hovered && rmvBtn}
         </div>
         );
 }

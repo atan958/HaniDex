@@ -289,7 +289,7 @@
 
   .pkmTeamMember-container {
       cursor: pointer;
-      background-color: rgb(208, 255, 0);
+      background-color: rgb(190, 190, 190);
       margin: 5px;
       padding: 0px 0px 5px 0px;
       position: relative;
@@ -298,7 +298,7 @@
   }
 
   .pkmTeamMember-container:hover {
-      background-color: rgb(211, 5, 5);
+      background-color: gold;
   }
 
   .tooltip {
@@ -314,9 +314,34 @@
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
+
+    margin: 0px 25px 20px;
   
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
   }
   
+.rmvMember-btn {
+    cursor: pointer;
+    border-width: 0px;
+
+    font-size: 10px;
+
+    background-color:#0a008f;
+    color: rgb(208, 255, 0);
+    
+    margin: 5px 23.5px;
+    padding: 0px;
+
+    width: 15px;
+    height: 16px;
+
+    float: right;
+    position: relative;
+    }
+
+.rmvMember-btn:hover {
+    visibility: visible;
+    color: red;
+}
