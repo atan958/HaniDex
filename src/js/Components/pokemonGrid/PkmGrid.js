@@ -21,24 +21,35 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     }
 
     useEffect(() => {
+        console.log(selectedPkm);
         // Find a way to set selected for those inside the team
             // Maybe keep that state inside the pkmData?
             // Maybe brute-force checking each one while filtering?? Idk
     });
 
+    // Note: Second clause is to fix bug when a PkmItem is re-rendered e.g. when searching
     const addPkm = (pkmData) => {
-        if (selectedPkm.length < 6) {
+        if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm==pkmData).length == 0) {
             console.log('Adding Pokemon ' + pkmData.name);
+            pkmData.selected = true;
             setSelectedPkm((prevSelectedPkm) => {
                 let newSelectedPkm = [...prevSelectedPkm, pkmData];
-                console.log('Selected Pkm: ' + newSelectedPkm[0].name);
-                console.log('Num Pkm: ' + newSelectedPkm.length);
                 return newSelectedPkm;
             });
         } else {
             console.log("REACHED LIMIT");
         }
-        
+    }
+
+    const rmvPkm = (pkmData) => {
+        console.log('Removing Pokemon ' + pkmData.name);
+        pkmData.selected = false;
+        setSelectedPkm((prevSelectedPkm) => {
+            let newSelectedPkm = prevSelectedPkm.filter((prevPkm) => {
+                return prevPkm.name != pkmData.name;
+            });
+            return newSelectedPkm;
+        });
     }
 
     // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
@@ -51,7 +62,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
             {showContainer? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm}/> 
+                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm}/> 
                 </>
                 : 
                 <>

@@ -1,6 +1,6 @@
 import PkmItem from './PkmItem'
 
-const PkmContainer = ({ pkmDataList, loadingPkm, addPkm }) => {
+const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm }) => {
     
     /*
     const pkmItemList = pkmDataList.map((pkmObj, i) => {
@@ -10,7 +10,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm }) => {
 
     
     const pkmItemList = pkmDataList.map((pkmData) => {
-        return <PkmItem key={pkmData.name} pkmData={pkmData} addPkm={addPkm}/>
+        return <PkmItem key={pkmData.name + new Date().toDateString()} pkmData={pkmData} addPkm={addPkm} rmvPkm={rmvPkm}/>
     });
     
 
