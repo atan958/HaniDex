@@ -18,7 +18,7 @@ const PkmTeam = ({ pkmTeam }) => {
     return (
         <>
         <div className={`pkmTeam-container fadeIn-animation`} onClick={() => console.log()} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
-            {hovered && <PkmTeamGrid/>}
+            {hovered && <PkmTeamGrid pkmTeam={pkmTeam}/>}
             <div className={`pkmTeamIcon-container ${hovered && 'pkmTeamIcon-container-extension'}`}>
                 <img src={pkmTrainer}  className={`pkmTeamIcon ${hovered && 'rattle-animation'}`}/>
                 {hovered && <div className="pkmTeamTitle fasterFadeIn-animation">Team</div>}

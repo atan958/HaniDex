@@ -284,14 +284,14 @@
     margin: 5px 0px;
 
     width: 450px;
-    height: 85px;
+    height: 90px;
   }
 
   .pkmTeamMember-container {
       cursor: pointer;
       background-color: rgb(208, 255, 0);
       margin: 5px;
-      padding: 0px;
+      padding: 0px 0px 5px 0px;
       position: relative;
       width: 66px;
       height: 74px;
@@ -300,3 +300,23 @@
   .pkmTeamMember-container:hover {
       background-color: rgb(211, 5, 5);
   }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: visible;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  

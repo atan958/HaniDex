@@ -9,7 +9,7 @@ const providePkmImg = (pkmName) => {
         pkmImg = <img src={pkmPng} width="75" height="160" style={{ marginTop: '20px'}}></img>;
         console.log('error mayt ' + pkmName);
     }
-    return pkmImg;
+    return [pkmPng, pkmImg];
 }
 
 export { providePkmImg }

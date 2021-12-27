@@ -1,22 +1,47 @@
 import { useState } from 'react'
 
-const PkmTeamGrid = ({ hoverOn }) => {
+const PkmTeamGrid = ({ hoverOn, pkmTeam }) => {
+    const renderPkmMembers = () => {
+        //console.log(pkmTeam[0].name);
+        return pkmTeam.map((pkmMember) => {
+            return <PkmTeamMember key={pkmMember.name} pkmMember={pkmMember}/>
+        });
+    }
+    const renderPlaceHolders = () => {
+        let placeHolders = [];
+        for (let i=pkmTeam.length; i!=6; i++) {
+            console.log('here');
+            placeHolders = [...placeHolders, <PkmTeamMember key={Date.now() + i} pkmMember={{}}/>];
+        }
+        console.log(placeHolders)
+        return placeHolders;
+    }
+    
     return (
         <div className="pkmTeamGrid-container fasterFadeIn-animation" onMouseOver={hoverOn}>
-            <PkmTeamMember />
-            <PkmTeamMember />
-            <PkmTeamMember />
-            <PkmTeamMember />
-            <PkmTeamMember />
-            <PkmTeamMember />
+            {renderPkmMembers()}
+            {renderPlaceHolders()}
         </div>
     )
 }
 
-const PkmTeamMember = () => {
+const PkmTeamMember = ({ pkmMember }) => {
+    const [hovered, setHovered] = useState(false);
+    let pkmName, pkmImg;
+
+    try {
+        pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
+        pkmImg = <img src={pkmMember.png} width="62" height="70"></img>
+    } 
+    catch(e) {
+        pkmName = '--';
+        pkmImg = null;
+    }
+
     return (
-        <div className="pkmTeamMember-container ">
-            <img></img>
+        <div className="pkmTeamMember-container tooltip" onMouseOver={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>
+            {pkmImg}
+            {hovered && <span className="tooltiptext fasterFadeIn-animation">{pkmName}</span>}
         </div>
         );
 }
