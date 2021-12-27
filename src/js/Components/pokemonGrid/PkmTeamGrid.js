@@ -44,7 +44,6 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
         <div className={`pkmTeamMember-container tooltip`} onMouseOver={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}>
             {hovered && <span className="tooltiptext fasterFadeIn-animation">{pkmName}</span>}
             <div className={`${hovered && 'shake-animation'}`}>{pkmImg}</div>
-            
             {hovered && rmvBtn}
         </div>
         );

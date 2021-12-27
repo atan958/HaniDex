@@ -291,7 +291,7 @@
 
   .pkmTeamMember-container {
       cursor: pointer;
-      background-color: rgb(190, 190, 190);
+      background-color: rgb(182, 248, 0);
       margin: 5px;
       padding: 0px 0px 5px 0px;
       position: relative;
@@ -344,6 +344,5 @@
     }
 
 .rmvMember-btn:hover {
-    visibility: visible;
     color: red;
 }

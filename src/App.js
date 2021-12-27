@@ -9,6 +9,8 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [loadingPkm, setLoadingPkm] = useState(true);
   const numRnd = useRef(0);
+  const retrievedPokemon = useRef(providePokemonData());  // Replace with maybe once calling PokeApi
+                                                          // Call before the setTimeOut
 
   numRnd.current += 1;
   console.log('render #' + numRnd.current);
@@ -25,6 +27,10 @@ function App() {
       })
     }, 5000);
   },[]);
+
+  useEffect(() => {
+
+  });
 
   // Sets the loading state whenever pokemon changes
   // Executes this after second DOM render mounted (i.e. once pokemon are loaded)
