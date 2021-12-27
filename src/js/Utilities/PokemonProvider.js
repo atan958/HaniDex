@@ -34,13 +34,16 @@ const pkmList= [
 ];
 
 function providePokemonData() {
-
+    const defaultSelect = false;
     
     //Note: Should toLowerCase() either from here or where you're using the name
 
     return (pkmList.map((pkmName) => {
         let pkmImg = providePkmImg(pkmName);
-        return { name: pkmName, img: pkmImg, selected: false };
+        return { 
+            name: pkmName, 
+            img: pkmImg, 
+            selected: defaultSelect };
     }));
 }
 

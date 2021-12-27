@@ -9,7 +9,7 @@ import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
 import FilterBar from './FilterBar'
 
-const PkmGrid = ({ pkmObjList, loadingPkm }) => {
+const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(false);
     const [selectedPkm, setSelectedPkm] = useState([]);
@@ -53,7 +53,7 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     }
 
     // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
-    let filteredPkmList = filterBySearch(pkmObjList, search);
+    let filteredPkmList = filterBySearch(pkmDataList, search);
 
     return (
         <div className="pkmGrid-container">
@@ -73,9 +73,9 @@ const PkmGrid = ({ pkmObjList, loadingPkm }) => {
     )
 }
 
-const filterBySearch = (pkmObjList, search) => {
-    let filteredPkmList = pkmObjList.filter((pkmObj) => {
-        return pkmObj.name.includes(search.toLowerCase());
+const filterBySearch = (pkmDataList, search) => {
+    let filteredPkmList = pkmDataList.filter((pkmData) => {
+        return pkmData.name.includes(search.toLowerCase());
     });
     return filteredPkmList;
 }

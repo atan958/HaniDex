@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <PkmGrid pkmObjList={pokemon} loadingPkm={loadingPkm}/>
+      <PkmGrid pkmDataList={pokemon} loadingPkm={loadingPkm}/>
       <Footer />
     </>
   );
