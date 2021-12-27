@@ -20,17 +20,16 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
         });
     }
 
+    console.log('RENDERED FROM PKMGRID');
     useEffect(() => {
         console.log(selectedPkm);
-        // Find a way to set selected for those inside the team
-            // Maybe keep that state inside the pkmData?
-            // Maybe brute-force checking each one while filtering?? Idk
     });
 
     // Note: Second clause is to fix bug when a PkmItem is re-rendered e.g. when searching
     const addPkm = (pkmData) => {
         if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm==pkmData).length == 0) {
             console.log('Adding Pokemon ' + pkmData.name);
+
             pkmData.selected = true;
             setSelectedPkm((prevSelectedPkm) => {
                 let newSelectedPkm = [...prevSelectedPkm, pkmData];
@@ -43,6 +42,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 
     const rmvPkm = (pkmData) => {
         console.log('Removing Pokemon ' + pkmData.name);
+
         pkmData.selected = false;
         setSelectedPkm((prevSelectedPkm) => {
             let newSelectedPkm = prevSelectedPkm.filter((prevPkm) => {
@@ -62,7 +62,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer numPkmSelected={selectedPkm.length} pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm}/> 
+                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm}/> 
                 </>
                 : 
                 <>
