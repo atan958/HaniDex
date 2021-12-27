@@ -129,6 +129,7 @@
 }
 
 .pkb-btn {
+    opacity:0;
     width: 38px;
     height: 38px;
 
@@ -144,6 +145,7 @@
 }
 
 .pkb-btn:hover {
+    opacity: 1;
     /*--For some reason, scaling doesn't look as good--*/
     width: 34px;
     height: 34px;
