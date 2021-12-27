@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-const PkmTeamGrid = ({ hoverOn, pkmTeam }) => {
+const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
     const renderPkmMembers = () => {
         //console.log(pkmTeam[0].name);
         return pkmTeam.map((pkmMember) => {
-            return <PkmTeamMember key={pkmMember.name} pkmMember={pkmMember}/>
+            return <PkmTeamMember key={pkmMember.name} pkmMember={pkmMember} rmvPkm={rmvPkm}/>
         });
     }
     const renderPlaceHolders = () => {
@@ -25,14 +25,14 @@ const PkmTeamGrid = ({ hoverOn, pkmTeam }) => {
     )
 }
 
-const PkmTeamMember = ({ pkmMember }) => {
+const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     const [hovered, setHovered] = useState(false);
     let pkmName, pkmImg, rmvBtn;
 
     try {
         pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
         pkmImg = <img src={pkmMember.png} width="62" height="70" ></img>
-        rmvBtn = <button className={`rmvMember-btn`} onClick={() => alert('Removed ' + pkmMember.name)}>X</button>;
+        rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>X</button>;
     } 
     catch(e) {
         pkmName = '--';
