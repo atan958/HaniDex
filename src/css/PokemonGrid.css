@@ -83,20 +83,6 @@
     padding: 16px;
 }
 
-.cantSelectPkm:active {
-    transition: 0s !important;
-    border-top: 10px solid rgb(126, 0, 0) !important;
-    background-color: rgb(0, 78, 0);
-}
-
-.green-btn {
-    background-color: green;
-}
-
-.red-btn {
-    background-color: rgb(126, 0, 0);
-}
-
 /*
 .cantSelectPkm:active {
     border: 9px solid red;
@@ -140,11 +126,29 @@
     border-top: 3px solid black;
 }
 
+.overlay-div:active {
+    transition: 0s;
+    border-top: 8px solid black;
+}
+
+.green-btn {
+    background-color: green;
+}
+
+.red-btn {
+    background-color: rgb(126, 0, 0);
+}
+
 .pkmItem-container:hover .overlay-div{
     opacity: 1;
     bottom: 0; 
 }
   
+.cantSelectPkm:active {
+    transition: 0s !important;
+    border-top: 8px solid rgb(170, 0, 0) !important;
+    background-color: rgb(0, 78, 0);
+}
   
 /*-----------------------------LoadingPkm-container----------------------------------*/
 
