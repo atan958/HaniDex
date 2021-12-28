@@ -29,6 +29,7 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     const [hovered, setHovered] = useState(false);
     let pkmName, pkmImg, rmvBtn;
 
+    // try-catch for creating place-holders
     try {
         pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
         pkmImg = <img src={pkmMember.png} width="62" height="70" ></img>

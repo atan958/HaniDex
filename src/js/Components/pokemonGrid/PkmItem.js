@@ -19,7 +19,9 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm }) => {
 
     return (
         <div className={`grid-item pkmItem-container fadeIn-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'} ${(atMaxNumPkm && !pkmData.selected) && 'cantSelectPkm'}`}  style={pkmData.selected? { backgroundColor: '#b44b4b' } : null} onClick={toggleSelected} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
-            <div className={` ${(pkmData.selected || hovered) && 'shake-animation'}`}>{pkmData.img}</div>
+            <div className={` ${(pkmData.selected || hovered) && 'shake-animation'}`}>
+                <img src={pkmData.png} width="150" height="180"/>
+            </div>
             <h4>{pkmName}</h4>
         </div>
     )
