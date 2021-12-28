@@ -2,14 +2,17 @@ import { useState } from 'react'
 
 import '../../../animations/pkm-grid/pkmItem-anm.css'
 
-import PkmInfo from './PkmInfo';
-
 const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
+    /*
+    / Controls the hover state of the highest-level container of the PkmItem component
+    */
     const [hovered, setHovered] = useState(false);
-
     const hoverOn = () => { setHovered(true); }
     const hoverOff = () => { setHovered(false); }
 
+    /* 
+    / Toggles the selected property of the given Pokemon
+    */
     const toggleSelected = () => {
         pkmData.selected? 
         rmvPkm(pkmData)
@@ -17,6 +20,9 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
         addPkm(pkmData)
     }
 
+    /*
+    / Converts the first letter of the Pokemon to upper-case
+    */
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
 
     return (
@@ -34,9 +40,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
     )
 }
 
-const renderPkmInfo = (pkmData) => {
-    alert(pkmData.name);
-    //<PkmInfo pkmData={pkmData}/>
-}
-
 export default PkmItem
+
+
+// Note: shake-animation is a global css animation so "hovered" state is valid?

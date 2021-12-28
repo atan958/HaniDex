@@ -28,8 +28,8 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-animation">
             <div className="pkmInfo-content">
-                <div className="overlay-closeBtn-container" onClick={hideInfo}>
-                    <div className="overlay-close-btn">
+                <div className="overlay-closeBtn-container">
+                    <div className="overlay-close-btn" onClick={hideInfo}>
                         &times;
                     </div>
                 </div>

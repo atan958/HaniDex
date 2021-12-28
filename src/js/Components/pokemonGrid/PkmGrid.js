@@ -69,6 +69,9 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     }
 
     // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
+    /*
+    / 
+    */
     let filteredPkmList = filterBySearch(pkmDataList, search);
 
     try {
