@@ -83,12 +83,14 @@
     padding: 16px;
 }
 
-/*
-.cantSelectPkm:active {
-    border: 9px solid red;
-    padding: 8px;
+.pkmItemImg-container {
+    background-color: rgba(0, 0, 0, 0);
 }
-*/
+
+.pkmItem-img {
+    width: 150px;
+    height: 180px;
+}
 
 /*---------------------------*/
 
