@@ -3,9 +3,10 @@ import PkmItem from './PkmItem'
 const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm }) => {
     
     const pkmItemList = pkmDataList.map((pkmData) => {
-        return <PkmItem key={pkmData.name + new Date().toDateString()} pkmData={pkmData} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={atMaxNumPkm}/>
+        return <PkmItem key={pkmData.name} pkmData={pkmData} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={atMaxNumPkm}/>
     });
-    
+
+    console.log('Rendered at PkmContainer');
 
     return (
         <>

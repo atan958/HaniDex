@@ -6,10 +6,10 @@ const Angelo = () => {
     return (
         <div className="angelo-container">
         <div className='centered fadeIn-animation'>
-            <div class="container">
+            <div className="container">
                 <img src={angelo}></img>
-                <div class="overlay">
-                    <div class="text">Howdy!</div>
+                <div className="overlay">
+                    <div className="text">Howdy!</div>
                 </div>
             </div>
         </div>

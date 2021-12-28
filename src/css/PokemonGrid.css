@@ -290,6 +290,7 @@
   }
 
   .pkmTeamMember-container {
+      background-image: url('../angelo-assets/output-onlinepngtools (13).png');
       cursor: pointer;
       background-color: rgb(182, 248, 0);
       margin: 5px;
@@ -329,9 +330,10 @@
     border-width: 0px;
 
     font-size: 10px;
+    font-weight: bold;
 
     background-color:#0a008f;
-    color: rgb(208, 255, 0);
+    color: rgb(182, 248, 0);
     
     margin: 5px 23.5px;
     padding: 0px;

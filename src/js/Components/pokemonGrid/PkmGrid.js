@@ -20,10 +20,16 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
         });
     }
 
-    console.log('RENDERED FROM PKMGRID');
-    useEffect(() => {
-        console.log(selectedPkm);
-    });
+    console.log('Rendered from PkmGrid');
+    console.log(pkmDataList);
+    try {
+        console.log('selected');
+        console.log(selectedPkm.filter((pkm)=>pkm.name=='bulbasaur')[0]);
+        console.log('data list');
+        console.log(pkmDataList.filter((pkm)=>pkm.name=='bulbasaur')[0]);
+    }
+    catch(e) {
+    }
 
     // Note: Second clause is to fix bug when a PkmItem is re-rendered e.g. when searching
     const addPkm = (pkmData) => {
@@ -54,6 +60,12 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 
     // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
     let filteredPkmList = filterBySearch(pkmDataList, search);
+    try {
+        console.log('filtered list');
+        console.log(filteredPkmList.filter((pkm)=>pkm.name=='bulbasaur')[0]);
+    }
+    catch(e) {
+    }
 
     return (
         <div className="pkmGrid-container">
@@ -79,7 +91,5 @@ const filterBySearch = (pkmDataList, search) => {
     });
     return filteredPkmList;
 }
-
-
 
 export default PkmGrid;

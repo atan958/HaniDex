@@ -33,6 +33,13 @@ const pkmList= [
     'raikoiu',
 ];
 
+/*
+const pkmList= [
+    'bulbasaur',
+    'ivysaur'
+];
+*/
+
 function providePokemonData() {
     const defaultSelect = false;
     

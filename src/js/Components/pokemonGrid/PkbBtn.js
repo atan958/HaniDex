@@ -5,7 +5,7 @@ const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
     const btnClickedOnce = useRef(false);
     console.log('Rendered at PkbBtn');
     const setBtnClickedOnce = () => {
-        console.log('Rendered at PkbBtn CLICKED ONCE');
+        //console.log('Rendered at PkbBtn CLICKED ONCE');
         btnClickedOnce.current = true;
     }
 
