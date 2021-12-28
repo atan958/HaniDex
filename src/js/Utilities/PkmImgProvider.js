@@ -1,4 +1,4 @@
-const providePkmImg = (pkmName) => {
+const providePkmPng = (pkmName) => {
     let pkmPng, pkmImg;
     try {
         pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${pkmName}.png`);
@@ -9,4 +9,4 @@ const providePkmImg = (pkmName) => {
     return pkmPng;
 }
 
-export { providePkmImg }
+export { providePkmPng }

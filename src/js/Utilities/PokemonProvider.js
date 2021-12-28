@@ -1,4 +1,4 @@
-import { providePkmImg } from './PkmImgProvider'
+import { providePkmPng } from './PkmImgProvider'
 
 const pkmList= [
     'bulbasaur',
@@ -39,7 +39,7 @@ function providePokemonData() {
     //Note: Should toLowerCase() either from here or where you're using the name
 
     return (pkmList.map((pkmName) => {
-        let pkmPng = providePkmImg(pkmName);
+        let pkmPng = providePkmPng(pkmName);
         return { 
             name: pkmName, 
             png: pkmPng,
