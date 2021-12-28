@@ -18,8 +18,8 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm }) => {
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
 
     return (
-        <div className={`container grid-item pkmItem-container fadeIn-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'} ${(atMaxNumPkm && !pkmData.selected) && 'cantSelectPkm'}`}  style={pkmData.selected? { backgroundColor: '#b44b4b' } : null} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
-            <div className="overlay-div" onClick={toggleSelected} style={{ backgroundColor: pkmData.selected? '#970000' : 'green'}}>
+        <div className={`container grid-item pkmItem-container fadeIn-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  style={pkmData.selected? { backgroundColor: '#b44b4b' } : null} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
+            <div className={`overlay-div ${(atMaxNumPkm && !pkmData.selected) && 'cantSelectPkm'} ${pkmData.selected? 'red-btn' : 'green-btn'}`} onClick={toggleSelected}>
                 {pkmData.selected? 'Remove' : 'Add'}
             </div>
             <div className={` ${(pkmData.selected || hovered) && 'shake-animation'}`}>
