@@ -29,13 +29,3 @@ const PkmTeam = ({ pkmTeam, rmvPkm }) => {
 }
 
 export default PkmTeam
-
-        /*{
-        hovered
-        &&
-        <div className="pkmTeamGrid-container-container fadeIn-animation" onClick={() => console.log()} onMouseLeave={hoverOff}>
-            <div>
-                <PkmTeamGrid hoverOn={hoverOn}/>
-            </div>
-        </div>
-        }*/
