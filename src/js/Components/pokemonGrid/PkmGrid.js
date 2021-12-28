@@ -13,7 +13,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(false);
     const [selectedPkm, setSelectedPkm] = useState([]);
-
+    
     const toggleShowContainer = () => {
         setShowContainer((prevSc) => {
             setShowContainer(!prevSc);
@@ -69,6 +69,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 
     return (
         <div className="pkmGrid-container">
+            {<div style={{position: 'absolute'}}>HI THEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</div>}
             {showContainer && <PkmTeam pkmTeam={selectedPkm} rmvPkm={rmvPkm}/>}
             <PkbBtn loadingPkm={loadingPkm} togglePkbBtn={toggleShowContainer}/>
             {showContainer? 
