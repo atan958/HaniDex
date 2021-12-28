@@ -1,4 +1,4 @@
-import { providePkmPng } from './PkmImgProvider'
+import { providePkmPng } from './PkmGraphicsProvider'
 
 const pkmList= [
     'bulbasaur',
@@ -31,6 +31,7 @@ const pkmList= [
     'mew', 
     'mewtwo',
     'raikoiu',
+    'aerodactyl'
 ];
 
 function providePokemonData() {
