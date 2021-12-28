@@ -11,7 +11,7 @@ import FilterBar from './FilterBar'
 
 const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     const [search, setSearch] = useState('');
-    const [showContainer, setShowContainer] = useState(false);
+    const [showContainer, setShowContainer] = useState(true);      // set to false to make "Beautiful Man" the landing page
     const [selectedPkm, setSelectedPkm] = useState([]);
     
     const toggleShowContainer = () => {
@@ -70,19 +70,19 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     return (
         <div className="pkmGrid-container">
             {showContainer && 
-                <div className="hanidex-logo-container">
+                <>
+                <div className="hanidex-logo-container fadeIn-animation">
                     {/*<img src={require('../../../angelo-assets/pokemon-trainer.png')}/>*/}
                     HANI
                     <span className="hanidex-logo-dex">
                         DEX
                     </span>
                 </div>
-            }
-            {showContainer && 
                 <PkmTeam pkmTeam={selectedPkm} rmvPkm={rmvPkm}/>
+                </>
             }
             <PkbBtn loadingPkm={loadingPkm} togglePkbBtn={toggleShowContainer}/>
-            {showContainer? 
+            {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
                     <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6}/> 

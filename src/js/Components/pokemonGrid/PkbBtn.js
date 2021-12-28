@@ -2,10 +2,9 @@ import { useRef } from 'react'
 import '../../../animations/landing/pkb-anm.css'
 
 const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
-    const btnClickedOnce = useRef(false);
+    const btnClickedOnce = useRef(true);    // set to false when making Welcome the landing => So don't need to click button once
     console.log('Rendered at PkbBtn');
     const setBtnClickedOnce = () => {
-        //console.log('Rendered at PkbBtn CLICKED ONCE');
         btnClickedOnce.current = true;
     }
 

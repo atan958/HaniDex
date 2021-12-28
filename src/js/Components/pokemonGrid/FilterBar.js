@@ -1,6 +1,6 @@
 const FilterBar = ({search, setSearch}) => {
     return (
-        <div className="filter-container">
+        <div className="filter-container fadeIn-animation">
             <SearchBar search={search} setSearch={setSearch}/>
         </div>
     )

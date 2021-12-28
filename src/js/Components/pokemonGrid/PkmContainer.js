@@ -11,7 +11,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm }) 
     return (
         <>
         {loadingPkm? 
-            <div className="pkmItem-container-container">
+            <div className="pkmItem-container-container fadeIn-animation">
                 <div className="loadingPkm-container-container">
                     <div className="loadingPkm-container">
                         Loading...
@@ -19,7 +19,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm }) 
                 </div>
             </div>
         :
-            <div className="grid-container pkmItem-container-container">
+            <div className="grid-container pkmItem-container-container fadeIn-animation">
                 {pkmItemList}
             </div>
         }
