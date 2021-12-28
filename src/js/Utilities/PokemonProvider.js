@@ -39,10 +39,9 @@ function providePokemonData() {
     //Note: Should toLowerCase() either from here or where you're using the name
 
     return (pkmList.map((pkmName) => {
-        let [pkmPng, pkmImg] = providePkmImg(pkmName);
+        let pkmPng = providePkmImg(pkmName);
         return { 
             name: pkmName, 
-            img: pkmImg, 
             png: pkmPng,
             selected: defaultSelect };
     }));
