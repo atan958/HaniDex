@@ -1,0 +1,71 @@
+
+#myNav{
+    display: block;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.overlay {
+    position: -webkit-sticky;
+    position: sticky;
+
+    height: 100vh;
+    width: 100%;
+    display: none;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 117, 68, 0.9) !important;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
+  .pkmInfo-content-container {
+    background-color: white;
+    
+  }
+
+  .pkmInfo-center {
+    margin: auto;
+    width: 30%;
+    border: 3px solid green;
+    padding: 10px;
+
+  }
+

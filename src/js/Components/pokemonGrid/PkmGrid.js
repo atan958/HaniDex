@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import '../../../css/PokemonGrid.css'
 import '../../../animations/global-anm.css'
@@ -8,11 +8,21 @@ import PkmTeam from './PkmTeam'
 import PkbBtn from './PkbBtn';
 import Angelo from '../Angelo.js'
 import FilterBar from './FilterBar'
+import PkmInfo from './PkmInfo';
 
 const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     const [search, setSearch] = useState('');
     const [showContainer, setShowContainer] = useState(true);      // set to false to make "Beautiful Man" the landing page
     const [selectedPkm, setSelectedPkm] = useState([]);
+
+    const [shouldShowInfo, setShouldShowInfo] = useState(false);
+    const pkmToShow = useRef(null);
+
+    const hideInfo = () => {setShouldShowInfo(false);}
+    const showInfo = (pkmData) => {
+        pkmToShow.current = pkmData;
+        setShouldShowInfo(true);
+    }
     
     const toggleShowContainer = () => {
         setShowContainer((prevSc) => {
@@ -60,6 +70,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 
     // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
     let filteredPkmList = filterBySearch(pkmDataList, search);
+
     try {
         console.log('filtered list');
         console.log(filteredPkmList.filter((pkm)=>pkm.name=='bulbasaur')[0]);
@@ -68,11 +79,12 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     }
 
     return (
+        <>
         <div className="pkmGrid-container">
+            {shouldShowInfo && <PkmInfo pkmToShow={pkmToShow.current} hideInfo={hideInfo}/>}
             {showContainer && 
                 <>
                 <div className="hanidex-logo-container fadeIn-animation">
-                    {/*<img src={require('../../../angelo-assets/pokemon-trainer.png')}/>*/}
                     HANI
                     <span className="hanidex-logo-dex">
                         DEX
@@ -85,7 +97,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6}/> 
+                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo}/> 
                 </>
                 : 
                 <>
@@ -93,6 +105,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
                     <Angelo />
                 </>}
         </div>
+        </>
     )
 }
 

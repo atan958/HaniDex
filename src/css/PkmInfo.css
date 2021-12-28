@@ -1,0 +1,88 @@
+
+  /*------------------------------------------------------------------------*/
+
+  .pkmInfo-overlay-container {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+
+    background-color: rgba(0, 0, 0, 0.199);
+    width: 100%;
+    height: 100%;
+    min-width: 1090px;
+    text-align: center;
+  }
+
+.pkmInfo-content-container {
+
+}
+
+.content-centered {
+    box-sizing: border-box;
+    margin: auto;
+    width: 800px;
+
+    text-align: center;
+    padding: 17vh 0;
+}
+
+  .pkmInfo-content {
+    position: relative;
+    box-sizing: border-box;
+    border: 3px solid red;
+    background-color: white;;
+    width: 800px;
+    height: 600px;
+  }
+
+  .overlay-closeBtn-container {
+    display: block;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+.overlay-close-btn {
+    display:inline-block;
+    width: 40px;
+    text-align: center;
+}
+
+.overlay-close-btn:hover {
+    color: red;
+}
+
+.pkmInfo-img {
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+
+    margin-top: 20px;
+    padding: 0px 30px 60px 30px;
+
+    background-color: rgba(255, 0, 0, 0.226);
+
+    border: 3px solid black;
+}
+
+.pkmInfo-title {
+    position: absolute;
+    right: 50px;
+    bottom: 80px;
+
+    padding: 10px 20px 10px 20px;
+
+    background-color: rgba(255, 0, 0, 0.521);
+    border: 3px solid black;
+
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+
+    text-align: center;
+    width: 240px;
+}
