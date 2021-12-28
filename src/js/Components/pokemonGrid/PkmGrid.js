@@ -69,8 +69,18 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 
     return (
         <div className="pkmGrid-container">
-            {<div style={{position: 'absolute'}}>HI THEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</div>}
-            {showContainer && <PkmTeam pkmTeam={selectedPkm} rmvPkm={rmvPkm}/>}
+            {showContainer && 
+                <div className="hanidex-logo-container">
+                    {/*<img src={require('../../../angelo-assets/pokemon-trainer.png')}/>*/}
+                    HANI
+                    <span className="hanidex-logo-dex">
+                        DEX
+                    </span>
+                </div>
+            }
+            {showContainer && 
+                <PkmTeam pkmTeam={selectedPkm} rmvPkm={rmvPkm}/>
+            }
             <PkbBtn loadingPkm={loadingPkm} togglePkbBtn={toggleShowContainer}/>
             {showContainer? 
                 <>
