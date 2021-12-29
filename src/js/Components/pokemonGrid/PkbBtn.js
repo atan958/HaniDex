@@ -3,10 +3,10 @@ import '../../../animations/landing/pkb-anm.css'
 
 const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
     /*
-    / Supplementary ref (i.e. mock state) to track whether the Pokeball button has been clicked at least once;
-    / The ref value WOULD be changed along with the first call to the togglePkbBtn function;
+    / Supplementary ref (i.e. a "mock state") to track whether the Pokeball button has been clicked at least once;
+    / The ref value WOULD be changed along with the call to the togglePkbBtn function WHEN the Pokeball button is first pressed;
     /
-    / Note: Set intial value to "false" to keep Pokeball animation until the first button-click;
+    / Note: Set intial value to "false" to keep Pokeball animation until the first click is done on the Pokeball button;
     */
     const btnClickedOnce = useRef(true);
     const setBtnClickedOnce = () => {
