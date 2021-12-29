@@ -6,7 +6,7 @@ import pkmTrainer from '../../../angelo-assets/pokemon-trainer.png'
 
 const PkmTeam = ({ pkmTeam, rmvPkm }) => {
     /*
-    / Controls the hover state of the highest-level container of the PkmTeam component (i.e. containing both the icon and the grid);
+    / Manages the hover state of the highest-level container of the PkmTeam component (i.e. containing both the team-icon and the team-grid);
     / 
     / Note: toggleHover doesn't work in this case;
     */

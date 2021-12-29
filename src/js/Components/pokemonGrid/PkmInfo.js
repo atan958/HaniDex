@@ -1,28 +1,8 @@
 import '../../../css/PkmInfo.css'
 
 /*
-const PkmInfo = ({pkmData, hideInfo}) => {
-    return (
-    <div id="myNav" className="overlay">
-        <a className="closebtn" onClick={closeNav}>&times;</a>
-        <div className="overlay-content">
-            <div className="pkmInfo-content-container pkmInfo-center">
-                HIIII
-            </div>
-        </div>
-    </div>
-    )
-}
-
-function openNav() {
-    document.getElementById("myNav").style.display = "block";
-  }
-  
-function closeNav() {
-    document.getElementById("myNav").style.display = "none";
-}
+/ Displays the information of a specified Pokemon on an overlay
 */
-
 const PkmInfo = ({pkmToShow, hideInfo}) => {
     return (
     <div className="pkmInfo-overlay-container">

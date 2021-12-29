@@ -40,6 +40,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Methods: 
     /
     / Adds the data of a specified Pokemon into the "selectedPkm" state
+    / Given there's less than 6 Pokemon AND the Pokemon being added is not already there, respectively
     */
     const addPkm = (pkmData) => {
         if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm==pkmData).length == 0) {
@@ -95,10 +96,6 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / *** TO BE REMOVED ***
     */
     console.log('Rendered from PkmGrid');
-
-    // Note: Second clause is to fix bug when a PkmItem is re-rendered e.g. when searching
-
-
 
     /*
     / Filters the list of Pokemon by those which match what's typed on the search bar
