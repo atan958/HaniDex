@@ -1,19 +1,18 @@
 import { useState } from 'react'
 
 import PkmTeamGrid from './PkmTeamGrid';
+
 import pkmTrainer from '../../../angelo-assets/pokemon-trainer.png'
 
 const PkmTeam = ({ pkmTeam, rmvPkm }) => {
+    /*
+    / Controls the hover state of the highest-level container of the PkmTeam component (i.e. containing both the icon and the grid);
+    / 
+    / Note: toggleHover doesn't work in this case;
+    */
     const [hovered, setHovered] = useState(false);
-    const [clicked, setClicked] = useState(false);
-
-    const hoverOn = () => {
-        setHovered(true);
-    }
-
-    const hoverOff= () => {
-        setHovered(false);
-    }
+    const hoverOn = () => { setHovered(true); }
+    const hoverOff= () => { setHovered(false); }
 
     return (
         <>

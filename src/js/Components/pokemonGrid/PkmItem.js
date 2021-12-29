@@ -5,6 +5,8 @@ import '../../../animations/pkm-grid/pkmItem-anm.css'
 const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
     /*
     / Controls the hover state of the highest-level container of the PkmItem component
+    /
+    / Note: There is slight redundancy with not just having a toggleHovered function, but I think it's fine;
     */
     const [hovered, setHovered] = useState(false);
     const hoverOn = () => { setHovered(true); }

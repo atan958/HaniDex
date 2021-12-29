@@ -1,11 +1,11 @@
 /*---------------------------PkmContent-container------------------------------------*/
 
 .pkmGrid-container {
-    /*background-image: linear-gradient(to bottom right,rgb(119, 0, 0), #ad0000);*/
     background-color: #960000;
-    padding: 25px 50px 50px 50px;
 
+    padding: 25px 50px 50px 50px;
     margin: 0px 0px 0px 0px;
+
     min-height: calc(100vh - 100px - 150px + 26px);
     min-width: 1090px;
 }
@@ -215,37 +215,45 @@
     height: 36px;
 
     /*--vCenter--*/
-    padding: 45px 0 0px 2px;
+    padding: 45px 0px 0px 2px;
+
+    text-align: center;
 }
 
 .pkb-btn {
-    opacity:0;
+    position: absolute;
+    left: 35.5%;
+
     width: 38px;
     height: 38px;
 
     cursor: pointer;
+    opacity:0;
 
     border-radius: 50%;
-    border-width: 0px;
+    border-width: 3px;
 }
 
 .pkb-btn:active {
-    transform: scale(0.95,0.95);
+    margin: 2px 0px;
+    left: 37%;
+
+    width: 34px;
+    height: 34px;
+
     background-color: rgb(209, 209, 209);
 }
 
 .pkb-btn:hover {
+    box-sizing: border-box;
+
+    transform: scale(0.9, 0.9);
     opacity: 1;
-    /*--For some reason, scaling doesn't look as good--*/
-    width: 34px;
-    height: 34px;
 
     border-width: 3px;
     border-color: black;
-    margin: 2px 0px 0px 2px;
 }
 
-/*-- pkbLoading removes the hover effect which messes up button -- */
 .pkbLoading-btn {
     width: 38px;
     height: 38px;
@@ -254,7 +262,6 @@
 
     border-radius: 50%;
     border-width: 0px;
-    
 }
 
 .pkbLoading-btn:active {
