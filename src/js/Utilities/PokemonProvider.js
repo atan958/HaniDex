@@ -31,7 +31,12 @@ const pkmList= [
     'mew', 
     'mewtwo',
     'raikoiu',
-    'aerodactyl'
+    'aerodactyl',
+    'onix',
+    'steelix',
+    'torchic',
+    'combusken',
+    'blaziken'
 ];
 
 /*

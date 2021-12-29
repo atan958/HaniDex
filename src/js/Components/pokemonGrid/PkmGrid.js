@@ -98,15 +98,44 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     console.log('Rendered from PkmGrid');
 
     /*
+    / *** TO BE DOCUMENTED ***
+    */
+    const [filteredPkmList, setFilteredPkmList] = useState([]);
+    /*
+    / Effect is called whenever something is typed into the search bar or the Pokemon data list is altered
+    */
+    useEffect(() => {
+        setFilteredPkmList(filterBySearch(pkmDataList, search));
+    }, [search, pkmDataList]);
+
+    /*
+    / *** TO BE DOCUMENTED ***
+    */
+    const [pkmSet, setPkmSet] = useState(0);
+    /*
+    / Used to increase/decrease the value of pkmSet state
+    */
+    const incPkmSubset = () => { setPkmSet(pkmSet + 1); }
+    const decPkmSubset = () => { setPkmSet(pkmSet - 1); }
+
+    /*
+    / *** TO BE DOCUMENTED ***
+    */
+    const showPrevBtn = pkmSet > 0;
+    const showNextBtn = (pkmDataList.length/16) > pkmSet+1;
+
+    /*
     / Filters the list of Pokemon by those which match what's typed on the search bar
     / 
     / Note: Maybe move this functionality into the PkmContainer component instead?
     */
-    let filteredPkmList = filterBySearch(pkmDataList, search);
+    let shownPkmList = filteredPkmList.slice(0 + (pkmSet*16),16 + (pkmSet*16));
 
     return (
         <>
         <div className="pkmGrid-container">
+            {false && <button style={{position: 'fixed', width: '100px', height: '50px', right: '520px', backgroundColor: 'pink', zIndex: '5', cursor: 'pointer'}} onClick={decPkmSubset}>Prev</button>}
+            {false && <button style={{position: 'fixed', width: '100px', height: '50px', right: '400px', backgroundColor: 'gold', zIndex: '5', cursor: 'pointer'}} onClick={incPkmSubset}>Next</button>}
             {shouldShowInfo && <PkmInfo pkmToShow={pkmToShow.current} hideInfo={hideInfo}/>}
             {showContainer && 
                 <>
@@ -123,7 +152,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={filteredPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo}/> 
+                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmSubset={incPkmSubset} decPkmSubset={decPkmSubset}/> 
                 </>
                 : 
                 <>
@@ -143,6 +172,8 @@ const filterBySearch = (pkmDataList, search) => {
     let filteredPkmList = pkmDataList.filter((pkmData) => {
         return pkmData.name.includes(search.toLowerCase());
     });
+    console.log('Filter By Search');
+    console.log(pkmDataList);
     return filteredPkmList;
 }
 

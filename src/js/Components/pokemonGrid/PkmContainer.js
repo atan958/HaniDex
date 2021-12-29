@@ -3,7 +3,7 @@ import PkmItem from './PkmItem'
 /*
 / Used to display all the Pokemon which made it through the filter
 */
-const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
+const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo, incPkmSubset, decPkmSubS }) => {
     /*
     / Creates a collection of PkmItem components; 1 for each Pokemon in the list
     */
@@ -27,8 +27,16 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
                 </div>
             </div>
         :
-            <div className="grid-container pkmItem-container-container fadeIn-animation">
-                {pkmItemList}
+            <div className="pkmItem-container-container-container">
+                <div className="pkmItemsContainer-nav-left"> 
+                    HEY
+                </div>
+                    <div className="grid-container pkmItem-container-container fadeIn-animation">
+                        {pkmItemList}
+                    </div>
+                <div className="pkmItemsContainer-nav-right"> 
+                
+                </div>
             </div>
         }
         </>
