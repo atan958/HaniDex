@@ -34,7 +34,7 @@ const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
 }
 
 /*
-/ Used to display each selected Pokemon
+/ Used for displaying each of the selected Pokemon
 */
 const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     /*
@@ -52,14 +52,16 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     let pkmName, pkmImg, rmvBtn;
     
     /*
-    / The try is used to produce the corresponding content for each of the team members;
-    / The catch is used to produce an empty container;
+    / try is used to produce the corresponding content for each of the team members;
     */
     try {
         pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
         pkmImg = <img src={pkmMember.png} width="62" height="70" ></img>
         rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>X</button>;
     } 
+    /*
+    / catch is used to produce an empty container;
+    */
     catch(e) {
         pkmName = '--';
         pkmImg = null;

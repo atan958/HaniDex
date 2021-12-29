@@ -4,6 +4,9 @@ import PkmTeamGrid from './PkmTeamGrid';
 
 import pkmTrainer from '../../../angelo-assets/pokemon-trainer.png'
 
+/*
+/ Used to display the Pokemon which are selected by the user
+*/
 const PkmTeam = ({ pkmTeam, rmvPkm }) => {
     /*
     / Manages the hover state of the highest-level container of the PkmTeam component (i.e. containing both the team-icon and the team-grid);

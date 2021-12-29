@@ -10,7 +10,7 @@ const FilterBar = ({search, setSearch}) => {
 }
 
 /*
-/ Controls the search state passed down from the PkmGrid component
+/ Controls the search state passed down from the ancestor PkmGrid component
 */
 const SearchBar = ({ search, setSearch }) => {
     return (

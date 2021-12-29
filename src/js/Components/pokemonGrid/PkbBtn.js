@@ -3,8 +3,14 @@ import '../../../animations/landing/pkb-anm.css'
 
 const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
     /*
-    / Supplementary ref (i.e. a "mock state") to track whether the Pokeball button has been clicked at least once;
+    / Supplementary ref (i.e. a "mock state") => used to track whether the Pokeball button has been clicked at least once;
     / The ref value WOULD be changed along with the call to the togglePkbBtn function WHEN the Pokeball button is first pressed;
+    /
+    / Note: button is clicked 
+    /   => setBtnClickedOnce is called changing the btnClickedOnce ref
+    /       => togglePkbBtn is called changing the showContainer state 
+    /           => state change of parent PkmGrid component causes PkbBtn to re-render 
+    /               => PkbBtn only re-renders once as btnClickedOnce is a ref not a state
     /
     / Note: Set intial value to "false" to keep Pokeball animation until the first click is done on the Pokeball button;
     */

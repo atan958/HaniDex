@@ -11,6 +11,9 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
         return <PkmItem key={pkmData.name} pkmData={pkmData} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={atMaxNumPkm} showInfo={showInfo}/>
     });
 
+    /*
+    / *** TO BE REMOVED ***
+    */
     console.log('Rendered at PkmContainer');
 
     return (

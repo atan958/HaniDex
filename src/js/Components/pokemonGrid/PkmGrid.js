@@ -75,7 +75,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     */ 
     const [shouldShowInfo, setShouldShowInfo] = useState(false);
     /*
-    / pkmToShow operates supplementary to this (i.e. is a "mock state") which holds the data for the Pokemon to be shown;
+    / pkmToShow is used supplementary to aforementioned state (i.e. is a "mock state") as it holds the data for the Pokemon to be shown;
     */
     const pkmToShow = useRef(null);
     /*
