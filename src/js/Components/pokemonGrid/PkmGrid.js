@@ -71,7 +71,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     }
 
     /*
-    / Used to decide whether or not to show the PkmInfo component (i.e. the overlay for );
+    / Used to decide whether or not to show the PkmInfo component (i.e. the overlay for showing Pokemon information);
     */ 
     const [shouldShowInfo, setShouldShowInfo] = useState(false);
     /*
