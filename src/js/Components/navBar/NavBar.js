@@ -1,5 +1,8 @@
 import '../../../css/NavBar.css'
 
+/*
+/ Used to display the navigation bar of the web app
+*/
 const NavBar = () => {
     return (
         <ul>

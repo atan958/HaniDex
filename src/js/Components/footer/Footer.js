@@ -1,6 +1,9 @@
 import '../../../css/Footer.css'
 import hanidex from '../../../angelo-assets/hanidex-logo.png'
 
+/*
+/ Used to display the footer of the web app
+*/
 const Footer = () => {
     return (
 

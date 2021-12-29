@@ -2,6 +2,9 @@ import '../../css/Angelo.css'
 
 const angelo = require('../../angelo-assets/beautifulman.png');
 
+/*
+/ Used to display the creator of the web app
+*/
 const Angelo = () => {
     return (
         <div className="angelo-container">
