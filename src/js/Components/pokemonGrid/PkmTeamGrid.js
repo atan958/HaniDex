@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+/*
+/ Displays the "selected" Pokemon (i.e. team members)
+*/
 const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
     /*
     / Loads all selected Pokemon (i.e. members) onto the team grid
@@ -30,6 +33,9 @@ const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
     )
 }
 
+/*
+/ Used to display each selected Pokemon
+*/
 const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     /*
     / Controls the hover state of the highest-level container of PkmTeamMember component
