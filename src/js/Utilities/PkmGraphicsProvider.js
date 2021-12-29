@@ -1,3 +1,6 @@
+/*
+/ A service for providing png files of the Pokemon from pokemon-assets
+*/
 const providePkmPng = (pkmName) => {
     let pkmPng, pkmImg;
     try {

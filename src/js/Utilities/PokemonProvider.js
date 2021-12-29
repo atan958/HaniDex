@@ -34,6 +34,9 @@ const pkmList= [
     'aerodactyl'
 ];
 
+/*
+/ A service for providing Pokemon data to the application
+*/
 function providePokemonData() {
     const defaultSelect = false;
     
