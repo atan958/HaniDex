@@ -11,37 +11,36 @@ import FilterBar from './FilterBar'
 import PkmInfo from './PkmInfo';
 
 const PkmGrid = ({ pkmDataList, loadingPkm }) => {
+    /*
+    / Manages the state of the search bar and what's being typed in it;
+    */
     const [search, setSearch] = useState('');
-    const [showContainer, setShowContainer] = useState(true);      // set to false to make "Beautiful Man" the landing page
-    const [selectedPkm, setSelectedPkm] = useState([]);
 
-    const [shouldShowInfo, setShouldShowInfo] = useState(false);
-    const pkmToShow = useRef(null);
-
-    const hideInfo = () => {setShouldShowInfo(false);}
-    const showInfo = (pkmData) => {
-        pkmToShow.current = pkmData;
-        setShouldShowInfo(true);
-    }
-    
+    /*
+    / Used to manage which page (HaniDex or the Welcome Page) to display;
+    /
+    / Intitial states => true: "HaniDex", false: "Welcome Page"
+    /
+    */
+    const [showContainer, setShowContainer] = useState(true);
+    /*
+    / Method: Used to toggle the value of the showContainer state
+    */
     const toggleShowContainer = () => {
         setShowContainer((prevSc) => {
             setShowContainer(!prevSc);
         });
     }
-
-    console.log('Rendered from PkmGrid');
-    console.log(pkmDataList);
-    try {
-        console.log('selected');
-        console.log(selectedPkm.filter((pkm)=>pkm.name=='bulbasaur')[0]);
-        console.log('data list');
-        console.log(pkmDataList.filter((pkm)=>pkm.name=='bulbasaur')[0]);
-    }
-    catch(e) {
-    }
-
-    // Note: Second clause is to fix bug when a PkmItem is re-rendered e.g. when searching
+    
+    /*
+    / Is used to manage/store the data of the currently selected Pokemon (i.e. team members);
+    */
+    const [selectedPkm, setSelectedPkm] = useState([]);
+    /*
+    / Methods: 
+    /
+    / Adds the data of a specified Pokemon into the "selectedPkm" state
+    */
     const addPkm = (pkmData) => {
         if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm==pkmData).length == 0) {
             console.log('Adding Pokemon ' + pkmData.name);
@@ -55,7 +54,9 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             console.log("REACHED LIMIT");
         }
     }
-
+    /*
+    / Removes the data of a specified Pokemon from the "selectedPkm" state
+    */
     const rmvPkm = (pkmData) => {
         console.log('Removing Pokemon ' + pkmData.name);
 
@@ -69,17 +70,42 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     }
 
     /*
-    / Filters the list of Pokemon down to only those specified by the search input;
-    / Maybe move this functionality into the PkmContainer component instead?
+    / Used to decide whether or not to show the PkmInfo component (i.e. the overlay for );
+    */ 
+    const [shouldShowInfo, setShouldShowInfo] = useState(false);
+    /*
+    / pkmToShow operates supplementary to this (i.e. is a "mock state") which holds the data for the Pokemon to be shown;
+    */
+    const pkmToShow = useRef(null);
+    /*
+    / Methods:
+    /
+    / Used to hide the overlay
+    */
+    const hideInfo = () => {setShouldShowInfo(false);}
+    /*
+    / Used to show the overlay with the data of the Pokemon specified
+    */
+    const showInfo = (pkmData) => {
+        pkmToShow.current = pkmData;
+        setShouldShowInfo(true);
+    }
+
+    /*
+    / *** TO BE REMOVED ***
+    */
+    console.log('Rendered from PkmGrid');
+
+    // Note: Second clause is to fix bug when a PkmItem is re-rendered e.g. when searching
+
+
+
+    /*
+    / Filters the list of Pokemon by those which match what's typed on the search bar
+    / 
+    / Note: Maybe move this functionality into the PkmContainer component instead?
     */
     let filteredPkmList = filterBySearch(pkmDataList, search);
-
-    try {
-        console.log('filtered list');
-        console.log(filteredPkmList.filter((pkm)=>pkm.name=='bulbasaur')[0]);
-    }
-    catch(e) {
-    }
 
     return (
         <>
@@ -112,6 +138,10 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     )
 }
 
+
+/* 
+/ Filters the list of Pokemon to pass down to PkmContainer by what's currently type in the search bar
+*/
 const filterBySearch = (pkmDataList, search) => {
     let filteredPkmList = pkmDataList.filter((pkmData) => {
         return pkmData.name.includes(search.toLowerCase());

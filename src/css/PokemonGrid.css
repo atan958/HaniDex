@@ -192,10 +192,8 @@
 /*---------------------------------Pokeball----------------------------------*/
 
 .pkb-container {
-    /*--vCenter--*/
     padding: 70px 0;
 
-    /*--hCenter--*/
     margin: auto;
     width: 128px;
     padding: 10px;
@@ -214,7 +212,6 @@
     width: 30%;
     height: 36px;
 
-    /*--vCenter--*/
     padding: 45px 0px 0px 2px;
 
     text-align: center;
