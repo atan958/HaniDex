@@ -6,18 +6,25 @@ import { providePokemonData } from './js/Utilities/PokemonProvider';
 
 
 function App() {
+  /*
+  / Used to store the Pokemon data inside the application
+  */
   const [pokemon, setPokemon] = useState([]);
+
+  /*
+  / Used to determine whether Pokemon data is being loaded into the application
+  */
   const [loadingPkm, setLoadingPkm] = useState(true);
-  const numRnd = useRef(0);
-  const retrievedPokemon = useRef(providePokemonData());  // Replace with maybe once calling PokeApi
-                                                          // Call before the setTimeOut
 
-  numRnd.current += 1;
-  console.log('render #' + numRnd.current);
-  console.log('Rendered from APP');
+  /*
+  / *** ...TO BE DETERMINED... ***
+  */
+  const retrievedPokemon = useRef(providePokemonData());  // Replace with maybe once calling PokeApi => Call before the setTimeOut
 
+  /*
+  / Retrieves the Pokemon data => Called AFTER the App component first mounts
+  */
   useEffect(() => {
-    // This timeout will be called at a render and will use the same state/values from that render (IDK)
     setTimeout(() => {
       setPokemon((prevPkm) => {
         let pokemon = providePokemonData();
@@ -26,20 +33,15 @@ function App() {
     }, 5000);
   },[]);
 
-  // Sets the loading state whenever pokemon changes (i.e. only at app start-up)
-  // Executes this after second DOM render mounted (i.e. once pokemon are loaded i.e. non-zero length)
+  /*
+  / Removes the loading state due to retrieval of Pokemon => Called only AFTER Pokemon are retrieved
+  */
   useEffect(() => {
     pokemon.length > 0 ?
     setLoadingPkm(false)
     :
     setLoadingPkm(true);
   }, [pokemon]);
-  
-  /*
-  const getPokemon = async () => {
-    return PokeApiController.getPokemon();
-  }
-  */
 
   return (
     <>
