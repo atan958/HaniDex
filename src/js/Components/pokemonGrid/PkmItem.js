@@ -21,13 +21,13 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
     }
 
     /*
-    / Converts the first letter of the Pokemon to upper-case
+    / Creates the name of the Pokemon with the first letter upper-case;
     */
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
 
     return (
         <>
-        <div className={`container grid-item pkmItem-container fadeIn-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  style={pkmData.selected? { backgroundColor: '#b44b4b' } : null} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
+        <div className={`container grid-item pkmItem-container fadeIn-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  onMouseOver={hoverOn} onMouseLeave={hoverOff}>
             <div className={`overlay-div ${(atMaxNumPkm && !pkmData.selected) && 'cantSelectPkm'} ${pkmData.selected? 'red-btn' : 'green-btn'}`} onClick={toggleSelected}>
                 {pkmData.selected? 'Remove' : 'Add'}
             </div>

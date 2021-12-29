@@ -2,11 +2,21 @@ import { useRef } from 'react'
 import '../../../animations/landing/pkb-anm.css'
 
 const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
-    const btnClickedOnce = useRef(true);    // set to false when making Welcome the landing => So don't need to click button once
-    console.log('Rendered at PkbBtn');
+    /*
+    / Supplementary ref (i.e. mock state) to track whether the Pokeball button has been clicked at least once;
+    / The ref value WOULD be changed along with the first call to the togglePkbBtn function;
+    /
+    / Note: Set intial value to "false" to keep Pokeball animation until the first button-click;
+    */
+    const btnClickedOnce = useRef(true);
     const setBtnClickedOnce = () => {
         btnClickedOnce.current = true;
     }
+
+    /*
+    / *** TO BE REMOVED ***
+    */
+    console.log('Rendered at PkbBtn');
 
     return (
         <div className={`pkb-container ${loadingPkm && 'pkbDrop-animation'}`}>
@@ -20,10 +30,3 @@ const PkbBtn = ({ loadingPkm, togglePkbBtn }) => {
 }
 
 export default PkbBtn
-
-
-//<button className="btnShowContainer" onClick={togglePkbBtn} style={pkbBtnOn? {backgroundColor : 'grey'} : null}/>
-
-
-
-// className="pkbImg-container pkbShake-animation"

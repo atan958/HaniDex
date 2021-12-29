@@ -68,9 +68,9 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
         });
     }
 
-    // Calls this everytime a Pokemon is added => Should move filtering to PkmContainer I think
     /*
-    / 
+    / Filters the list of Pokemon down to only those specified by the search input;
+    / Maybe move this functionality into the PkmContainer component instead?
     */
     let filteredPkmList = filterBySearch(pkmDataList, search);
 

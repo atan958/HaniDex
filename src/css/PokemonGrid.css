@@ -44,7 +44,7 @@
     border-radius: 40px;
     border: 5px solid rgb(100, 100, 100);
 
-    background-color: rgb(168, 168, 168);
+    background-color: rgb(180, 252, 255);
     overflow: visible;
     
     min-width: 990px;
@@ -63,7 +63,7 @@
 
 .pkmItem-container {
     position: relative;         /* I don't think needed */
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(179, 179, 179);
     border-radius: 40px;
 }
 
@@ -74,11 +74,13 @@
 
 .pkmItem-notSelected {
     border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: rgb(133, 185, 185);
     padding: 20px;
 }
 
 .pkmItem-selected {
     color: gold;
+    background-color: #df5d5d;
     border-width: 5px;
     padding: 16px;
 }

@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
     const renderPkmMembers = () => {
-        //console.log(pkmTeam[0].name);
         return pkmTeam.map((pkmMember) => {
             return <PkmTeamMember key={pkmMember.name} pkmMember={pkmMember} rmvPkm={rmvPkm}/>
         });
