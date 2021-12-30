@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 import '../../../css/PokemonGrid.css'
 import '../../../animations/global-anm.css'
+import '../../../animations/pkm-grid/pkmItem-anm.css'
 
 import PkmContainer from './PkmContainer';
 import PkmTeam from './PkmTeam'

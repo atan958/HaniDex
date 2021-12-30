@@ -34,7 +34,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
                 {pkmData.selected? 'Remove' : 'Add'}
             </div>
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
-                <img className="pkmItem-img" src={pkmData.png}/>
+                <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png}/>
             </div>
             <h4>{pkmName}</h4>
         </div>
