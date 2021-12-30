@@ -19,7 +19,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Sets the Pokemon list navigation index back to 0 whenever something is typed into the search bar
     */
     useEffect(() => {
-        setPkmItemsIndex(0);
+        setPkmContentIndex(0);
     }, [search]);
 
     /*
@@ -119,25 +119,25 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     /*
     / *** TO BE DOCUMENTED ***
     */
-    const [pkmItemsIndex, setPkmItemsIndex] = useState(0);
+    const [pkmContentIndex, setPkmContentIndex] = useState(0);
     /*
     / Used to increase/decrease the value of pkmSet state
     */
-    const incPkmSubset = () => { setPkmItemsIndex(pkmItemsIndex + 1); }
-    const decPkmSubset = () => { setPkmItemsIndex(pkmItemsIndex - 1); }
+    const incPkmSubset = () => { setPkmContentIndex(pkmContentIndex + 1); }
+    const decPkmSubset = () => { setPkmContentIndex(pkmContentIndex - 1); }
 
     /*
     / *** TO BE DOCUMENTED ***
     */
-    const showPrevBtn = pkmItemsIndex > 0;
-    const showNextBtn = (filteredPkmList.length / 16) > (pkmItemsIndex + 1);
+    const showPrevBtn = pkmContentIndex > 0;
+    const showNextBtn = (filteredPkmList.length / 16) > (pkmContentIndex + 1);
 
     /*
     / Filters the list of Pokemon by those which match what's typed on the search bar
     / 
     / Note: Maybe move this functionality into the PkmContainer component instead?
     */
-    let shownPkmList = filteredPkmList.slice(0 + (pkmItemsIndex*16),16 + (pkmItemsIndex*16));
+    let shownPkmList = filteredPkmList.slice(0 + (pkmContentIndex*16),16 + (pkmContentIndex*16));
 
     return (
         <>
