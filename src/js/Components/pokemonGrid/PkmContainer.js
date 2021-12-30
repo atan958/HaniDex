@@ -31,7 +31,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
                 {showPrevBtn 
                 &&
                 <div className="pkmItemsContainer-nav nav-left" onClick={decPkmSubset}> 
-                    <div className="left-btn">{'<'}</div>
+                    <div className="left-btn"/>
                 </div>
                 }
                 <div className="grid-container pkmItem-container-container fasterFadeIn-animation">
@@ -40,7 +40,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
                 {showNextBtn
                 &&
                 <div className="pkmItemsContainer-nav nav-right" onClick={incPkmSubset}> 
-                    <div className="right-btn">{'>'}</div>
+                    <div className="right-btn"/>
                 </div>
                 }
             </div>

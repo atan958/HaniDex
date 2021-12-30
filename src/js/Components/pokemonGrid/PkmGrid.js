@@ -15,11 +15,17 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Manages the state of the search bar and what's being typed in it;
     */
     const [search, setSearch] = useState('');
+    /*
+    / Sets the Pokemon list navigation index back to 0 whenever something is typed into the search bar
+    */
+    useEffect(() => {
+        setPkmSet(0);
+    }, [search]);
 
     /*
-    / Used to manage which page (HaniDex or the Welcome Page) to display;
+    / Used to manage which content (HaniDex or the Welcome) to display;
     /
-    / Intitial states => true: "HaniDex", false: "Welcome Page"
+    / Intitial states => true: "HaniDex", false: "Welcome"
     /
     */
     const [showContainer, setShowContainer] = useState(true);
@@ -75,7 +81,9 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     */ 
     const [shouldShowInfo, setShouldShowInfo] = useState(false);
     /*
-    / pkmToShow is used supplementary to aforementioned state (i.e. is a "mock state") as it holds the data for the Pokemon to be shown;
+    / pkmToShow ref is used supplementary to the aforementioned state (i.e. is a "mock state") as it holds the data for the Pokemon to be shown;
+    /
+    / Note: Another state could be used along with pkmToShow but would probably be more costly??
     */
     const pkmToShow = useRef(null);
     /*
@@ -116,13 +124,13 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Used to increase/decrease the value of pkmSet state
     */
     const incPkmSubset = () => { setPkmSet(pkmSet + 1); }
-    const decPkmSubset = () => { console.log('Decreasing Pkm Subset');setPkmSet(pkmSet - 1); }
+    const decPkmSubset = () => { setPkmSet(pkmSet - 1); }
 
     /*
     / *** TO BE DOCUMENTED ***
     */
     const showPrevBtn = pkmSet > 0;
-    const showNextBtn = (pkmDataList.length/16) > pkmSet+1;
+    const showNextBtn = (filteredPkmList.length / 16) > (pkmSet + 1);
 
     /*
     / Filters the list of Pokemon by those which match what's typed on the search bar
