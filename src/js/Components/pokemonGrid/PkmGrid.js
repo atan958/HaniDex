@@ -116,7 +116,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Used to increase/decrease the value of pkmSet state
     */
     const incPkmSubset = () => { setPkmSet(pkmSet + 1); }
-    const decPkmSubset = () => { setPkmSet(pkmSet - 1); }
+    const decPkmSubset = () => { console.log('Decreasing Pkm Subset');setPkmSet(pkmSet - 1); }
 
     /*
     / *** TO BE DOCUMENTED ***
@@ -139,7 +139,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {shouldShowInfo && <PkmInfo pkmToShow={pkmToShow.current} hideInfo={hideInfo}/>}
             {showContainer && 
                 <>
-                <div className="hanidex-logo-container fadeIn-animation">
+                <div className="hanidex-logo-container fasterFadeIn-animation">
                     HANI
                     <span className="hanidex-logo-dex">
                         DEX
@@ -152,7 +152,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmSubset={incPkmSubset} decPkmSubset={decPkmSubset}/> 
+                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmSubset={incPkmSubset} decPkmSubset={decPkmSubset} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn}/> 
                 </>
                 : 
                 <>

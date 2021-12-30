@@ -3,7 +3,7 @@ import PkmItem from './PkmItem'
 /*
 / Used to display all the Pokemon which made it through the filter
 */
-const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo, incPkmSubset, decPkmSubS }) => {
+const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo, incPkmSubset, decPkmSubset, showNextBtn, showPrevBtn }) => {
     /*
     / Creates a collection of PkmItem components; 1 for each Pokemon in the list
     */
@@ -19,7 +19,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
     return (
         <>
         {loadingPkm? 
-            <div className="pkmItem-container-container fadeIn-animation">
+            <div className="pkmItem-container-container-container fasterFadeIn-animation">
                 <div className="loadingPkm-container-container">
                     <div className="loadingPkm-container">
                         Loading...
@@ -28,15 +28,21 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
             </div>
         :
             <div className="pkmItem-container-container-container">
-                <div className="pkmItemsContainer-nav-left"> 
-                    HEY
+                {showPrevBtn 
+                &&
+                <div className="pkmItemsContainer-nav nav-left" onClick={decPkmSubset}> 
+                    <div className="left-btn">{'<'}</div>
                 </div>
-                    <div className="grid-container pkmItem-container-container fadeIn-animation">
-                        {pkmItemList}
-                    </div>
-                <div className="pkmItemsContainer-nav-right"> 
-                
+                }
+                <div className="grid-container pkmItem-container-container fasterFadeIn-animation">
+                    {pkmItemList}
                 </div>
+                {showNextBtn
+                &&
+                <div className="pkmItemsContainer-nav nav-right" onClick={incPkmSubset}> 
+                    <div className="right-btn">{'>'}</div>
+                </div>
+                }
             </div>
         }
         </>

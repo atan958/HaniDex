@@ -51,6 +51,23 @@
     to   { opacity: 1; }
   }
 
+  .fasterFadeIn-half-animation {
+    text-align: center;
+  
+    -webkit-animation: fasterFadeIn 0.8s; /* Safari, Chrome and Opera > 12.1 */
+            animation: fasterFadeIn 0.8s;
+  }
+  
+  @-webkit-keyframes fasterFadeIn {
+    from { opacity: 0.5; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes fasterFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
   .rattle-animation {
     animation: pkb-caught 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
@@ -75,3 +92,5 @@
       transform: translate3d(0.5px, 0, 0);
     }
   }
+
+  

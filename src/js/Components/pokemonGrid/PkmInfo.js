@@ -6,7 +6,7 @@ import '../../../css/PkmInfo.css'
 const PkmInfo = ({pkmToShow, hideInfo}) => {
     return (
     <div className="pkmInfo-overlay-container">
-        <div className="pkmInfo-content-container content-centered fasterFadeIn-animation">
+        <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
             <div className="pkmInfo-content">
                 <div className="overlay-closeBtn-container">
                     <div className="overlay-close-btn" onClick={hideInfo}>
