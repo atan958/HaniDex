@@ -15,7 +15,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 </div>
 
                 <div className="pkmInfo-img">
-                    <img src={pkmToShow.png} width="220px" height="280px"></img>
+                    <img className="pkmRoar-animation" src={pkmToShow.png} width="220px" height="280px"></img>
                 </div>
                 <div className="pkmInfo-title">
                     {pkmToShow.name.charAt(0).toUpperCase() + pkmToShow.name.slice(1,pkmToShow.name.length)}

@@ -71,7 +71,7 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     return (
         <div className={`pkmTeamMember-container tooltip`} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
             {hovered && <span className="tooltiptext fasterFadeIn-animation">{pkmName}</span>}
-            <div className={`${hovered && 'shake-animation'}`}>{pkmImg}</div>
+            <div className={`${hovered && 'pkmRoar-animation'}`}>{pkmImg}</div>
             {hovered && rmvBtn}
         </div>
         );

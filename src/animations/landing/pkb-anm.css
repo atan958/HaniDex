@@ -55,8 +55,8 @@
   
   @keyframes pkb-drop{
     0%{opacity: 0}
-    0%{transform: translate(-90px,-150px)}
-    40%{transform: translate(-10px,50px)}
+    0%{transform: translate(-90px,-150px) }
+    40%{transform: translate(-10px, 50px) }
     100%{transform: translateY(0px)}
   }
   
