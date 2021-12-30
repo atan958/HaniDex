@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import '../../../animations/pkm-grid/pkmItem-anm.css'
 
-const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
+const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => {
     /*
     / Controls the hover state of the highest-level container of the PkmItem component
     /
@@ -23,9 +23,25 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
     }
 
     /*
-    / Creates the name of the Pokemon with the first letter upper-case;
+    / *** TO BE FURTHER DOCUMENTED ***
+    /
+    / Highlights the searched substring from the names of the Pokemon which are shown
     */
+    let indexOfSearch = pkmData.name.indexOf(search);
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
+    let leadingName = pkmName.slice(0,indexOfSearch);
+    
+    let searchCapt;
+    (indexOfSearch==0)?
+        searchCapt = search.charAt(0).toUpperCase() + search.slice(1,search.length)
+        :
+        searchCapt = search;
+        
+    let trailingName;
+    (indexOfSearch==-1)? 
+        trailingName = ''
+        :
+        trailingName = pkmName.slice(indexOfSearch + search.length, pkmData.name.length);
 
     return (
         <>
@@ -36,7 +52,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo }) => {
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
                 <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png}/>
             </div>
-            <h4>{pkmName}</h4>
+            <h4>{leadingName}<span style={{color: 'green'}}>{searchCapt}</span>{trailingName}</h4>
         </div>
         </>
     )

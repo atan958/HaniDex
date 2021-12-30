@@ -159,7 +159,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmContentIndex={incPkmContentIndex} decPkmContentIndex={decPkmContentIndex} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn}/> 
+                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmContentIndex={incPkmContentIndex} decPkmContentIndex={decPkmContentIndex} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn} search={search}/> 
                 </>
                 : 
                 <>
