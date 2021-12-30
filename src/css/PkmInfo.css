@@ -73,15 +73,6 @@
     border: 3px solid black;
 }
 
-.pkbBtnCaught-animation {
-  animation: pkbBtn-caught 0.5s;
-}
-
-@keyframes pkbBtn-caught{
-  0%{width: 34px; height: 34px; border-width: 3px; border-color: black;  margin: 1.5px 0px 0px 2px; opacity: 1;}
-  100%{}
-  
-}
 
 .pkmInfo-title {
     position: absolute;

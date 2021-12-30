@@ -3,7 +3,7 @@ import { useState } from 'react'
 /*
 / Displays the "selected" Pokemon (i.e. team members)
 */
-const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
+const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
     /*
     / Loads all selected Pokemon (i.e. members) onto the team grid
     */
@@ -26,7 +26,7 @@ const PkmTeamGrid = ({ hoverOn, pkmTeam, rmvPkm }) => {
     }
     
     return (
-        <div className="pkmTeamGrid-container fasterFadeIn-animation" onMouseOver={hoverOn}>
+        <div className="pkmTeamGrid-container fasterFadeIn-animation" >
             {renderPkmMembers()}
             {renderPlaceHolders()}
         </div>
