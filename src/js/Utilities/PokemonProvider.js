@@ -36,7 +36,13 @@ const pkmList= [
     'steelix',
     'torchic',
     'combusken',
-    'blaziken'
+    'blaziken',
+    'treecko',
+    'grovyle',
+    'sceptile',
+    'mudkip',
+    'marshtomp',
+    'swampert'
 ];
 
 /*
