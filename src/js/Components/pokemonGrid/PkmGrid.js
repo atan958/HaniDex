@@ -123,8 +123,8 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     /*
     / Used to increase/decrease the value of pkmSet state
     */
-    const incPkmSubset = () => { setPkmContentIndex(pkmContentIndex + 1); }
-    const decPkmSubset = () => { setPkmContentIndex(pkmContentIndex - 1); }
+    const incPkmContentIndex = () => { setPkmContentIndex(pkmContentIndex + 1); }
+    const decPkmContentIndex = () => { setPkmContentIndex(pkmContentIndex - 1); }
 
     /*
     / *** TO BE DOCUMENTED ***
@@ -142,8 +142,6 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     return (
         <>
         <div className="pkmGrid-container">
-            {false && <button style={{position: 'fixed', width: '100px', height: '50px', right: '520px', backgroundColor: 'pink', zIndex: '5', cursor: 'pointer'}} onClick={decPkmSubset}>Prev</button>}
-            {false && <button style={{position: 'fixed', width: '100px', height: '50px', right: '400px', backgroundColor: 'gold', zIndex: '5', cursor: 'pointer'}} onClick={incPkmSubset}>Next</button>}
             {shouldShowInfo && <PkmInfo pkmToShow={pkmToShow.current} hideInfo={hideInfo}/>}
             {showContainer && 
                 <>
@@ -160,7 +158,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmSubset={incPkmSubset} decPkmSubset={decPkmSubset} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn}/> 
+                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmContentIndex={incPkmContentIndex} decPkmContentIndex={decPkmContentIndex} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn}/> 
                 </>
                 : 
                 <>

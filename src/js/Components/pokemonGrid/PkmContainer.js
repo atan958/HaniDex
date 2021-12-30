@@ -3,7 +3,7 @@ import PkmItem from './PkmItem'
 /*
 / Used to display all the Pokemon which made it through the filter
 */
-const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo, incPkmSubset, decPkmSubset, showNextBtn, showPrevBtn }) => {
+const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo, incPkmContentIndex, decPkmContentIndex, showNextBtn, showPrevBtn }) => {
     /*
     / Creates a collection of PkmItem components; 1 for each Pokemon in the list
     */
@@ -30,7 +30,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
             <div className="pkmItem-container-container-container">
                 {showPrevBtn 
                 &&
-                <div className="pkmItemsContainer-nav nav-left" onClick={decPkmSubset}> 
+                <div className="pkmItemsContainer-nav nav-left" onClick={decPkmContentIndex}> 
                     <div className="left-btn"/>
                 </div>
                 }
@@ -39,7 +39,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
                 </div>
                 {showNextBtn
                 &&
-                <div className="pkmItemsContainer-nav nav-right" onClick={incPkmSubset}> 
+                <div className="pkmItemsContainer-nav nav-right" onClick={incPkmContentIndex}> 
                     <div className="right-btn"/>
                 </div>
                 }
