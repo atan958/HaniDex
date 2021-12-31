@@ -184,4 +184,12 @@ const filterBySearch = (pkmDataList, search) => {
     return filteredPkmList;
 }
 
+const filterBySearch1 = (pkmDataList, search) => {
+    console.log('filterBySearch is called');
+    let filteredPkmList = pkmDataList.filter((pkmData) => {
+        return pkmData.png.includes(search.toLowerCase());
+    });
+    return filteredPkmList;
+}
+
 export default PkmGrid;

@@ -248,7 +248,6 @@ const providePkmPng = (pkmName) => {
             let defaultName = pkmName.slice(0, pkmName.length - '-rider'.length);
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
-
     }
     return pkmPng;
 }
