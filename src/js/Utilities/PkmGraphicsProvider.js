@@ -26,6 +26,23 @@ const providePkmPng = (pkmName) => {
         }
 
         /*
+        / Fix for Giratina forms
+        */
+        if(pkmName == 'giratina-altered') {
+            let defaultName = 'giratina';
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
+        /*
+        / Fix for Shaymin forms
+        */
+        if(pkmName == 'shaymin-land') {
+            let defaultName = 'shaymin';
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
+
+        /*
         / Gets the correct png for gendered Pokemon (Note: Works for both genders)
         */
         if(pkmName.slice(pkmName.length-4, pkmName.length) == 'male') {
