@@ -41,6 +41,14 @@ const providePkmPng = (pkmName) => {
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
+        /*
+        / Fix for Shaymin forms
+        */
+        if(pkmName == 'basculin-red-striped') {
+            let defaultName = 'basculin';
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
 
         /*
         / Gets the correct png for gendered Pokemon (Note: Works for both genders)
