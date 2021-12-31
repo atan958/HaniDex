@@ -45,22 +45,22 @@ useEffect(() => {
 
 const getPkmData = async () => {
   let pkmData = await providePokemonData();
-  console.log(pkmData)
   setPokemon(pkmData);
 }
   
 
   /*
-  / Removes the loading state due to retrieval of Pokemon => Set to false ONLY ONCE Pokemon are retrieved
+  / Removes the loading state from Pokemon retrieval => Set to false ONLY AFTER Pokemon are retrieved (i.e. 0 < Pokemon)
   */
   useEffect(() => {
-    pokemon.length > 0 ?
-    waitPkbLoad()
-    :
-    setLoadingPkm(true);
+      if(pokemon.length > 0) {
+        rmvPkbLoad();
+      } 
   }, [pokemon]);
-
-  const waitPkbLoad = async () => {
+  /*
+  / Removes the loading state of the Pokeball after 2.5 seconds
+  */
+  const rmvPkbLoad = async () => {
     setTimeout(() => {
       setLoadingPkm(false)
     }, 2500);
