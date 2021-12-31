@@ -147,7 +147,7 @@ const providePkmPng = (pkmName) => {
         / Fix for Mimikyu forms
         */
         if(pkmName === 'greninja-battle-bond') {
-            let defaultName = 'greninja-ash';
+            let defaultName = 'unknown-pokemon';
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
@@ -218,7 +218,30 @@ const providePkmPng = (pkmName) => {
             let defaultName = 'unknown-pokemon';
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
-    
+        
+        /*
+        / Fix for Rockruff forms
+        */
+        if(pkmName.includes('-own-tempo')) {
+            let defaultName = 'unknown-pokemon'
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
+        /*
+        / Fix for Necrozma forms
+        */
+        if(pkmName.includes('necrozma')) {
+            let defaultName = 'necrozma';
+            let duskForm = ['dusk','mane'];
+            let dawnForm = ['dawn', 'wings'];
+
+            if(pkmName.includes(duskForm[0])) { defaultName = [defaultName, ...duskForm].join('-') }
+            if(pkmName.includes(dawnForm[0])) { defaultName = [defaultName, ...dawnForm].join('-') }
+
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
+
     }
     return pkmPng;
 }
