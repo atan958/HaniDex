@@ -241,6 +241,13 @@ const providePkmPng = (pkmName) => {
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
+        /*
+        / Fix for Calyrex forms
+        */
+        if(pkmName.includes('-rider')) {
+            let defaultName = pkmName.slice(0, pkmName.length - '-rider'.length);
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
 
     }
     return pkmPng;
