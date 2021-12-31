@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import { providePkmPng } from './PkmGraphicsProvider'
 
 const pkmList= [
@@ -48,12 +50,41 @@ const pkmList= [
 /*
 / A service for providing Pokemon data to the application
 */
-function providePokemonData() {
+const providePokemonData1 = () => {
     const defaultSelect = false;
     
     //Note: Should toLowerCase() either from here or where you're using the name
 
     return (pkmList.map((pkmName) => {
+        let pkmPng = providePkmPng(pkmName);
+        return { 
+            name: pkmName, 
+            png: pkmPng,
+            selected: defaultSelect };
+    }));
+}
+
+/*
+    let pkmData = await axios.get();
+    let pkmNames = pkmData.data.results.map((pkm) => pkm.name);
+    pkmData = await axios.get(pkmData.data.next);
+    pkmNames = pkmNames.concat(pkmData.data.results.map(pkm=> pkm.name));
+*/
+
+const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon';
+const defaultSelect = false;
+
+const providePokemonData = async () => {
+    let pkmData = await axios.get(pokeApiUrl);
+    let pkmNames = pkmData.data.results.map((pkm) => pkm.name);
+
+    for (let i=0; i<55; i++) {
+        let pokeApiNextUrl = pkmData.data.next;
+        pkmData = await axios.get(pokeApiNextUrl);
+        pkmNames = pkmNames.concat(pkmData.data.results.map((pkm) => pkm.name));
+    }
+    
+    return (pkmNames.map((pkmName) => {
         let pkmPng = providePkmPng(pkmName);
         return { 
             name: pkmName, 

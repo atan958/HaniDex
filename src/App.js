@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
+import axios from 'axios'
+
 import NavBar from './js/Components/navBar/NavBar'
 import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
+
 import { providePokemonData } from './js/Utilities/PokemonProvider';
 
 
+
 function App() {
+  const numRnd = useRef(0); numRnd.current++; console.log('------------------- Render #' + numRnd.current + ' -------------------');
   /*
   / Used to store the Pokemon data inside the application
   */
@@ -24,6 +29,7 @@ function App() {
   /*
   / Retrieves the Pokemon data => Called AFTER the App component first mounts
   */
+ /*
   useEffect(() => {
     setTimeout(() => {
       setPokemon((prevPkm) => {
@@ -32,16 +38,33 @@ function App() {
       })
     }, 5000);
   },[]);
+*/
+useEffect(() => {
+    getPkmData();
+},[]);
+
+const getPkmData = async () => {
+  let pkmData = await providePokemonData();
+  console.log(pkmData)
+  setPokemon(pkmData);
+}
+  
 
   /*
-  / Removes the loading state due to retrieval of Pokemon => Called only AFTER Pokemon are retrieved
+  / Removes the loading state due to retrieval of Pokemon => Set to false ONLY ONCE Pokemon are retrieved
   */
   useEffect(() => {
     pokemon.length > 0 ?
-    setLoadingPkm(false)
+    waitPkbLoad()
     :
     setLoadingPkm(true);
   }, [pokemon]);
+
+  const waitPkbLoad = async () => {
+    setTimeout(() => {
+      setLoadingPkm(false)
+    }, 2500);
+  }
 
   return (
     <>
