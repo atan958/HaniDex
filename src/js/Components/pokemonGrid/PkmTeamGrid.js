@@ -38,7 +38,7 @@ const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
 */
 const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     /*
-    / These are the primary contents of each of the team grid's containers
+    / These are the primary contents of each of the team grid's member containers
     */
     let pkmName, pkmImg, rmvBtn, hoverTxt;
     

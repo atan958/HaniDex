@@ -210,18 +210,22 @@
 }
 
 .red-btn {
-    background-color: rgb(126, 0, 0);
+    background-color: rgb(172, 0, 0);
 }
 
 .pkmItem-container:hover .overlay-div{
     opacity: 1;
     bottom: 0; 
 }
-  
+
+.cantSelectPkm {
+    background-color: rgb(163, 0, 155);
+}
+
 .cantSelectPkm:active {
     transition: 0s !important;
     border-top: 8px solid rgb(170, 0, 0) !important;
-    background-color: rgb(0, 78, 0);
+    background-color: rgb(124, 0, 118);
 }
   
 /*-----------------------------LoadingPkm-container----------------------------------*/

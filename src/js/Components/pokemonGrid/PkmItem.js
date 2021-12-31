@@ -45,11 +45,14 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
+    /*
+    / Note: Maybe add the boolean expressions of the JSX?
+    */
     return (
         <>
         <div className={`container grid-item pkmItem-container fasterFadeIn-half-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  onMouseOver={hoverOn} onMouseLeave={hoverOff}>
-            <div className={`overlay-div ${(atMaxNumPkm && !pkmData.selected) && 'cantSelectPkm'} ${pkmData.selected? 'red-btn' : 'green-btn'}`} onClick={toggleSelected}>
-                {pkmData.selected? 'Remove' : 'Add'}
+            <div className={`overlay-div ${pkmData.selected? 'red-btn' : (atMaxNumPkm? 'cantSelectPkm' : 'green-btn')}`} onClick={toggleSelected}>
+                {pkmData.selected? 'Remove' : (atMaxNumPkm? 'Team Full' :'Add')}
             </div>
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
                 <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png}/>
