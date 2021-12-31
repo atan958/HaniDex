@@ -42,13 +42,34 @@ const providePkmPng = (pkmName) => {
         }
 
         /*
-        / Fix for Shaymin forms
+        / Fix for Basculin forms
         */
         if(pkmName == 'basculin-red-striped') {
             let defaultName = 'basculin';
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
+        /*
+        / Fix for Darmanitan forms
+        */
+        if(pkmName.includes('darmanitan')) {
+            let defaultName = 'darmanitan';
+            if (pkmName.includes('galar')) {
+                defaultName += '-galar';
+                if(!pkmName.includes('standard')) {
+                    defaultName += pkmName.slice(defaultName.length-6, pkmName.length-6);
+                }
+            }
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
+        /*
+        / Fix for Incarnate Trio forms
+        */
+        if(pkmName.includes('incarnate')) {
+            let defaultName = pkmName.slice(0, pkmName.length - '-incarnate'.length);
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
 
         /*
         / Gets the correct png for gendered Pokemon (Note: Works for both genders)
