@@ -15,12 +15,13 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     /*
     / Manages the state of the search bar and what's being typed in it;
     */
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(''); console.log('Search: ' + search);
     /*
     / Sets the Pokemon list navigation index back to 0 whenever something is typed into the search bar
     */
     useEffect(() => {
         setPkmContentIndex(0);
+        console.log('Content Index back to default');
     }, [search]);
 
     /*
@@ -102,23 +103,19 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     }
 
     /*
-    / *** TO BE REMOVED ***
-    */
-    console.log('Rendered from PkmGrid');
-
-    /*
-    / *** TO BE DOCUMENTED ***
+    / Stores and manages the data of the Pokemon which match what's typed on the search bar
     */
     const [filteredPkmList, setFilteredPkmList] = useState([]);
     /*
-    / Effect is called whenever something is typed into the search bar or the Pokemon data list is altered
+    / Effect is called whenever something is typed into the search bar or the Pokemon data list prop is altered
     */
     useEffect(() => {
         setFilteredPkmList(filterBySearch(pkmDataList, search));
+        console.log('Filtering Pokemon By Search');
     }, [search, pkmDataList]);
 
     /*
-    / *** TO BE DOCUMENTED ***
+    / Used to keep track of which subset of the Pokemon to display in the container
     */
     const [pkmContentIndex, setPkmContentIndex] = useState(0);
     /*
@@ -139,6 +136,11 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Note: Maybe move this functionality into the PkmContainer component instead?
     */
     let shownPkmList = filteredPkmList.slice(0 + (pkmContentIndex*16),16 + (pkmContentIndex*16));
+    console.log('Filtered Pokemon List: ');
+    console.log(filteredPkmList);
+    console.log('Content Index: ' + pkmContentIndex);
+    console.log('Shown Pokemon List: ');
+    console.log(shownPkmList);
 
     return (
         <>
@@ -171,16 +173,14 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     )
 }
 
-
 /* 
 / Filters the list of Pokemon to pass down to PkmContainer by what's currently type in the search bar
 */
 const filterBySearch = (pkmDataList, search) => {
+    console.log('filterBySearch is called');
     let filteredPkmList = pkmDataList.filter((pkmData) => {
         return pkmData.name.includes(search.toLowerCase());
     });
-    console.log('Filter By Search');
-    console.log(pkmDataList);
     return filteredPkmList;
 }
 

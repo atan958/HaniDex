@@ -27,21 +27,23 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     /
     / Highlights the searched substring from the names of the Pokemon which are shown
     */
-    let indexOfSearch = pkmData.name.indexOf(search);
+    let searchLc = search.toLowerCase();
+    let indexOfSearch = pkmData.name.indexOf(searchLc);
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
+    
     let leadingName = pkmName.slice(0,indexOfSearch);
     
-    let searchCapt;
+    let searchCased;
     (indexOfSearch==0)?
-        searchCapt = search.charAt(0).toUpperCase() + search.slice(1,search.length)
+        searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)
         :
-        searchCapt = search;
+        searchCased = searchLc;
         
     let trailingName;
     (indexOfSearch==-1)? 
         trailingName = ''
         :
-        trailingName = pkmName.slice(indexOfSearch + search.length, pkmData.name.length);
+        trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
     return (
         <>
@@ -52,7 +54,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
                 <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png}/>
             </div>
-            <h4>{leadingName}<span style={{color: 'green'}}>{searchCapt}</span>{trailingName}</h4>
+            <h4>{leadingName}<span style={{color: '#0046FF'}}>{searchCased}</span>{trailingName}</h4>
         </div>
         </>
     )

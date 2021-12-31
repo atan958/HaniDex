@@ -466,7 +466,7 @@
     height: 20px;
   }
 
-  .pkmTeamGrid-container {
+.pkmTeamGrid-container {
     position: relative;
     float: left;
 
@@ -481,30 +481,33 @@
 
     width: 450px;
     height: 90px;
-  }
+}
 
-  .pkmTeamMember-container {
-      background-image: url('../angelo-assets/pkm-member-bg.png');
-      cursor: pointer;
-      background-color: rgb(182, 248, 0);
-      margin: 5px;
-      padding: 0px 0px 5px 0px;
-      position: relative;
-      width: 66px;
-      height: 74px;
-  }
+.pkmTeamMember-container {
+    background-image: url('../angelo-assets/pkm-member-bg.png');
+    cursor: pointer;
+    background-color: rgb(182, 248, 0);
 
-  .pkmTeamMember-container:hover {
-      background-color: gold;
-  }
+    margin: 5px;
+    padding: 0px 0px 5px 0px;
 
-  .tooltip {
+    position: relative;
+    width: 66px;
+    height: 74px;
+}
+
+.pkmTeamMember-container:hover {
+    background-color: gold;
+}
+
+/*---------------------------------Hover Text-------------------------------------*/
+.tooltip {
     position: relative;
     display: inline-block;
-  }
+}
   
-  .tooltip .tooltiptext {
-    visibility: visible;
+.tooltip .tooltiptext {
+    visibility: hidden;
     width: 120px;
     background-color: black;
     color: #fff;
@@ -513,12 +516,22 @@
     padding: 5px 0;
 
     margin: 0px 25px 20px;
-  
+
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-  }
-  
+
+    opacity: 0;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transition: 1.5s ease;
+}
+
+/*---------------------------Remove Member Button-----------------------------*/
+
 .rmvMember-btn {
     cursor: pointer;
     border-width: 0px;
@@ -537,7 +550,14 @@
 
     float: right;
     position: relative;
-    }
+
+    opacity: 0;
+}
+
+.pkmTeamMember-container:hover .rmvMember-btn {
+    opacity: 1;
+    transition: 0.2s ease;
+}
 
 .rmvMember-btn:hover {
     color: red;

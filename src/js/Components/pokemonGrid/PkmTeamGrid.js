@@ -49,14 +49,15 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     /*
     / These are the primary contents of each of the team grid's containers
     */
-    let pkmName, pkmImg, rmvBtn;
+    let pkmName, pkmImg, rmvBtn, hoverTxt;
     
     /*
     / try is used to produce the corresponding content for each of the team members;
     */
     try {
         pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
-        pkmImg = <img src={pkmMember.png} width="62" height="70" ></img>
+        hoverTxt = <span className="tooltiptext">{pkmName}</span>;
+        pkmImg = <img src={pkmMember.png} className="shake-animation-hovered" width="62" height="70" ></img>
         rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>X</button>;
     } 
     /*
@@ -64,15 +65,18 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     */
     catch(e) {
         pkmName = '--';
+        hoverTxt = <span className="tooltiptext">{pkmName}</span>;
         pkmImg = null;
         rmvBtn = null;
     }
 
     return (
         <div className={`pkmTeamMember-container tooltip`} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
-            {hovered && <span className="tooltiptext fasterFadeIn-animation">{pkmName}</span>}
-            <div className={`${hovered && 'pkmRoar-animation'}`}>{pkmImg}</div>
-            {hovered && rmvBtn}
+            {hoverTxt}
+            <div className={'pkmRoar-animation-hovered'}>
+                {pkmImg}
+            </div>
+            {rmvBtn}
         </div>
         );
 }
