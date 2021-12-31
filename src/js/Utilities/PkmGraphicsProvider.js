@@ -212,7 +212,7 @@ const providePkmPng = (pkmName) => {
         }
 
         /*
-        / Fix for Z-hero forms
+        / Fix for Alolan Totem forms
         */
         if(pkmName.includes('totem')) {
             let defaultName = 'unknown-pokemon';
