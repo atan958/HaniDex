@@ -23,22 +23,26 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     }
 
     /*
-    / *** TO BE FURTHER DOCUMENTED ***
-    /
     / Highlights the searched substring from the names of the Pokemon which are shown
     */
     let searchLc = search.toLowerCase();
     let indexOfSearch = pkmData.name.indexOf(searchLc);
     let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
-    
+    /*
+    / Creates the un-highlighted part of the name BEFORE the searched substring
+    */
     let leadingName = pkmName.slice(0,indexOfSearch);
-    
+    /*
+    / Ensures the first letter is capitalized if the searched substring matches the start of the Pokemon's name
+    */
     let searchCased;
     (indexOfSearch==0)?
         searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)
         :
         searchCased = searchLc;
-        
+    /*
+    / Creates the un-highlighted part of the name AFTER the searched substring
+    */    
     let trailingName;
     (indexOfSearch==-1)? 
         trailingName = ''
@@ -46,7 +50,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
     /*
-    / Note: Maybe add the boolean expressions of the JSX?
+    / NOTE: Maybe add the boolean expressions of the JSX?
     */
     return (
         <>
