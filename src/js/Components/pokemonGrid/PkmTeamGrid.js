@@ -38,15 +38,6 @@ const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
 */
 const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     /*
-    / Controls the hover state of the highest-level container of PkmTeamMember component
-    /
-    / Note: toggleHover would not work for this as the remove button can't be clicked
-    */
-    const [hovered, setHovered] = useState(false);
-    const hoverOn = () => { setHovered(true); }
-    const hoverOff = () => { setHovered(false); }
-
-    /*
     / These are the primary contents of each of the team grid's containers
     */
     let pkmName, pkmImg, rmvBtn, hoverTxt;
@@ -71,7 +62,7 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     }
 
     return (
-        <div className={`pkmTeamMember-container tooltip`} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
+        <div className={`pkmTeamMember-container tooltip`}>
             {hoverTxt}
             <div className={'pkmRoar-animation-hovered'}>
                 {pkmImg}
