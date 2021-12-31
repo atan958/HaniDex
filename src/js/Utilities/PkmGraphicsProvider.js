@@ -10,10 +10,19 @@ const providePkmPng = (pkmName) => {
         pkmPng = require(`../../pokemon-assets/assets/img/pokemon/missingno.png`);
 
         /*
-        / Deoxys-normal is non-existant in pokemon-assets img folder
+        / Fix for Deoxys forms
         */
         if(pkmName == 'deoxys-normal') {
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/deoxys.png`);
+            let defaultName = 'deoxys';
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+        }
+
+        /*
+        / Fix for Wormadam forms
+        */
+        if(pkmName == 'wormadam-plant') {
+            let defaultName = 'wormadam';
+            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -23,6 +32,7 @@ const providePkmPng = (pkmName) => {
             let genderedPkmName = pkmName.slice(0, pkmName.length-5);
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${genderedPkmName}.png`);
         }
+
     }
     return pkmPng;
 }
