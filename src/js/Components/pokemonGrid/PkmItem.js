@@ -26,26 +26,28 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     /* Highlights the searched substring from the names of the Pokemon which are shown */
     /***********************************************************************************/
     /*
-    / 
-    */
-    let searchLc = search.trim().toLowerCase();
-    let indexOfSearch = pkmData.name.pkmItem.indexOf(searchLc);
-
-    /*
     / Capitalizes the first letter of the name
     */
-    let pkmName = pkmData.name.pkmItem.charAt(0).toUpperCase() + pkmData.name.pkmItem.slice(1, pkmData.name.pkmItem.length);  console.log(pkmName);
+    let pkmName = pkmData.name.pkmItem.charAt(0).toUpperCase() + pkmData.name.pkmItem.slice(1, pkmData.name.pkmItem.length);
+    /*
+    / Disregards leading and trailing white space AND case-sensitivity of the search
+    */
+    let searchLc = search.trim().toLowerCase();
+    /*
+    / Finds the location of the search in the Pokemon's name
+    */
+    let indexOfSearch = pkmName.toLowerCase().indexOf(searchLc);
 
     /*
     / Creates the un-highlighted part of the name BEFORE the searched substring
     */
     let leadingName = pkmName.slice(0,indexOfSearch);
     /*
-    / Ensures the first letter and letters which come after a white space which match the search are capitalized
+    / Creates the highlighterd part of the name which is the searched part
     */
     let searchCased;
-    (indexOfSearch === 0 || pkmName.toLowerCase().charAt(indexOfSearch-1) === ' ')?
-        searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)
+    (indexOfSearch === 0 || pkmName.charAt(indexOfSearch-1) === ' ')?
+        searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)  // Ensures proper capitalization if searched substring starts on a capital letter (i.e. first letter or after a white space)
         :
         searchCased = searchLc;
     /*
@@ -56,6 +58,9 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         trailingName = ''
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmName.length);
+    /*
+    / *** FINISH *** 
+    */
 
     /*
     / Ensures capitalizations after every space 
