@@ -21,11 +21,6 @@ function App() {
   const [loadingPkm, setLoadingPkm] = useState(true);
 
   /*
-  / *** ...TO BE DETERMINED... ***
-  */
-  const retrievedPokemon = useRef(providePkmData());  // Replace with maybe once calling PokeApi => Call before the setTimeOut
-
-  /*
   / Retrieves the Pokemon data => Called AFTER the App component first mounts
   */
  /*
