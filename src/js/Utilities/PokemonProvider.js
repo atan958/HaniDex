@@ -4,7 +4,7 @@ import { retrievePokeApiData } from './PokeApiController';
 /*
 / A service for providing Pokemon data to the application
 */
-const providePokemonData = async () => {
+const providePkmData = async () => {
     const defaultSelect = false;
 
     let pkmNames = await retrievePokeApiData();
@@ -18,4 +18,4 @@ const providePokemonData = async () => {
     }));
 }
 
-export { providePokemonData }
+export { providePkmData }

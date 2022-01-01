@@ -6,7 +6,7 @@ import axios from 'axios'
 const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon';
 
 /*
-/ A service for retrieving Pokemon data from the PokeApi public API
+/ A service for retrieving Pokemon data from the public API PokeApi 
 */
 const retrievePokeApiData = async () => {
     let pkmData = await axios.get(pokeApiUrl);

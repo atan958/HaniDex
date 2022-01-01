@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
-import axios from 'axios'
 
 import NavBar from './js/Components/navBar/NavBar'
 import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
 
-import { providePokemonData } from './js/Utilities/PokemonProvider';
+import { providePkmData } from './js/Utilities/PokemonProvider';
 
 
 
@@ -24,7 +23,7 @@ function App() {
   /*
   / *** ...TO BE DETERMINED... ***
   */
-  const retrievedPokemon = useRef(providePokemonData());  // Replace with maybe once calling PokeApi => Call before the setTimeOut
+  const retrievedPokemon = useRef(providePkmData());  // Replace with maybe once calling PokeApi => Call before the setTimeOut
 
   /*
   / Retrieves the Pokemon data => Called AFTER the App component first mounts
@@ -44,7 +43,7 @@ useEffect(() => {
 },[]);
 
 const getPkmData = async () => {
-  let pkmData = await providePokemonData();
+  let pkmData = await providePkmData();
   setPokemon(pkmData);
 }
   
