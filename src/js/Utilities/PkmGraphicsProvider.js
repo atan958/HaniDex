@@ -2,19 +2,19 @@
 / A service for providing png files of the Pokemon from pokemon-assets
 */
 const providePkmPng = (pkmName) => {
-    let pkmPng;
+    let spriteReg;
     try {
-        pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${pkmName}.png`);
+        spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${pkmName}.png`);
     }
     catch(e) {
-        pkmPng = require(`../../pokemon-assets/assets/img/pokemon/missingno.png`);
+        spriteReg = require(`../../pokemon-assets/assets/img/pokemon/missingno.png`);
         
         /*
         / Fix for gendered Pokemon (Note: Works for both genders)
         */
         if(pkmName.slice(pkmName.length-4, pkmName.length) === 'male') {
             let genderedPkmName = pkmName.slice(0, pkmName.length-5);
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${genderedPkmName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${genderedPkmName}.png`);
         }
 
         /*
@@ -22,7 +22,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'deoxys-normal') {
             let defaultName = 'deoxys';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -30,7 +30,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'wormadam-plant') {
             let defaultName = 'wormadam';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -38,7 +38,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'giratina-altered') {
             let defaultName = 'giratina';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -46,7 +46,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'shaymin-land') {
             let defaultName = 'shaymin';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -54,7 +54,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'basculin-red-striped') {
             let defaultName = 'basculin';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -68,7 +68,7 @@ const providePkmPng = (pkmName) => {
                     defaultName += pkmName.slice(defaultName.length-6, pkmName.length-6);
                 }
             }
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -76,7 +76,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('incarnate')) {
             let defaultName = pkmName.slice(0, pkmName.length - '-incarnate'.length);
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -84,7 +84,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'keldeo-ordinary') {
             let defaultName = 'keldeo';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -92,7 +92,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'zygarde-50') {
             let defaultName = 'zygarde';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -100,7 +100,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'meloetta-aria') {
             let defaultName = 'meloetta';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -108,7 +108,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('minior') && pkmName.includes('meteor')) {
             let defaultName = 'minior';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -116,7 +116,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'gourgeist-average') {
             let defaultName = 'gourgeist';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -124,7 +124,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'pumpkaboo-average') {
             let defaultName = 'pumpkaboo';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -132,7 +132,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'aegislash-shield') {
             let defaultName = 'aegislash';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -140,7 +140,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'mimikyu-disguised') {
             let defaultName = 'mimikyu';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -148,7 +148,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'greninja-battle-bond') {
             let defaultName = 'unknown-pokemon';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -156,7 +156,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'oricorio-baile') {
             let defaultName = 'oricorio';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -164,7 +164,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'lycanroc-midday') {
             let defaultName = 'lycanroc';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -172,7 +172,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName === 'wishiwashi-solo') {
             let defaultName = 'wishiwashi';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
         
         /*
@@ -182,7 +182,7 @@ const providePkmPng = (pkmName) => {
             let defaultName = 'toxtricity';
             let gmax = '-gmax';
             if(pkmName.includes(gmax)) { defaultName += gmax }
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -190,7 +190,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('eiscue-ice')) {
             let defaultName = 'eiscue';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
         
         /*
@@ -200,7 +200,7 @@ const providePkmPng = (pkmName) => {
             let defaultName = 'urshifu';
             let gmax = '-gmax'
             if(pkmName.includes(gmax)) { defaultName += gmax }
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -208,7 +208,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('-hero')) {
             let defaultName = pkmName.slice(0, pkmName.length - '-hero'.length);
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -216,7 +216,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('totem')) {
             let defaultName = 'unknown-pokemon';
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
         
         /*
@@ -224,7 +224,7 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('-own-tempo')) {
             let defaultName = 'unknown-pokemon'
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -238,7 +238,7 @@ const providePkmPng = (pkmName) => {
             if(pkmName.includes(duskForm[0])) { defaultName = [defaultName, ...duskForm].join('-') }
             if(pkmName.includes(dawnForm[0])) { defaultName = [defaultName, ...dawnForm].join('-') }
 
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
 
         /*
@@ -246,13 +246,13 @@ const providePkmPng = (pkmName) => {
         */
         if(pkmName.includes('-rider')) {
             let defaultName = pkmName.slice(0, pkmName.length - '-rider'.length);
-            pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
+            spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
     }
-    
+
     return {
         sprite: {
-            reg: pkmPng
+            reg: spriteReg
         }
     };
 }
