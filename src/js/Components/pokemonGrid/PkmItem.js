@@ -50,7 +50,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
     /*
-    / NOTE: Maybe add the boolean expressions of the JSX?
+    / NOTE: Maybe add the boolean expressions outside of the JSX?
     */
     return (
         <>
@@ -59,7 +59,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
                 {pkmData.selected? 'Remove' : (atMaxNumPkm? 'Team Full' :'Add')}
             </div>
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
-                <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.shiny}/>
+                <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.reg}/>
             </div>
             <h4>{leadingName}<span style={{color: '#0046FF'}}>{searchCased}</span>{trailingName}</h4>
         </div>

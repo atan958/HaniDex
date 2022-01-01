@@ -59,7 +59,7 @@
     color: rgb(179, 0, 0);
 }
 
-.pkmInfo-img {
+.pkmInfo-img-container {
     box-sizing: border-box;
     display: inline-block;
     position: absolute;
@@ -73,6 +73,9 @@
     border: 3px solid black;
 }
 
+.pkmInfo-img {
+  cursor: pointer;
+}
 
 .pkmInfo-title {
     position: absolute;
