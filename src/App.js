@@ -24,6 +24,9 @@ function App() {
   / Retrieves the Pokemon data => Called AFTER the App component first mounts
   */
   useEffect(() => {
+    /*
+    / Used to transfer data from the PokeApiController to inside the app itself
+    */
     const getPkmData = async () => {
       let pkmData = await providePkmData();
       setPokemon(pkmData);
