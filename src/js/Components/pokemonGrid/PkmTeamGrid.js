@@ -18,7 +18,7 @@ const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
     */
     const renderPlaceHolders = () => {
         let placeHolders = [];
-        for (let i=pkmTeam.length; i!=6; i++) {
+        for (let i=pkmTeam.length; i!==6; i++) {
             console.log('here');
             placeHolders = [...placeHolders, <PkmTeamMember key={Date.now() + i} pkmMember={{}}/>];
         }

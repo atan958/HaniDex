@@ -49,7 +49,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Given there's less than 6 Pokemon AND the Pokemon being added is not already there, respectively
     */
     const addPkm = (pkmData) => {
-        if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm==pkmData).length == 0) {
+        if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm===pkmData).length === 0) {
             console.log('Adding Pokemon ' + pkmData.name.default);
 
             pkmData.selected = true;
@@ -70,7 +70,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
         pkmData.selected = false;
         setSelectedPkm((prevSelectedPkm) => {
             let newSelectedPkm = prevSelectedPkm.filter((prevPkm) => {
-                return prevPkm.name.default != pkmData.name.default;
+                return prevPkm.name.default !== pkmData.name.default;
             });
             return newSelectedPkm;
         });
@@ -153,7 +153,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
             {showContainer ? 
                 <>
                     <FilterBar search={search} setSearch={setSearch}/>
-                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length == 6} showInfo={showInfo} incPkmContentIndex={incPkmContentIndex} decPkmContentIndex={decPkmContentIndex} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn} search={search}/> 
+                    <PkmContainer pkmDataList={shownPkmList} loadingPkm={loadingPkm} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={selectedPkm.length === 6} showInfo={showInfo} incPkmContentIndex={incPkmContentIndex} decPkmContentIndex={decPkmContentIndex} showPrevBtn={showPrevBtn} showNextBtn={showNextBtn} search={search}/> 
                 </>
                 : 
                 <>
