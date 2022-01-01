@@ -55,10 +55,9 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
     /*
-    / Used to 
+    / Used to store the boolean for whether a Pokemon is male or not
     */
     const isMale = useMemo(() => pkmData.gender === 'male', []);
-    console.log(pkmData.name.default + ": " + pkmData.gender);
     
     /*
     / NOTE: Maybe add the boolean expressions outside of the JSX?
