@@ -15,13 +15,12 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     /*
     / Manages the state of the search bar and what's being typed in it;
     */
-    const [search, setSearch] = useState(''); console.log('Search: ' + search);
+    const [search, setSearch] = useState('');
     /*
     / Sets the Pokemon list navigation index back to 0 whenever something is typed into the search bar
     */
     useEffect(() => {
         setPkmContentIndex(0);
-        console.log('Content Index back to default');
     }, [search]);
 
     /*
@@ -134,11 +133,6 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Note: Maybe move this functionality into the PkmContainer component instead?
     */
     let shownPkmList = filteredPkmList.slice(0 + (pkmContentIndex*16),16 + (pkmContentIndex*16));
-    console.log('Filtered Pokemon List: ');
-    console.log(filteredPkmList);
-    console.log('Content Index: ' + pkmContentIndex);
-    console.log('Shown Pokemon List: ');
-    console.log(shownPkmList);
 
     return (
         <>

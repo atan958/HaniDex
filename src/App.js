@@ -23,25 +23,13 @@ function App() {
   /*
   / Retrieves the Pokemon data => Called AFTER the App component first mounts
   */
- /*
   useEffect(() => {
-    setTimeout(() => {
-      setPokemon((prevPkm) => {
-        let pokemon = providePokemonData();
-        return prevPkm.concat(pokemon)
-      })
-    }, 5000);
-  },[]);
-*/
-useEffect(() => {
+    const getPkmData = async () => {
+      let pkmData = await providePkmData();
+      setPokemon(pkmData);
+    }
     getPkmData();
-},[]);
-
-const getPkmData = async () => {
-  let pkmData = await providePkmData();
-  setPokemon(pkmData);
-}
-  
+  },[]);
 
   /*
   / Removes the loading state from Pokemon retrieval => Set to false ONLY AFTER Pokemon are retrieved (i.e. 0 < Pokemon)
