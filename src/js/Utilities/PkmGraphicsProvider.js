@@ -9,6 +9,9 @@ const providePkmPng = (pkmName) => {
         spriteShiny = require(`../../pokemon-assets/assets/img/pokemon/shiny/${pkmName}.png`);
     }
     catch(e) {
+        /*
+        / I don't think this is needed after the transition from pokemon to the pokemon-species endpoint of the PokeApi
+        */
         [spriteReg, spriteShiny] = applyPkmPngFixes(pkmName);
     }
 
@@ -22,6 +25,9 @@ const providePkmPng = (pkmName) => {
 
 export { providePkmPng }
 
+/*
+/ Applies the necessary fixes for the png mapping
+*/
 const applyPkmPngFixes = (pkmName) => {
     let spriteReg, spriteShiny;
 

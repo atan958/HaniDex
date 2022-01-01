@@ -3,12 +3,18 @@ const provideItemDispName = (pkmName) => {
     /*
     / Works for when Pokemon have only a single name
     */
-    if(!pkmName.includes('-') || (!pkmName.includes('mr') && !pkmName.includes('jr'))) { return pkmName }
+    if(!pkmName.includes('-') || (!pkmName.includes('mr') && !pkmName.includes('jr') && !pkmName.includes('nidoran')) && !(pkmName==='type-null')) { return pkmName }
 
     /*
-    / Works for Pokemon with prefix and suffix Mr or Jr respectively
+    / Applies the fixes needed for the display names of Pokemon
     */
     let itemDispName = pkmName;
+    /*
+    / Removes the -m or -f suffixes from Nidoran
+    */
+    if(itemDispName.includes('nidoran')) {
+        return itemDispName.slice(0,itemDispName.length-2);
+    }
     /*
     / Adds a dot at the end of Mr
     */
@@ -28,7 +34,16 @@ const provideItemDispName = (pkmName) => {
         itemDispName = letters.join('');
     }
     /*
-    / Replaces hyphens with spaces
+    / Adds a colon after Type for the pokemon "Type: Null"
+    */
+    if(itemDispName ==='type-null') {
+        let indexOfDash = pkmName.indexOf('-');
+        let letters = pkmName.split('');
+        letters.splice(indexOfDash, 0, ':');
+        itemDispName = letters.join('');
+    }
+    /*
+    / Replaces all hyphens with spaces
     */
     itemDispName = itemDispName.split('-').join(' ');
 

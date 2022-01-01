@@ -28,7 +28,6 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Used to manage which content (HaniDex or the Welcome) to display;
     /
     / Intitial states => true: "HaniDex", false: "Welcome"
-    /
     */
     const [showContainer, setShowContainer] = useState(true);
     /*
@@ -125,7 +124,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     const decPkmContentIndex = () => { setPkmContentIndex(pkmContentIndex - 1); }
 
     /*
-    / *** TO BE DOCUMENTED ***
+    / Boolean values used to determine whether or not to show the previous and next buttons respectively
     */
     const showPrevBtn = pkmContentIndex > 0;
     const showNextBtn = (filteredPkmList.length / 16) > (pkmContentIndex + 1);
