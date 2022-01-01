@@ -10,7 +10,7 @@ const providePokemonData = async () => {
     let pkmNames = await retrievePokeApiData();
     
     return (pkmNames.map((pkmName) => {
-        let pkmPng = providePkmPng(pkmName);
+        const pkmPng = providePkmPng(pkmName);
         return { 
             name: pkmName, 
             png: pkmPng,

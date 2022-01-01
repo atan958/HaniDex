@@ -321,5 +321,6 @@ const applyPkmPngFixes = (pkmName) => {
         spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         spriteShiny = require(`../../pokemon-assets/assets/img/pokemon/shiny/${defaultName}.png`);
     }
+    
     return [spriteReg, spriteShiny];
 }
