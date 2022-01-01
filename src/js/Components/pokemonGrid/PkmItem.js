@@ -76,12 +76,12 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     });
 
     /*
-    / Used to store the boolean for whether a Pokemon is male or not
+    / Used to store the boolean for whether the Pokemon is male or not
     */
     const isMale = useMemo(() => pkmData.gender === 'male', []);
     
     /*
-    / NOTE: Maybe add the boolean expressions outside of the JSX?
+    / NOTE: Maybe place the boolean expressions outside of the JSX?
     */
     return (
         <>
