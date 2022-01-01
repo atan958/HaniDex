@@ -22,7 +22,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                     <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg} onClick={toggleShowShiny} width="220px" height="280px"></img>
                 </div>
                 <div className="pkmInfo-title">
-                    {pkmToShow.name.charAt(0).toUpperCase() + pkmToShow.name.slice(1,pkmToShow.name.length)}
+                    {pkmToShow.name.default.charAt(0).toUpperCase() + pkmToShow.name.default.slice(1,pkmToShow.name.default.length)}
                 </div>
             </div>
         </div>

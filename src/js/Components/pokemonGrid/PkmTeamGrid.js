@@ -9,7 +9,7 @@ const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
     */
     const renderPkmMembers = () => {
         return pkmTeam.map((pkmMember) => {
-            return <PkmTeamMember key={pkmMember.name} pkmMember={pkmMember} rmvPkm={rmvPkm}/>
+            return <PkmTeamMember key={pkmMember.name.default} pkmMember={pkmMember} rmvPkm={rmvPkm}/>
         });
     }
 
@@ -43,10 +43,15 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     let pkmName, pkmImg, rmvBtn, hoverTxt;
     
     /*
+    / *** TO BE MODIFIED ***
+    */
+    let usedPkmName = pkmMember.name.default;
+
+    /*
     / try is used to produce the corresponding content for each of the team members;
     */
     try {
-        pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
+        pkmName = usedPkmName.charAt(0).toUpperCase() + usedPkmName.slice(1, usedPkmName.length);
         hoverTxt = <span className="tooltiptext">{pkmName}</span>;
         pkmImg = <img src={pkmMember.png.sprite.reg} className="pkmShake-animation-hovered" width="62" height="70" />
         rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>X</button>;

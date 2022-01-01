@@ -21,13 +21,14 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         :
         addPkm(pkmData)
     }
+    let usedPkmName = pkmData.name.default
 
     /*
     / Highlights the searched substring from the names of the Pokemon which are shown
     */
     let searchLc = search.toLowerCase();
-    let indexOfSearch = pkmData.name.indexOf(searchLc);
-    let pkmName = pkmData.name.charAt(0).toUpperCase() + pkmData.name.slice(1, pkmData.name.length);
+    let indexOfSearch = usedPkmName.indexOf(searchLc);
+    let pkmName = usedPkmName.charAt(0).toUpperCase() + usedPkmName.slice(1, usedPkmName.length);
     /*
     / Creates the un-highlighted part of the name BEFORE the searched substring
     */

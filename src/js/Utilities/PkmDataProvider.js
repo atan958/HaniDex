@@ -7,12 +7,14 @@ import { retrievePokeApiData } from './PokeApiController';
 const providePkmData = async () => {
     const defaultSelect = false;
 
-    let pkmNames = await retrievePokeApiData();
+    let pokeApiData = await retrievePokeApiData();
     
-    return (pkmNames.map((pkmName) => {
-        const pkmPng = providePkmPng(pkmName);
+    return (pokeApiData.map((pkmData) => {
+        const pkmPng = providePkmPng(pkmData.name);
         return { 
-            name: pkmName, 
+            name: {
+                default: pkmData.name
+            }, 
             png: pkmPng,
             selected: defaultSelect };
     }));

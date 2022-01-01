@@ -1,5 +1,5 @@
 /*
-/ A service for providing png files of the Pokemon from pokemon-assets
+/ A service for providing png files for a given Pokemon
 */
 const providePkmPng = (pkmName) => {
     let spriteReg, spriteShiny;
