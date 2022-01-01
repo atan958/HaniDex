@@ -21,6 +21,10 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         :
         addPkm(pkmData)
     }
+
+    /*
+    / Note: To be replaced with pkmData.name.item
+    */
     let usedPkmName = pkmData.name.default
 
     /*
@@ -50,6 +54,8 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
+    const isMale = false;
+    
     /*
     / NOTE: Maybe add the boolean expressions outside of the JSX?
     */
@@ -62,7 +68,13 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
                 <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.reg}/>
             </div>
-            <h4>{leadingName}<span style={{color: '#0046FF'}}>{searchCased}</span>{trailingName}</h4>
+            <h4 className={true && isMale? 'pkmGender-male' : 'pkmGender-female'}>
+                {leadingName}
+                <span style={{color: '#0046FF'}}>
+                    {searchCased}
+                </span>
+                {trailingName}
+            </h4>
         </div>
         </>
     )
