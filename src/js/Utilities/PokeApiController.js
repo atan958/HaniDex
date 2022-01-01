@@ -3,7 +3,7 @@ import axios from 'axios'
 /*
 / The URL for PokeApi
 */
-const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon';
+const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon-species';
 
 /*
 / A service for retrieving Pokemon data from the public API PokeApi 
@@ -14,7 +14,7 @@ const retrievePokeApiData = async () => {
     let pokeApiData = await axios.get(pokeApiUrl);
     let filteredData = getFilteredData(pokeApiData);
 
-    for (let i=0; i<55; i++) {
+    for (let i=0; i<44; i++) {
         let pokeApiNextUrl = pokeApiData.data.next;
         pokeApiData = await axios.get(pokeApiNextUrl);
         filteredData = filteredData.concat(getFilteredData(pokeApiData));

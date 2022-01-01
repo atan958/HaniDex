@@ -1,5 +1,5 @@
 /*
-/ Provides the correct gender for any Pokemon which are specified one
+/ Provides the correct gender for any Pokemon which are specified one => NOT NEEDED
 */
 const providePkmGender = (pkmName) => {
     const pkmGender = pkmName.slice(pkmName.length-2, pkmName.length);

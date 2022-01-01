@@ -25,14 +25,21 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     /*
     / Note: To be replaced with pkmData.name.item
     */
-    let usedPkmName = pkmData.name.default.toLowerCase();
+    //let usedPkmName = pkmData.name.pkmItem.toLowerCase();
 
     /*
     / Highlights the searched substring from the names of the Pokemon which are shown
     */
     let searchLc = search.toLowerCase();
-    let indexOfSearch = usedPkmName.indexOf(searchLc);
-    let pkmName = usedPkmName.charAt(0).toUpperCase() + usedPkmName.slice(1, usedPkmName.length);
+    let indexOfSearch = pkmData.name.pkmItem.indexOf(searchLc); console.log('Data Name: ' + pkmData.name.pkmItem);
+
+    /*
+    / *** ALREADY CAPITALIZED ***
+    */
+    let pkmName = pkmData.name.pkmItem.charAt(0).toUpperCase() + pkmData.name.pkmItem.slice(1, pkmData.name.pkmItem.length);  console.log(pkmName);
+
+
+
     /*
     / Creates the un-highlighted part of the name BEFORE the searched substring
     */
@@ -41,7 +48,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     / Ensures the first letter and letters which come after a white space which match the search are capitalized
     */
     let searchCased;
-    (indexOfSearch === 0 || usedPkmName.charAt(indexOfSearch-1) === ' ')?
+    (indexOfSearch === 0 || pkmData.name.pkmItem.charAt(indexOfSearch-1) === ' ')?
         searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)
         :
         searchCased = searchLc;
@@ -53,6 +60,33 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         trailingName = ''
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
+
+    /*
+    / *** TO BE REMOVED ***
+    */
+   /*
+    console.log('Search Index: ' + indexOfSearch);
+    console.log('Leading: [' + leadingName + ']');
+    console.log('SearchCased: [' + searchCased + ']');
+    console.log('Trailing: [' + trailingName + ']');
+    */
+
+    /*
+    / Capitalizes after evey space 
+    /
+    / Note: This assumes there's only a single space in the name
+    */
+    [leadingName, searchCased, trailingName] = [leadingName, searchCased, trailingName].map((namePart) => {
+        if(namePart.includes(' ')) {
+            let indexOfSpace = namePart.indexOf(' ');
+            namePart = namePart.slice(0,indexOfSpace+1) + namePart.charAt(indexOfSpace+1).toUpperCase() + namePart.slice(indexOfSpace+2,namePart.length);
+        }
+        return namePart;
+    });
+    /*
+    / Ensures correct capitalization when a space itself typed onto the search bar
+    */
+    if(searchCased === ' ') { trailingName = trailingName.charAt(0).toUpperCase() + trailingName.slice(1, trailingName.length); }
 
     /*
     / Used to store the boolean for whether a Pokemon is male or not
@@ -84,6 +118,21 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
 }
 
 export default PkmItem
+
+/*
+    if(leadingName.includes(' ')) {
+        let i = leadingName.indexOf(' ');
+        leadingName = leadingName.slice(0,i+1) + leadingName.charAt(i+1).toUpperCase() + leadingName.slice(i+2,leadingName.length);
+    }
+    if(searchCased.includes(' ')) {
+        let i = searchCased.indexOf(' ');
+        searchCased = searchCased.slice(0,i+1) + searchCased.charAt(i+1).toUpperCase() + searchCased.slice(i+2,searchCased.length);
+    }
+    if(trailingName.includes(' ')) {
+        let i = trailingName.indexOf(' ');
+        trailingName = trailingName.slice(0,i+1) + trailingName.charAt(i+1).toUpperCase() + trailingName.slice(i+2,trailingName.length);
+    }
+*/
 
 
 // Note: shake-animation is a global css animation so "hovered" state is valid?

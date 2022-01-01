@@ -179,7 +179,8 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 const filterBySearch = (pkmDataList, search) => {
     console.log('filterBySearch is called');
     let filteredPkmList = pkmDataList.filter((pkmData) => {
-        return pkmData.name.default.includes(search.toLowerCase());
+        //console.log('HELLOW: ' + pkmData.name.pkmItem);
+        return pkmData.name.pkmItem.includes(search.toLowerCase());
     });
     return filteredPkmList;
 }

@@ -9,6 +9,10 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
     const [showShiny, setShowShiny] = useState(false);
     const toggleShowShiny = () => { setShowShiny(!showShiny) };
 
+    const displayName = pkmToShow.name.pkmItem.split(' ').map((namePart) => {
+        return namePart.charAt(0).toUpperCase() + namePart.slice(1, namePart.length);
+    }).join(' ');
+
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
@@ -22,7 +26,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                     <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg} onClick={toggleShowShiny} width="220px" height="280px"></img>
                 </div>
                 <div className="pkmInfo-title">
-                    {pkmToShow.name.default.charAt(0).toUpperCase() + pkmToShow.name.default.slice(1,pkmToShow.name.default.length)}
+                    {displayName}
                 </div>
             </div>
         </div>
