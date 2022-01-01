@@ -249,7 +249,12 @@ const providePkmPng = (pkmName) => {
             pkmPng = require(`../../pokemon-assets/assets/img/pokemon/${defaultName}.png`);
         }
     }
-    return pkmPng;
+    
+    return {
+        sprite: {
+            reg: pkmPng
+        }
+    };
 }
 
 export { providePkmPng }

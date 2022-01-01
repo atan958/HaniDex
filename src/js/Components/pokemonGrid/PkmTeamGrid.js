@@ -48,7 +48,7 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     try {
         pkmName = pkmMember.name.charAt(0).toUpperCase() + pkmMember.name.slice(1,pkmMember.name.length);
         hoverTxt = <span className="tooltiptext">{pkmName}</span>;
-        pkmImg = <img src={pkmMember.png} className="pkmShake-animation-hovered" width="62" height="70" ></img>
+        pkmImg = <img src={pkmMember.png.sprite.reg} className="pkmShake-animation-hovered" width="62" height="70" />
         rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>X</button>;
     } 
     /*
