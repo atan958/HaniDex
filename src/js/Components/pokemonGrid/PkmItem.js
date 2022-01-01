@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 import '../../../animations/pkm-grid/pkmItem-anm.css'
 
@@ -25,7 +25,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     /*
     / Note: To be replaced with pkmData.name.item
     */
-    let usedPkmName = pkmData.name.default
+    let usedPkmName = pkmData.name.default.toLowerCase();
 
     /*
     / Highlights the searched substring from the names of the Pokemon which are shown
@@ -38,10 +38,10 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     */
     let leadingName = pkmName.slice(0,indexOfSearch);
     /*
-    / Ensures the first letter is capitalized if the searched substring matches the start of the Pokemon's name
+    / Ensures the first letter and letters which come after a white space which match the search are capitalized
     */
     let searchCased;
-    (indexOfSearch === 0)?
+    (indexOfSearch === 0 || usedPkmName.charAt(indexOfSearch-1) === ' ')?
         searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)
         :
         searchCased = searchLc;
@@ -54,7 +54,10 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
-    const isMale = pkmData.gender === 'male';
+    /*
+    / Used to 
+    */
+    const isMale = useMemo(() => pkmData.gender === 'male', []);
     console.log(pkmData.name.default + ": " + pkmData.gender);
     
     /*

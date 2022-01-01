@@ -1,15 +1,11 @@
-const getItemDispName = (pkmName) => {
+const provideItemDispName = (pkmName) => {
 
     /*
     / This works for the Pokemon with only a single name (i.e. no hyphens)
     */
     if(!pkmName.includes('-')) { return pkmName.charAt(0).toUpperCase() + pkmName.slice(1,pkmName.length) }
 
-    let itemDispNameArr = pkmName
-        .split('-')
-        .filter((name) => {
-            return name != 'm' && name != 'f' && name != 'mega';
-        });
+    let itemDispNameArr = pkmName.split('-');
         
     /*
     if (itemDispNameArr[0] === 'deoxys' ||
@@ -26,10 +22,9 @@ const getItemDispName = (pkmName) => {
 
     let itemDispName = itemDispNameArr.map((name) => {
         return name.charAt(0).toUpperCase() + name.slice(1,name.length)
-    })
-    .join(' ')
+    }).join(' ');
 
     return itemDispName;
 };
 
-export { getItemDispName }
+export { provideItemDispName }
