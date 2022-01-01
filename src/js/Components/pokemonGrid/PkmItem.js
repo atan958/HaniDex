@@ -36,7 +36,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     / Ensures the first letter is capitalized if the searched substring matches the start of the Pokemon's name
     */
     let searchCased;
-    (indexOfSearch==0)?
+    (indexOfSearch === 0)?
         searchCased = searchLc.charAt(0).toUpperCase() + searchLc.slice(1,searchLc.length)
         :
         searchCased = searchLc;
@@ -44,7 +44,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     / Creates the un-highlighted part of the name AFTER the searched substring
     */    
     let trailingName;
-    (indexOfSearch==-1)? 
+    (indexOfSearch === -1)? 
         trailingName = ''
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
@@ -59,7 +59,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
                 {pkmData.selected? 'Remove' : (atMaxNumPkm? 'Team Full' :'Add')}
             </div>
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
-                <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.reg}/>
+                <img className={`pkmItem-img ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.shiny}/>
             </div>
             <h4>{leadingName}<span style={{color: '#0046FF'}}>{searchCased}</span>{trailingName}</h4>
         </div>
