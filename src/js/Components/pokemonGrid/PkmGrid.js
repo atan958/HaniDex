@@ -110,7 +110,6 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     */
     useEffect(() => {
         setFilteredPkmList(filterBySearch(pkmDataList, search));
-        console.log('Filtering Pokemon By Search');
     }, [search, pkmDataList]);
 
     /*
@@ -176,18 +175,8 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
 / Filters the list of Pokemon to pass down to PkmContainer by what's currently type in the search bar
 */
 const filterBySearch = (pkmDataList, search) => {
-    console.log('filterBySearch is called');
     let filteredPkmList = pkmDataList.filter((pkmData) => {
-        //console.log('HELLOW: ' + pkmData.name.pkmItem);
         return pkmData.name.pkmItem.includes(search.trim().toLowerCase());
-    });
-    return filteredPkmList;
-}
-
-const filterBySearch1 = (pkmDataList, search) => {
-    console.log('filterBySearch is called');
-    let filteredPkmList = pkmDataList.filter((pkmData) => {
-        return pkmData.png.includes(search.toLowerCase());
     });
     return filteredPkmList;
 }
