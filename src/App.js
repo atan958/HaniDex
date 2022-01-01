@@ -4,7 +4,7 @@ import NavBar from './js/Components/navBar/NavBar'
 import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
 
-import { providePkmData } from './js/Utilities/PokemonProvider';
+import { providePkmData } from './js/Utilities/PkmDataProvider';
 
 
 
