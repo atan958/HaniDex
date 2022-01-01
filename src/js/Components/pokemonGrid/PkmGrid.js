@@ -52,7 +52,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     */
     const addPkm = (pkmData) => {
         if (selectedPkm.length < 6 && selectedPkm.filter((prevPkm) => prevPkm==pkmData).length == 0) {
-            console.log('Adding Pokemon ' + pkmData.name);
+            console.log('Adding Pokemon ' + pkmData.name.default);
 
             pkmData.selected = true;
             setSelectedPkm((prevSelectedPkm) => {
@@ -67,12 +67,12 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
     / Removes the data of a specified Pokemon from the "selectedPkm" state
     */
     const rmvPkm = (pkmData) => {
-        console.log('Removing Pokemon ' + pkmData.name);
+        console.log('Removing Pokemon ' + pkmData.name.default);
 
         pkmData.selected = false;
         setSelectedPkm((prevSelectedPkm) => {
             let newSelectedPkm = prevSelectedPkm.filter((prevPkm) => {
-                return prevPkm.name != pkmData.name;
+                return prevPkm.name.default != pkmData.name.default;
             });
             return newSelectedPkm;
         });
