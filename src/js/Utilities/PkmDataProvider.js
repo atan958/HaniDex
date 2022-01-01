@@ -1,3 +1,4 @@
+import { providePkmGender } from './PkmGenderProvider';
 import { providePkmPng } from './PkmGraphicsProvider'
 import { retrievePokeApiData } from './PokeApiController';
 
@@ -11,10 +12,13 @@ const providePkmData = async () => {
     
     return (pokeApiData.map((pkmData) => {
         const pkmPng = providePkmPng(pkmData.name);
+        const pkmGender = providePkmGender(pkmData.name);
+
         return { 
             name: {
                 default: pkmData.name
             }, 
+            gender: pkmGender,
             png: pkmPng,
             selected: defaultSelect };
     }));
