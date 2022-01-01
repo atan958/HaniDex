@@ -23,14 +23,9 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     }
 
     /*
-    / Note: To be replaced with pkmData.name.item
-    */
-    //let usedPkmName = pkmData.name.pkmItem.toLowerCase();
-
-    /*
     / Highlights the searched substring from the names of the Pokemon which are shown
     */
-    let searchLc = search.toLowerCase();
+    let searchLc = search.trim().toLowerCase();
     let indexOfSearch = pkmData.name.pkmItem.indexOf(searchLc); console.log('Data Name: ' + pkmData.name.pkmItem);
 
     /*
@@ -62,17 +57,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmData.name.length);
 
     /*
-    / *** TO BE REMOVED ***
-    */
-   /*
-    console.log('Search Index: ' + indexOfSearch);
-    console.log('Leading: [' + leadingName + ']');
-    console.log('SearchCased: [' + searchCased + ']');
-    console.log('Trailing: [' + trailingName + ']');
-    */
-
-    /*
-    / Capitalizes after evey space 
+    / Ensures correct capitalizations after evey space 
     /
     / Note: This assumes there's only a single space in the name
     */
@@ -83,10 +68,6 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         }
         return namePart;
     });
-    /*
-    / Ensures correct capitalization when a space itself typed onto the search bar
-    */
-    if(searchCased === ' ') { trailingName = trailingName.charAt(0).toUpperCase() + trailingName.slice(1, trailingName.length); }
 
     /*
     / Used to store the boolean for whether a Pokemon is male or not

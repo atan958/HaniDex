@@ -180,7 +180,7 @@ const filterBySearch = (pkmDataList, search) => {
     console.log('filterBySearch is called');
     let filteredPkmList = pkmDataList.filter((pkmData) => {
         //console.log('HELLOW: ' + pkmData.name.pkmItem);
-        return pkmData.name.pkmItem.includes(search.toLowerCase());
+        return pkmData.name.pkmItem.includes(search.trim().toLowerCase());
     });
     return filteredPkmList;
 }

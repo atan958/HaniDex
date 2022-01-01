@@ -1,16 +1,36 @@
 const provideItemDispName = (pkmName) => {
 
     /*
-    / Works for thecase when Pokemon have only a single name
+    / Works for when Pokemon have only a single name
     */
     if(!pkmName.includes('-') || (!pkmName.includes('mr') && !pkmName.includes('jr'))) { return pkmName }
 
-    if(pkmName.includes('mr')) {
+    /*
+    / Works for Pokemon with prefix and suffix Mr or Jr respectively
+    */
+    let itemDispName = pkmName;
+    /*
+    / Adds a dot at the end of Mr
+    */
+    if(itemDispName.includes('mr')) {
         let indexOfMr = pkmName.indexOf('mr');
-        
+        let letters = pkmName.split('');
+        letters.splice(indexOfMr + 2, 0, '.');
+        itemDispName = letters.join('');
     }
-
-    let itemDispName = pkmName.split('-').join(' ');
+    /*
+    / Adds a dot at the end of Jr
+    */
+    if(itemDispName.includes('jr')) {
+        let indexOfJr = pkmName.indexOf('jr');
+        let letters = pkmName.split('');
+        letters.splice(indexOfJr + 2, 0, '.');
+        itemDispName = letters.join('');
+    }
+    /*
+    / Replaces hyphens with spaces
+    */
+    itemDispName = itemDispName.split('-').join(' ');
 
     return itemDispName;
 };
