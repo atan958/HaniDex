@@ -100,6 +100,10 @@
   position: absolute;
   width: 350px;
   
-  left: 80px;
+  left: 50px;
   bottom: 80px;
+
+  border: 3px solid green;
+
+  background-color: greenyellow;
 }
