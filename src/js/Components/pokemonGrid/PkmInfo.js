@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react'
 
+import { provideMiscPng } from '../../Utilities/PkmGraphicsProvider';
+
 import '../../../css/PkmInfo.css'
 
 /*
@@ -45,7 +47,10 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                     </div>
                 </div>
                 <div className="pkmInfo-img-container">
-                    <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg} onClick={toggleShowShiny} width="220px" height="280px"></img>
+                    <div className="mega-stone-btn">
+                        <img src={provideMiscPng('shiny-sym')} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
+                    </div>
+                    <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg}></img>
                 </div>
                 <div className="pkmInfo-title">
                     {displayName}

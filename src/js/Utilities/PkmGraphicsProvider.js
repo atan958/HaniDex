@@ -27,7 +27,25 @@ const providePkmPng = (pkmName) => {
     };
 }
 
-export { providePkmPng }
+const provideMiscPng = (misc) => {
+    let miscPng;
+    
+    switch(misc) {
+        case 'mega-stone':
+            miscPng = 'https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/form-mega2.png';
+            break;
+        case 'shiny-sym':
+            miscPng = require('../../angelo-assets/shiny-sym.png');
+            break;
+        default:
+            miscPng = '../../angelo-assets/missingno.png';
+    }
+
+    return miscPng;
+}
+
+
+export { providePkmPng, provideMiscPng }
 
 /*
 try {
