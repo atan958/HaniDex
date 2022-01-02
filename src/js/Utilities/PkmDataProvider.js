@@ -25,7 +25,9 @@ const providePkmData = async () => {
             id: pkmData.id,
             gender: pkmGender,
             png: pkmPng,
-            selected: defaultSelect };
+            desc: pkmData.desc,
+            selected: defaultSelect
+        };
     }));
 }
 

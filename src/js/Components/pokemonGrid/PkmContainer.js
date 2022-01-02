@@ -8,6 +8,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
     / Creates a collection of PkmItem components; 1 for each Pokemon in the list
     */
     const pkmItemList = pkmDataList.map((pkmData) => {
+        //console.log(pkmData.name.default + ": " + pkmData.desc.default);
         return <PkmItem key={pkmData.name.default} pkmData={pkmData} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={atMaxNumPkm} showInfo={showInfo} search={search}/>
     });
 

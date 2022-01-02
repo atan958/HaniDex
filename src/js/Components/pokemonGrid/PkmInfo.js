@@ -17,6 +17,11 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
             <div className="pkmInfo-content">
+                <div className="pkmInfo-desc">
+                    <p>
+                        {pkmToShow.desc.default}
+                    </p>
+                </div>
                 <div className="overlay-closeBtn-container">
                     <div className="overlay-close-btn" onClick={hideInfo}>
                         &times;
@@ -25,7 +30,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 <div className="pkmInfo-img-container">
                     <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg} onClick={toggleShowShiny} width="220px" height="280px"></img>
                 </div>
-                <div className="pkmInfo-title">
+                <div className="pkmInfo-title" style={{  }}>
                     {displayName}
                 </div>
             </div>

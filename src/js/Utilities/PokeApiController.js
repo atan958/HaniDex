@@ -23,25 +23,26 @@ const retrievePokeApiData = async () => {
 }
 
 /*
-/ Returns an array of Pokemon objects which contain the necessary data for the app from the API
+/ Helper Method: Returns an array of Pokemon objects which contain the necessary data from PokeApi
 /
 / Each object contains the respective pokemon's name, number, description, stats, etc.
 */
-const getFilteredData1 = (pokeApiData) => {
-    let filteredData = pokeApiData.data.results.map((pkmData) => {
-        return {
-            name: pkmData.name,
-        };
-    });
-    return filteredData;
-}
-
 const getFilteredData = async (pokeApiData) => {
     let filteredData = await Promise.all(pokeApiData.data.results.map(async (pkmData) => {
         let pkmSpcData = (await axios.get(pkmData.url)).data;
+
+        const name = pkmData.name;
+        const id = pkmSpcData.id;
+        const descDefault = pkmSpcData.flavor_text_entries.filter((entry) => {
+            return entry.language.name === "en";
+        })[0].flavor_text;
+
         return {
-            name: pkmData.name,
-            id: pkmSpcData.id
+            name: name,
+            id: id,
+            desc: {
+                default: descDefault
+            }
         };
     }));
 
