@@ -16,6 +16,9 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
         return namePart.charAt(0).toUpperCase() + namePart.slice(1, namePart.length);
     }).join(' ');
 
+    /*
+    / Description to show => Decided not to use
+    */
     const descToShow = rmvEscChars(pkmToShow.desc.default);
 
     const renderStatProgBars = () => {
@@ -33,7 +36,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 </div>
                 <div className="pkmInfo-desc fadeIn-animation">
                     <p>
-                        {descToShow}
+                        {pkmToShow.desc.default}
                     </p>
                 </div>
                 <div className="overlay-closeBtn-container">
@@ -77,24 +80,31 @@ const PkmStatProgBar = ({ stat }) => {
 }
 
 /*
-/ Removes the escape character \f from some of the Pokemon text entries which shows up as a black blotch
+/ Removes the escape character \f, \n from some of the Pokemon text entries which shows up as a black blotch
 */
 const rmvEscChars = (pkmDesc) => {
     console.log(pkmDesc.split(''));
     let descDefault = pkmDesc;
-    if(descDefault.includes('\f')) {
+    while(descDefault.includes('\f')) {
         let i = descDefault.indexOf('\f');
         console.log('f: ' + i)
         let descArr = descDefault.split('');
-        descArr.splice(i,1,' ');
+        console.log(descArr[i-1].length);
+        (descArr[i-1].length>0)?
+            descArr[i] = ''
+            :
+            descArr[i] = ' ';
+        console.log(descArr);
         descDefault = descArr.join('');
     }
-    if(descDefault.includes('\n')) {
+    while(descDefault.includes('\n')) {
         let i = descDefault.indexOf('\n');
         console.log('n: ' + i);
         let descArr = descDefault.split('');
         //descArr.splice(i,1,' ');
+        console.log(descArr);
         descArr[i] = ' ';
+        console.log(descArr);
         descDefault = descArr.join('');
     }
     return descDefault;
