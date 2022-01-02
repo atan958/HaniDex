@@ -19,7 +19,7 @@ const PkmTeam = ({ pkmTeam, rmvPkm }) => {
 
     return (
         <>
-        <div className={`pkmTeam-container fadeIn-animation`} onClick={() => console.log()} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
+        <div className={`pkmTeam-container fasterFadeIn-animation`} onClick={() => console.log()} onMouseOver={hoverOn} onMouseLeave={hoverOff}>
             {hovered && <PkmTeamGrid pkmTeam={pkmTeam} rmvPkm={rmvPkm}/>}
             <div className={`pkmTeamIcon-container ${hovered && 'pkmTeamIcon-container-extension'}`}>
                 <img src={pkmTrainer}  className={`pkmTeamIcon ${hovered && 'rattle-animation'}`}/>

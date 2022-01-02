@@ -54,17 +54,17 @@
   .fasterFadeIn-half-animation {
     text-align: center;
   
-    -webkit-animation: fasterFadeIn 0.8s; /* Safari, Chrome and Opera > 12.1 */
-            animation: fasterFadeIn 0.8s;
+    -webkit-animation: fasterFadeInH 0.8s; /* Safari, Chrome and Opera > 12.1 */
+            animation: fasterFadeInH 0.8s;
   }
   
-  @-webkit-keyframes fasterFadeIn {
+  @-webkit-keyframes fasterFadeInH {
     from { opacity: 0.5; }
     to   { opacity: 1; }
   }
   
-  @keyframes fasterFadeIn {
-    from { opacity: 0; }
+  @keyframes fasterFadeInH {
+    from { opacity: 0.5; }
     to   { opacity: 1; }
   }
 
@@ -93,3 +93,14 @@
     }
   }
 
+  .imgFadeIn-animation {
+    position: relative;
+    top:0px;
+
+    animation: img-fadeIn 1.5s ease forwards;
+  }
+  
+  @keyframes img-fadeIn{
+    0%{opacity: 0}
+    100%{opacity: 1}
+  }

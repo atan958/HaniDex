@@ -2,18 +2,21 @@
 / A service for providing png files for a given Pokemon
 */
 const providePkmPng = (pkmName) => {
-    let spriteReg, spriteShiny;
+    let spriteReg, spriteShiny = null;
 
-    try {
-        spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${pkmName}.png`);
-        spriteShiny = require(`../../pokemon-assets/assets/img/pokemon/shiny/${pkmName}.png`);
+    try {    
+        /*
+        / Uses the assets of an open-source GitHub repo to retrieve Pokemon image sprites from
+        */
+        spriteReg = `https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/pokemon/${pkmName}.png`;
+        spriteShiny = `https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/pokemon/shiny/${pkmName}.png`;
     }
     catch(e) {
         /*
-        / I don't think this is needed after the transition from pokemon to the pokemon-species endpoint of the PokeApi
+        / Defaults to the missingno png which is stored in the src folder => Throws a GET error which can't be caught??
         */
-        console.log(e);
-        [spriteReg, spriteShiny] = applyPkmPngFixes(pkmName);
+        spriteReg = require(`../../angelo-assets/missingno.png`);
+        spriteShiny = require(`../../angelo-assets/missingno.png`);
     }
 
     return {
@@ -25,6 +28,16 @@ const providePkmPng = (pkmName) => {
 }
 
 export { providePkmPng }
+
+/*
+try {
+    spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${pkmName}.png`);
+    spriteShiny = require(`../../pokemon-assets/assets/img/pokemon/shiny/${pkmName}.png`);
+}
+catch(e) {
+    [spriteReg, spriteShiny] = applyPkmPngFixes(pkmName);
+}
+*/
 
 /*
 / Applies the necessary fixes for the png mapping
