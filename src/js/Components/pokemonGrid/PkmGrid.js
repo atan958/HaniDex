@@ -146,7 +146,7 @@ const PkmGrid = ({ pkmDataList, loadingPkm }) => {
                         DEX
                     </span>
                 </div>
-                <PkmTeam pkmTeam={selectedPkm} rmvPkm={rmvPkm}/>
+                <PkmTeam pkmTeam={selectedPkm} rmvPkm={rmvPkm} showInfo={showInfo}/>
                 </>
             }
             <PkbBtn loadingPkm={loadingPkm} togglePkbBtn={toggleShowContainer}/>

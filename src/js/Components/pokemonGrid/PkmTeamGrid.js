@@ -3,13 +3,13 @@ import '../../../animations/pkm-grid/pkmTeamMember-anm.css'
 /*
 / Displays the "selected" Pokemon (i.e. team members)
 */
-const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
+const PkmTeamGrid = ({ pkmTeam, rmvPkm, showInfo }) => {
     /*
     / Loads all selected Pokemon (i.e. members) onto the team grid
     */
     const renderPkmMembers = () => {
         return pkmTeam.map((pkmMember) => {
-            return <PkmTeamMember key={pkmMember.name.default} pkmMember={pkmMember} rmvPkm={rmvPkm}/>
+            return <PkmTeamMember key={pkmMember.name.default} pkmMember={pkmMember} rmvPkm={rmvPkm} showInfo={showInfo}/>
         });
     }
 
@@ -36,7 +36,7 @@ const PkmTeamGrid = ({ pkmTeam, rmvPkm }) => {
 /*
 / Used for displaying each of the selected Pokemon
 */
-const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
+const PkmTeamMember = ({ pkmMember, rmvPkm, showInfo }) => {
     /*
     / These are the primary contents of each of the team grid's member containers
     */
@@ -64,7 +64,7 @@ const PkmTeamMember = ({ pkmMember, rmvPkm }) => {
     return (
         <div className={`pkmTeamMember-container tooltip`}>
             {hoverTxt}
-            <div className={'pkmRoar-animation-hovered'}>
+            <div className={'pkmRoar-animation-hovered'} onClick={() => showInfo(pkmMember)}>
                 {pkmImg}
             </div>
             {rmvBtn}

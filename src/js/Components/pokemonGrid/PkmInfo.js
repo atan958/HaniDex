@@ -29,6 +29,15 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
         });
     }
 
+    /*
+    / Creates the img components for the Pokemon's shiny and regular forms
+    */
+    const [shinyImg, regImg] = [pkmToShow.png.sprite.shiny, pkmToShow.png.sprite.reg].map((pkmPng) => {
+        return(
+            <PkmInfoImg imgSrc={pkmPng}/>
+        );
+    });
+
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
@@ -38,7 +47,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 </div>
                 <div className="pkmInfo-desc fadeIn-animation">
                     <p>
-                        {pkmToShow.desc.default}
+                        {descToShow}
                     </p>
                 </div>
                 <div className="overlay-closeBtn-container">
@@ -50,7 +59,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                     <div className="mega-stone-btn">
                         <img src={provideMiscPng('shiny-sym')} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
                     </div>
-                    <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg}></img>
+                    {showShiny? shinyImg : regImg}
                 </div>
                 <div className="pkmInfo-title">
                     {displayName}
@@ -62,6 +71,13 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
 }
 
 export default PkmInfo
+
+const PkmInfoImg = ({ imgSrc }) => {
+    return (
+        <img className="pkmRoar-animation pkmInfo-img" src={imgSrc}/>
+    );
+};
+
 
 /*
 / Generates a progress bar for a given stat type
@@ -95,13 +111,11 @@ const rmvEscChars = (pkmDesc) => {
         console.log('f: ' + i)
         let descArr = descDefault.split('');
         console.log(descArr[i-1].length);
-        (descArr[i-1].length>0)?
-            descArr[i] = ''
-            :
-            descArr[i] = ' ';
+        descArr[i] = ' ';
         console.log(descArr);
         descDefault = descArr.join('');
     }
+
     while(descDefault.includes('\n')) {
         let i = descDefault.indexOf('\n');
         console.log('n: ' + i);
