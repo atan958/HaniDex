@@ -1,48 +1,67 @@
 
-  /*------------------------------------------------------------------------*/
+  /*---------------------------------------------------------------------------*/
 
   .pkmInfo-overlay-container {
     position: fixed;
-    z-index: 20;
     left: 0;
     top: 0;
 
     background-color: rgba(0, 0, 0, 0.301);
+
     width: 100%;
     height: 100%;
+
     min-width: 1090px;
     text-align: center;
+
+    z-index: 20;
   }
 
-.pkmInfo-content-container {
+/*---------------------------------------------------------------------------*/
 
+.pkmInfo-content-container {
+  width: 900px;
+  /*border: 1px solid green;*/
 }
 
 .content-centered {
     box-sizing: border-box;
     margin: auto;
-    width: 800px;
 
     text-align: center;
-    padding: 17vh 0;
+    padding: 11vh 0;
 }
 
-  .pkmInfo-content {
-    position: relative;
-    box-sizing: border-box;
-    border: 3px solid red;
-    background-color: white;;
-    width: 800px;
-    height: 600px;
-  }
+/*---------------------------------------------------------------------------*/
 
-  .overlay-closeBtn-container {
-    display: block;
-    font-size: 50px;
-    font-weight: bold;
-    text-align: right;
-    padding-right: 20px;
-  }
+.pkmInfo-content {
+  position: relative;
+  box-sizing: border-box;
+
+  border: 3px solid rgb(228, 0, 0);
+  border-radius: 10px;
+
+  background-color: white;;
+
+  width: 900px;
+  height: 700px;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.overlay-closeBtn-container {
+  box-sizing: border-box;
+  width: 40px;
+  
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  text-align: right;
+}
 
 .overlay-close-btn {
     display:inline-block;
@@ -52,39 +71,53 @@
 }
 
 .overlay-close-btn:hover {
-    color: red;
+  transition: 0.1s ease;
+  color: rgb(238, 0, 0);
+  text-shadow: 1px 1px #000000;
 }
 
 .overlay-close-btn:active {
-    color: rgb(179, 0, 0);
+    color: rgb(124, 0, 0);
 }
 
+/*---------------------------------------------------------------------------*/
+
 .pkmInfo-img-container {
-    box-sizing: border-box;
-    display: inline-block;
-    position: absolute;
-    right: 50px;
+  box-sizing: border-box;
+  display: inline-block;
 
-    margin-top: 20px;
-    padding: 0px 30px 60px 30px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
 
-    background-color: rgba(255, 0, 0, 0.226);
+  padding: 0px 30px 60px 30px;
 
-    border: 3px solid black;
+  background-color: rgba(255, 0, 0, 0.226);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+
+  border: 3px solid black;
+}
+
+.pkmInfo-img-container:hover {
+  cursor: default;
+  transition: 0.5s ease;
 }
 
 .pkmInfo-img {
   cursor: pointer;
 }
 
+/*---------------------------------------------------------------------------*/
+
 .pkmInfo-title {
     position: absolute;
-    right: 50px;
-    bottom: 80px;
+    right: 40px;
+    top: 391px;
 
     padding: 10px 20px 10px 20px;
 
     background-color: rgba(255, 0, 0, 0.521);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
     border: 3px solid black;
 
     color: black;
@@ -96,35 +129,63 @@
     height: 50px;
 }
 
-.pkmInfo-desc {
-  position: absolute;
-  width: 350px;
-  
-  left: 50px;
-  bottom: 80px;
-
-  border: 3px solid green;
-
-  background-color: greenyellow;
+.pkmInfo-title:hover {
+  transition: 1s ease;
+  cursor: default;
 }
 
-.progBar-container-container {
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-desc {
+  box-sizing: border-box;
   position: absolute;
-  top: 50px;
+
+  width: 350px;
+  height: 150px;
+
+  overflow: scroll;
+  
   left: 50px;
+  top: 320px;
+
+  border: 3px solid green;
+  padding: 5px;
+
+  background-color: greenyellow;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+}
+
+.pkmInfo-desc:hover {
+  transition: 1s ease;
+  cursor:default;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.progBar-container-container {
+  box-sizing: border-box;
+
+  position: absolute;
+  top: 60px;
+  left: 60px;
 
   border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
   
   width: 350px;
-  height: 200px;
+  height: 180px;
 
   text-align: center;
 }
 
 .pkmStat-progBar-container {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 20% 80%;
+
   margin: 10px;
+
+  height: 18px;
 }
 
 .progBar-container {
@@ -140,17 +201,17 @@
   overflow: hidden;
 
   background-color: rgb(255, 198, 255);
-  margin: 0px 5px 0px 5px;
+  /*margin: 0px 5px 0px 5px;*/
 }
 
-.progress-bar {
+.progress-fill {
   position: absolute;
   left: 0;
   top: 0;
 
   height: 100%;
 
-  background-color: rgb(235, 0, 235);
+  background-color: rgb(231, 0, 231);
 }
 
 .progBar-animation {
@@ -167,10 +228,37 @@
   box-sizing: border-box;
   display: inline-block;
 
-  width: 100%;
+  width: 90%;
   height: 18px;
 
   background-color: greenyellow;
+  border: 1px solid black;
 
   font-size: 12px;
+  font-weight: bold;
 }
+
+.stat-value {
+  box-sizing: border-box;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+
+  font-weight: bold;
+  font-size: 10px;
+  color: rgb(255, 255, 255);
+
+  z-index: 1;
+}
+
+.progBar-container-container:hover .stat-value {
+  cursor:pointer;
+  opacity: 1;
+  transition: 2s ease;
+}
+
+/*---------------------------------------------------------------------------*/

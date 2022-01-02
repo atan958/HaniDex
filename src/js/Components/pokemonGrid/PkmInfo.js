@@ -44,7 +44,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 <div className="pkmInfo-img-container">
                     <img className="pkmRoar-animation pkmInfo-img" src={showShiny? pkmToShow.png.sprite.shiny : pkmToShow.png.sprite.reg} onClick={toggleShowShiny} width="220px" height="280px"></img>
                 </div>
-                <div className="pkmInfo-title" style={{  }}>
+                <div className="pkmInfo-title">
                     {displayName}
                 </div>
             </div>
@@ -56,16 +56,21 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
 export default PkmInfo
 
 /*
-/ 
+/ Generates a progress bar for a given stat type
 */
 const PkmStatProgBar = ({ stat }) => {
-    const statVal = useRef(Math.random() * 260);
+    const statVal = useRef(Math.round(Math.random() * 10) * 25.8);
+    //const statVal = useRef(258);
 
     return (
         <div className="pkmStat-progBar-container fasterFadeIn-animation">
-            <div className="stat-title">{stat}</div>
+            <div className="stat-title">
+                {stat}
+            </div>
             <div className="progBar-container">
-                <div className="progress-bar progBar-animation" style={{width: `${statVal.current}px`}}/>
+                <div className="progress-fill progBar-animation" style={{width: `${statVal.current}px`}}>
+                    <div className="stat-value">{Math.round(statVal.current/258*200)}</div>
+                </div>
             </div>
         </div>
     );
@@ -75,11 +80,21 @@ const PkmStatProgBar = ({ stat }) => {
 / Removes the escape character \f from some of the Pokemon text entries which shows up as a black blotch
 */
 const rmvEscChars = (pkmDesc) => {
+    console.log(pkmDesc.split(''));
     let descDefault = pkmDesc;
     if(descDefault.includes('\f')) {
         let i = descDefault.indexOf('\f');
+        console.log('f: ' + i)
         let descArr = descDefault.split('');
         descArr.splice(i,1,' ');
+        descDefault = descArr.join('');
+    }
+    if(descDefault.includes('\n')) {
+        let i = descDefault.indexOf('\n');
+        console.log('n: ' + i);
+        let descArr = descDefault.split('');
+        //descArr.splice(i,1,' ');
+        descArr[i] = ' ';
         descDefault = descArr.join('');
     }
     return descDefault;
