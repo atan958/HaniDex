@@ -22,6 +22,7 @@ const providePkmData = async () => {
                 pkmItem: pkmItemName,
                 pkmMember: null
             }, 
+            id: pkmData.id,
             gender: pkmGender,
             png: pkmPng,
             selected: defaultSelect };
