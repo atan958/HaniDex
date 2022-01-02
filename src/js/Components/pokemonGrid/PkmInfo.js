@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 import '../../../css/PkmInfo.css'
 
@@ -18,10 +18,19 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
 
     const descToShow = rmvEscChars(pkmToShow.desc.default);
 
+    const renderStatProgBars = () => {
+        return ['HP', 'ATK', 'DEF', 'SP. ATK', 'SP. DEF', 'SPD'].map((stat) => {
+            return <PkmStatProgBar stat={stat}/>
+        });
+    }
+
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
             <div className="pkmInfo-content">
+                <div className="progBar-container-container">
+                    {renderStatProgBars()}
+                </div>
                 <div className="pkmInfo-desc fadeIn-animation">
                     <p>
                         {descToShow}
@@ -45,6 +54,22 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
 }
 
 export default PkmInfo
+
+/*
+/ 
+*/
+const PkmStatProgBar = ({ stat }) => {
+    const statVal = useRef(Math.random() * 260);
+
+    return (
+        <div className="pkmStat-progBar-container fasterFadeIn-animation">
+            <div className="stat-title">{stat}</div>
+            <div className="progBar-container">
+                <div className="progress-bar progBar-animation" style={{width: `${statVal.current}px`}}/>
+            </div>
+        </div>
+    );
+}
 
 /*
 / Removes the escape character \f from some of the Pokemon text entries which shows up as a black blotch
