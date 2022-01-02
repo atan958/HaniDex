@@ -12,6 +12,7 @@ const providePkmPng = (pkmName) => {
         /*
         / I don't think this is needed after the transition from pokemon to the pokemon-species endpoint of the PokeApi
         */
+        console.log(e);
         [spriteReg, spriteShiny] = applyPkmPngFixes(pkmName);
     }
 

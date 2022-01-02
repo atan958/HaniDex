@@ -1,12 +1,14 @@
-const provideItemDispName = (pkmName) => {
-
+/*
+/ Provides the display name of a given Pokemon for the PkmItem component
+*/
+const providePkmItemName = (pkmName) => {
     /*
     / Works for when Pokemon have only a single name
     */
     if((!pkmName.includes('-')) || (!pkmName.includes('mr') && !pkmName.includes('jr') && !pkmName.includes('nidoran') && !(pkmName==='type-null'))) { return pkmName }
 
     /*
-    / Applies the fixes needed for the display names of Pokemon
+    / Applies the fixes needed for the display names of Pokemon which don't have a single name or are one of the border-cases
     */
     let itemDispName = pkmName;
     /*
@@ -50,4 +52,4 @@ const provideItemDispName = (pkmName) => {
     return itemDispName;
 };
 
-export { provideItemDispName }
+export { providePkmItemName }

@@ -1,4 +1,4 @@
-import { provideItemDispName } from './PkmDispNameProvider';
+import { providePkmItemName } from './PkmDispNameProvider';
 import { providePkmGender } from './PkmGenderProvider';
 import { providePkmPng } from './PkmGraphicsProvider'
 import { retrievePokeApiData } from './PokeApiController';
@@ -12,14 +12,14 @@ const providePkmData = async () => {
     let pokeApiData = await retrievePokeApiData();
     
     return (pokeApiData.map((pkmData) => {
-        const pkmName = provideItemDispName(pkmData.name);
+        const pkmItemName = providePkmItemName(pkmData.name);
         const pkmGender = providePkmGender(pkmData.name);
         const pkmPng = providePkmPng(pkmData.name);
 
         return { 
             name: {
                 default: pkmData.name,
-                pkmItem: pkmName,
+                pkmItem: pkmItemName,
                 pkmMember: null
             }, 
             gender: pkmGender,
