@@ -57,7 +57,7 @@ const providePkmTypesPng = (pkmTypes) => {
         });
 };
 
-const getPkmTypePng = () => {
+const getPkmTypePng = (pkmType) => {
     // Switch case for pngs
 }
 

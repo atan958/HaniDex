@@ -28,10 +28,10 @@ const retrievePokeApiData = async () => {
 / Each object contains the respective pokemon's name, number, description, stats, etc.
 */
 const getFilteredData = async (pokeApiData) => {
-    let filteredData = await Promise.all(pokeApiData.results.map(async (pkmData) => {
-        let pkmSpcData = (await axios.get(pkmData.url)).data;
+    let filteredData = await Promise.all(pokeApiData.results.map(async (pkmSpc) => {
+        let pkmSpcData = (await axios.get(pkmSpc.url)).data;
 
-        const name = pkmData.name;
+        const name = pkmSpc.name;
         const id = pkmSpcData.id;
         const descDefault = pkmSpcData.flavor_text_entries.filter((entry) => {
             return entry.language.name === "en";
