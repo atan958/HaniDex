@@ -12,17 +12,20 @@ const pokeApiUrl_pkm = 'https://pokeapi.co/api/v2/pokemon';
 /*
 / A service for retrieving Pokemon data from the public API PokeApi 
 /
-/ Note: Total number of retrievable Pokemon is 878?
+/ Note: Total number of retrievable Pokemon species is 898
 */
 const retrievePokeApiData = async () => {
-    let pokeApiData = (await axios.get(pokeApiUrl_pkmSpc)).data;
-    let filteredData = await getFilteredData(pokeApiData);
+    let pokeApiData_pkmSpc = (await axios.get(pokeApiUrl_pkmSpc)).data;
+    let filteredData = await getFilteredData(pokeApiData_pkmSpc);
 
-    for (let i=0; i<(pokeApiData.count/20)-1; i++) {
-        let pokeApiNextUrl = pokeApiData.next;
-        pokeApiData = (await axios.get(pokeApiNextUrl)).data;
-        filteredData = filteredData.concat((await getFilteredData(pokeApiData)));
+    const maxEntriesPerCall = 20;
+
+    for (let i=0; i<(pokeApiData_pkmSpc.count/maxEntriesPerCall)-1; i++) {
+        let pokeApiNextUrl = pokeApiData_pkmSpc.next;
+        pokeApiData_pkmSpc = (await axios.get(pokeApiNextUrl)).data;
+        filteredData = filteredData.concat((await getFilteredData(pokeApiData_pkmSpc)));
     }
+    console.log(filteredData);
     return filteredData;
 }
 
@@ -31,25 +34,31 @@ const retrievePokeApiData = async () => {
 /
 / Each object contains the respective pokemon's name, number, description, stats, etc.
 */
-const getFilteredData = async (pokeApiData) => {
-    const filteredData = await Promise.all(pokeApiData.results.map(async (pkmSpc) => {
+const getFilteredData = async (pokeApiData_pkmSpc) => {
+    /*
+    / Acquires necessary data for each and all Pokemon in the list concurrently
+    */
+    const filteredData = await Promise.all(pokeApiData_pkmSpc.results.map(async (pkmSpc) => {
 
+        /*
+        / Obtains a Pokemon's pokedex id from the Pokemon Species' url property
+        */
         const pkmId = pkmSpc.url.slice('https://pokeapi.co/api/v2/pokemon-species/'.length, pkmSpc.url.length-1)
         const pkmUrl = `${pokeApiUrl_pkm}/${pkmId}`;
         
         /*
-        / 
+        / Performs concurrent get requests from the "Pokemon Species" and "Pokemon" endpoint respectively
         */
         const [pkmSpcRes, pkmRes] = await Promise.all([axios.get(pkmSpc.url), axios.get(pkmUrl)]);
 
         /*
-        / 
+        / Stores the bodies of the previously obtained responses
         */
         const pkmSpcData = pkmSpcRes.data;
         const pkmData = pkmRes.data;
 
         /*
-        / 
+        / Declares the to-be values of the output object's properties
         */
         const name = pkmSpc.name;
         const id = pkmSpcData.id;
