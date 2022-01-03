@@ -42,8 +42,8 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
 
     const pkmTypesPng = providePkmTypesPng(pkmToShow.types);
     const renderPkmTypeSyms = () => {
-        return pkmTypesPng.map((pkmType) => {
-            return <PkmTypeSym type={pkmType}/>;
+        return pkmTypesPng.map((typePng) => {
+            return <PkmTypeSym key={typePng} type={typePng}/>;
         });
     }
 

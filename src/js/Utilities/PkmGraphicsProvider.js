@@ -66,6 +66,7 @@ const getPkmTypePng = (pkmType) => {
 
 export { providePkmPng, provideMiscPng, providePkmTypesPng }
 
+
 /*
 try {
     spriteReg = require(`../../pokemon-assets/assets/img/pokemon/${pkmName}.png`);
