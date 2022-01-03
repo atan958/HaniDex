@@ -11,12 +11,12 @@ const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon-species';
 / Note: Total number of retrievable Pokemon is 1118
 */
 const retrievePokeApiData = async () => {
-    let pokeApiData = await axios.get(pokeApiUrl);
+    let pokeApiData = (await axios.get(pokeApiUrl)).data;
     let filteredData = await getFilteredData(pokeApiData);
 
     for (let i=0; i<44; i++) {
-        let pokeApiNextUrl = pokeApiData.data.next;
-        pokeApiData = await axios.get(pokeApiNextUrl);
+        let pokeApiNextUrl = pokeApiData.next;
+        pokeApiData = (await axios.get(pokeApiNextUrl)).data;
         filteredData = filteredData.concat(await getFilteredData(pokeApiData));
     }
     return filteredData;
@@ -28,7 +28,7 @@ const retrievePokeApiData = async () => {
 / Each object contains the respective pokemon's name, number, description, stats, etc.
 */
 const getFilteredData = async (pokeApiData) => {
-    let filteredData = await Promise.all(pokeApiData.data.results.map(async (pkmData) => {
+    let filteredData = await Promise.all(pokeApiData.results.map(async (pkmData) => {
         let pkmSpcData = (await axios.get(pkmData.url)).data;
 
         const name = pkmData.name;
