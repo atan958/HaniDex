@@ -19,12 +19,13 @@ const retrievePokeApiData = async () => {
     let filteredData = await getFilteredData(pokeApiData_pkmSpc);
 
     const maxEntriesPerCall = 20;
-
+    console.log('STARTING: ' + new Date().getTime());
     for (let i=0; i<(pokeApiData_pkmSpc.count/maxEntriesPerCall)-1; i++) {
         let pokeApiNextUrl = pokeApiData_pkmSpc.next;
         pokeApiData_pkmSpc = (await axios.get(pokeApiNextUrl)).data;
         filteredData = filteredData.concat((await getFilteredData(pokeApiData_pkmSpc)));
     }
+    console.log('ENDING: ' + new Date().getTime());
     console.log(filteredData);
     return filteredData;
 }
@@ -62,21 +63,34 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
         */
         const name = pkmSpc.name;
         const id = pkmSpcData.id;
+
         const descDefault = pkmSpcData.flavor_text_entries.filter((entry) => {
             return entry.language.name === "en";
         })[0].flavor_text;
+
         const types = pkmData.types.map((typeObj) => {
             return typeObj.type.name
         });
 
-        return {
+        const stats = pkmData.stats.map((stat) => {
+            return {
+                name: stat.stat.name,
+                value: stat.base_stat
+            }
+        });
+        if(name=="bulbasaur") {
+            console.log(stats)
+        }
+
+        return ({
             name: name,
             id: id,
             types: types,
+            stats: stats,
             desc: {
                 default: descDefault
             }
-        };;
+        });
     }));
     return filteredData;
 }
