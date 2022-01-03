@@ -23,6 +23,7 @@ const providePkmData = async () => {
                 pkmMember: null
             }, 
             id: pkmData.id,
+            types: pkmData.types,
             gender: pkmGender,
             png: pkmPng,
             desc: pkmData.desc,

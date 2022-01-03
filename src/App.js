@@ -9,6 +9,7 @@ import { providePkmData } from './js/Utilities/PkmDataProvider';
 
 
 function App() {
+  //console.log('Start: ' + new Date().getTime());
   const numRnd = useRef(0); numRnd.current++; console.log('------------------- Render #' + numRnd.current + ' -------------------');
   /*
   / Used to store the Pokemon data inside the application
@@ -29,7 +30,7 @@ function App() {
     */
     const getPkmData = async () => {
       let pkmData = await providePkmData();
-      console.log(pkmData.slice(0,20));
+      //console.log(pkmData.slice(0,20));
       setPokemon(pkmData);
     }
     getPkmData();
@@ -49,7 +50,7 @@ function App() {
   const rmvPkbLoad = async () => {
     setTimeout(() => {
       setLoadingPkm(false)
-    }, 2500);
+    }, 0);
   }
 
   return (
