@@ -44,8 +44,26 @@ const provideMiscPng = (misc) => {
     return miscPng;
 }
 
+/*
+/ Provides the PNGs of the types of a given Pokemon
+*/
+const providePkmTypesPng = (pkmTypes) => {
+    const pkmTypesPng = [null, null];
+    (pkmTypes.length==1)?
+        pkmTypesPng[1] = getPkmTypePng(pkmTypes[0])
+        :
+        pkmTypesPng = pkmTypes.map((pkmType) => {
+            return getPkmTypePng(pkmType);
+        });
+};
 
-export { providePkmPng, provideMiscPng }
+const getPkmTypePng = () => {
+    // Switch case for pngs
+}
+
+
+
+export { providePkmPng, provideMiscPng, providePkmTypesPng }
 
 /*
 try {
