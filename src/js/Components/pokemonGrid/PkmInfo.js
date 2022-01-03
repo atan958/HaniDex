@@ -7,7 +7,7 @@ import '../../../css/PkmInfo.css'
 /*
 / Displays the information of a specified Pokemon on an overlay
 */
-const PkmInfo = ({pkmToShow, hideInfo}) => {
+const PkmInfo = ({ pkmToShow, hideInfo }) => {
     const [showShiny, setShowShiny] = useState(false);
     const toggleShowShiny = () => { setShowShiny(!showShiny) };
 

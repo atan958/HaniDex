@@ -1,15 +1,13 @@
 import axios from 'axios'
 
 /*
-/ The URL for PokeApi pokemon-species endpoint
+/ The URL for the PokeApi pokemon-species endpoint
 */
 const pokeApiUrl_pkmSpc = 'https://pokeapi.co/api/v2/pokemon-species';
 /*
-/ The URL for PokeApi pokemon endpoint
+/ The URL for the PokeApi pokemon endpoint
 */
-
-
-
+const pokeApiUrl_pkm = 'https://pokeapi.co/api/v2/pokemon';
 
 /*
 / A service for retrieving Pokemon data from the public API PokeApi 
@@ -36,7 +34,6 @@ const retrievePokeApiData = async () => {
 const getFilteredData = async (pokeApiData) => {
     let filteredData = await Promise.all(pokeApiData.results.map(async (pkmSpc) => {
         let pkmSpcData = (await axios.get(pkmSpc.url)).data;
-        //let pkmData = (await axios.get(pkmSpc.url)).data;
 
         const name = pkmSpc.name;
         const id = pkmSpcData.id;
@@ -55,6 +52,10 @@ const getFilteredData = async (pokeApiData) => {
 
     return filteredData;
 }
+
+
+
+
 
 export { retrievePokeApiData }
 
