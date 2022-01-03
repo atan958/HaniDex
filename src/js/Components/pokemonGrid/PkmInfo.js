@@ -25,7 +25,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
 
     const renderStatProgBars = () => {
         return ['HP', 'ATK', 'DEF', 'SP. ATK', 'SP. DEF', 'SPD'].map((stat) => {
-            return <PkmStatProgBar stat={stat}/>
+            return <PkmStatProgBar key={stat} stat={stat}/>
         });
     }
 
