@@ -38,6 +38,8 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
         );
     });
 
+    const shinySymbol = provideMiscPng('shiny-sym');
+
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
@@ -58,11 +60,16 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                     </div>
                 </div>
                 <div className="pkmInfo-img-container">
-                    <div className="pkmInfo-type-container">
-
+                    <div className="pkmInfo-type-container-container">
+                        <div className="pkmInfo-type-container">
+                            <img src={shinySymbol}/>
+                        </div>
+                        <div className="pkmInfo-type-container">
+                            <img src={shinySymbol}/>
+                        </div>
                     </div>
                     <div className="shiny-sym-btn">
-                        <img src={provideMiscPng('shiny-sym')} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
+                        <img src={shinySymbol} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
                     </div>
                     {showShiny? shinyImg : regImg}
                 </div>
