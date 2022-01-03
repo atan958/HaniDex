@@ -34,7 +34,7 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
     */
     const [shinyImg, regImg] = [pkmToShow.png.sprite.shiny, pkmToShow.png.sprite.reg].map((pkmPng) => {
         return(
-            <PkmInfoImg imgSrc={pkmPng}/>
+            <PkmInfoImg key={pkmPng} imgSrc={pkmPng}/>
         );
     });
 
@@ -45,10 +45,12 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 <div className="progBar-container-container">
                     {renderStatProgBars()}
                 </div>
-                <div className="pkmInfo-desc fadeIn-animation">
-                    <p>
-                        {descToShow}
-                    </p>
+                <div className="pkmInfo-desc-container">
+                    <div className="pkmInfo-desc fadeIn-animation">
+                        <p>
+                            {descToShow}
+                        </p>
+                    </div>
                 </div>
                 <div className="overlay-closeBtn-container">
                     <div className="overlay-close-btn" onClick={hideInfo}>
@@ -56,7 +58,10 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                     </div>
                 </div>
                 <div className="pkmInfo-img-container">
-                    <div className="mega-stone-btn">
+                    <div className="pkmInfo-type-container">
+
+                    </div>
+                    <div className="shiny-sym-btn">
                         <img src={provideMiscPng('shiny-sym')} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
                     </div>
                     {showShiny? shinyImg : regImg}
@@ -74,7 +79,9 @@ export default PkmInfo
 
 const PkmInfoImg = ({ imgSrc }) => {
     return (
-        <img className="pkmRoar-animation pkmInfo-img" src={imgSrc}/>
+        <div className="fasterFadeIn-animation">
+            <img className="pkmRoar-animation pkmInfo-img" src={imgSrc}/>
+        </div>
     );
 };
 
@@ -83,8 +90,8 @@ const PkmInfoImg = ({ imgSrc }) => {
 / Generates a progress bar for a given stat type
 */
 const PkmStatProgBar = ({ stat }) => {
-    const statVal = useRef(Math.round(Math.random() * 10) * 25.8);
-    //const statVal = useRef(258);
+    const statVal = useRef(Math.round(Math.random() * 10) * 29.84);
+    //const statVal = useRef(298.4);  // Math is x*298.4/200
 
     return (
         <div className="pkmStat-progBar-container fasterFadeIn-animation">
@@ -93,7 +100,7 @@ const PkmStatProgBar = ({ stat }) => {
             </div>
             <div className="progBar-container">
                 <div className="progress-fill progBar-animation" style={{width: `${statVal.current}px`}}>
-                    <div className="stat-value">{Math.round(statVal.current/258*200)}</div>
+                    <div className="stat-value">{Math.round(statVal.current/298.4*200)}</div>
                 </div>
             </div>
         </div>
@@ -104,26 +111,18 @@ const PkmStatProgBar = ({ stat }) => {
 / Removes the escape character \f, \n from some of the Pokemon text entries which shows up as a black blotch
 */
 const rmvEscChars = (pkmDesc) => {
-    console.log(pkmDesc.split(''));
     let descDefault = pkmDesc;
     while(descDefault.includes('\f')) {
         let i = descDefault.indexOf('\f');
-        console.log('f: ' + i)
         let descArr = descDefault.split('');
-        console.log(descArr[i-1].length);
         descArr[i] = ' ';
-        console.log(descArr);
         descDefault = descArr.join('');
     }
 
     while(descDefault.includes('\n')) {
         let i = descDefault.indexOf('\n');
-        console.log('n: ' + i);
         let descArr = descDefault.split('');
-        //descArr.splice(i,1,' ');
-        console.log(descArr);
         descArr[i] = ' ';
-        console.log(descArr);
         descDefault = descArr.join('');
     }
     return descDefault;
