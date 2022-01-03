@@ -1,9 +1,15 @@
 import axios from 'axios'
 
 /*
-/ The URL for PokeApi
+/ The URL for PokeApi pokemon-species endpoint
 */
-const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon-species';
+const pokeApiUrl_pkmSpc = 'https://pokeapi.co/api/v2/pokemon-species';
+/*
+/ The URL for PokeApi pokemon endpoint
+*/
+
+
+
 
 /*
 / A service for retrieving Pokemon data from the public API PokeApi 
@@ -11,7 +17,7 @@ const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon-species';
 / Note: Total number of retrievable Pokemon is 1118
 */
 const retrievePokeApiData = async () => {
-    let pokeApiData = (await axios.get(pokeApiUrl)).data;
+    let pokeApiData = (await axios.get(pokeApiUrl_pkmSpc)).data;
     let filteredData = await getFilteredData(pokeApiData);
 
     for (let i=0; i<44; i++) {
@@ -30,6 +36,7 @@ const retrievePokeApiData = async () => {
 const getFilteredData = async (pokeApiData) => {
     let filteredData = await Promise.all(pokeApiData.results.map(async (pkmSpc) => {
         let pkmSpcData = (await axios.get(pkmSpc.url)).data;
+        //let pkmData = (await axios.get(pkmSpc.url)).data;
 
         const name = pkmSpc.name;
         const id = pkmSpcData.id;
