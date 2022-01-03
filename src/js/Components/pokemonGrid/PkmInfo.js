@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-import { provideMiscPng } from '../../Utilities/PkmGraphicsProvider';
+import { provideMiscPng, providePkmTypesPng } from '../../Utilities/PkmGraphicsProvider';
 
 import '../../../css/PkmInfo.css'
 
@@ -40,6 +40,13 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
 
     const shinySymbol = provideMiscPng('shiny-sym');
 
+    const pkmTypesPng = providePkmTypesPng(pkmToShow.types);
+    const renderPkmTypeSyms = () => {
+        return pkmTypesPng.map((pkmType) => {
+            return <PkmTypeSym type={pkmType}/>;
+        });
+    }
+
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
@@ -61,12 +68,7 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
                 </div>
                 <div className="pkmInfo-img-container">
                     <div className="pkmInfo-type-container-container">
-                        <div className="pkmInfo-type-container">
-                            <img src={'https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-grass-badge-32px.png'}/>
-                        </div>
-                        <div className="pkmInfo-type-container">
-                            <img src={'https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-poison-badge-32px.png'}/>
-                        </div>
+                        {renderPkmTypeSyms()}
                     </div>
                     <div className="shiny-sym-btn">
                         <img src={shinySymbol} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
@@ -84,11 +86,28 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
 
 export default PkmInfo
 
+/*
+/
+*/
 const PkmInfoImg = ({ imgSrc }) => {
     return (
         <div className="fasterFadeIn-animation">
             <img className="pkmRoar-animation pkmInfo-img" src={imgSrc}/>
         </div>
+    );
+};
+
+/*
+/
+*/
+const PkmTypeSym = ({ type }) => {
+    return (
+        type?
+        <div className="pkmInfo-type-container fadeIn-animation">
+            <img src={type}/>
+        </div>
+        :
+        <div/>
     );
 };
 

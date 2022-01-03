@@ -12,7 +12,7 @@ const pokeApiUrl_pkm = 'https://pokeapi.co/api/v2/pokemon';
 /*
 / A service for retrieving Pokemon data from the public API PokeApi 
 /
-/ Note: Total number of retrievable Pokemon is 1118
+/ Note: Total number of retrievable Pokemon is 878?
 */
 const retrievePokeApiData = async () => {
     let pokeApiData = (await axios.get(pokeApiUrl_pkmSpc)).data;

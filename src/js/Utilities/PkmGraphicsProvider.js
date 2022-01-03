@@ -52,13 +52,14 @@ const providePkmTypesPng = (pkmTypes) => {
     (pkmTypes.length==1)?
         pkmTypesPng[1] = getPkmTypePng(pkmTypes[0])
         :
-        pkmTypesPng = pkmTypes.map((pkmType) => {
+        [pkmTypesPng[0],pkmTypesPng[1]] = pkmTypes.map((pkmType) => {
             return getPkmTypePng(pkmType);
         });
+    return pkmTypesPng;
 };
 
 const getPkmTypePng = (pkmType) => {
-    // Switch case for pngs
+    return `https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-${pkmType}-badge-32px.png`;
 }
 
 

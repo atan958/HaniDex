@@ -6,8 +6,6 @@ import Footer from './js/Components/footer/Footer'
 
 import { providePkmData } from './js/Utilities/PkmDataProvider';
 
-
-
 function App() {
   //console.log('Start: ' + new Date().getTime());
   const numRnd = useRef(0); numRnd.current++; console.log('------------------- Render #' + numRnd.current + ' -------------------');
