@@ -62,10 +62,10 @@ const PkmInfo = ({pkmToShow, hideInfo}) => {
                 <div className="pkmInfo-img-container">
                     <div className="pkmInfo-type-container-container">
                         <div className="pkmInfo-type-container">
-                            <img src={shinySymbol}/>
+                            <img src={'https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-grass-badge-32px.png'}/>
                         </div>
                         <div className="pkmInfo-type-container">
-                            <img src={shinySymbol}/>
+                            <img src={'https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-poison-badge-32px.png'}/>
                         </div>
                     </div>
                     <div className="shiny-sym-btn">
