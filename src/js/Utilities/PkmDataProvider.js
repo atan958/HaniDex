@@ -15,6 +15,7 @@ const providePkmData = async () => {
         const pkmItemName = providePkmItemName(pkmData.name);
         const pkmGender = providePkmGender(pkmData.name);
         const pkmPng = providePkmPng(pkmData.name);
+        const pkmStats = pkmData.stats;
 
         return { 
             name: {
@@ -24,6 +25,7 @@ const providePkmData = async () => {
             }, 
             id: pkmData.id,
             types: pkmData.types,
+            stats: pkmStats,
             gender: pkmGender,
             png: pkmPng,
             desc: pkmData.desc,

@@ -19,13 +19,16 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
     }).join(' ');
 
     /*
-    / Description to show => Decided not to use
+    / Generates the description of the Pokemon to show
     */
     const descToShow = rmvEscChars(pkmToShow.desc.default);
 
+    /*
+    /
+    */
     const renderStatProgBars = () => {
-        return ['HP', 'ATK', 'DEF', 'SP. ATK', 'SP. DEF', 'SPD'].map((stat) => {
-            return <PkmStatProgBar key={stat} stat={stat}/>
+        return pkmToShow.stats.map((stat) => {
+            return <PkmStatProgBar key={stat.name} stat={stat}/>
         });
     }
 
@@ -38,14 +41,24 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
         );
     });
 
+    /*
+    /
+    */
     const shinySymbol = provideMiscPng('shiny-sym');
 
+    /*
+    /
+    */
     const pkmTypesPng = providePkmTypesPng(pkmToShow.types);
+    /*
+    /
+    */
     const renderPkmTypeSyms = () => {
         return pkmTypesPng.map((typePng) => {
             return <PkmTypeSym key={typePng} type={typePng}/>;
         });
     }
+
 
     return (
     <div className="pkmInfo-overlay-container">
@@ -87,7 +100,7 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
 export default PkmInfo
 
 /*
-/
+/ Creates the sprite image of the given Pokemon png
 */
 const PkmInfoImg = ({ imgSrc }) => {
     return (
@@ -98,7 +111,7 @@ const PkmInfoImg = ({ imgSrc }) => {
 };
 
 /*
-/
+/ Creates the type symbol of the given Pokemon types
 */
 const PkmTypeSym = ({ type }) => {
     return (
@@ -116,21 +129,54 @@ const PkmTypeSym = ({ type }) => {
 / Generates a progress bar for a given stat type
 */
 const PkmStatProgBar = ({ stat }) => {
-    const statVal = useRef(Math.round(Math.random() * 10) * 29.84);
-    //const statVal = useRef(298.4);  // Math is x*298.4/200
+    const statName = getStatDispName(stat.name);
+    const statVal = stat.value;
+
+    const progBarWidth = 299.2;
+    const maxSingleStat = 255;
 
     return (
         <div className="pkmStat-progBar-container fasterFadeIn-animation">
             <div className="stat-title">
-                {stat}
+                {statName}
             </div>
             <div className="progBar-container">
-                <div className="progress-fill progBar-animation" style={{width: `${statVal.current}px`}}>
-                    <div className="stat-value">{Math.round(statVal.current/298.4*200)}</div>
+                <div className="progress-fill progBar-animation" style={{width: `${statVal*progBarWidth/maxSingleStat}px`}}>
+                    <div className="stat-value">{statVal}</div>
                 </div>
             </div>
         </div>
     );
+}
+
+/*
+/ Helper Method to PkmStatProgBar component:
+/
+/ Returns the appropriate shortened title for each stat name
+*/
+const getStatDispName = (statName) => {
+    let statDispName = "";
+    switch(statName) {
+        case 'hp':
+            statDispName = 'HP'
+            break;
+        case 'attack':
+            statDispName = 'ATK'
+            break;
+        case 'defense':
+            statDispName = 'DEF'
+            break;
+        case 'special-attack':
+            statDispName = 'SP. ATK'
+            break;
+        case 'special-defense':
+            statDispName = 'SP. DEF'
+            break;
+        case 'speed':
+            statDispName = 'SPD'
+            break;
+    }
+    return statDispName;
 }
 
 /*
