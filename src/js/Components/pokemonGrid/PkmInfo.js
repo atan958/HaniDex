@@ -63,15 +63,15 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
             <div className="pkmInfo-content">
-                <div className="progBar-container-container">
-                    {renderStatProgBars()}
-                </div>
                 <div className="pkmInfo-desc-container">
                     <div className="pkmInfo-desc fadeIn-animation">
                         <p>
                             {descToShow}
                         </p>
                     </div>
+                </div>
+                <div className="progBar-container-container">
+                    {renderStatProgBars()}
                 </div>
                 <div className="overlay-closeBtn-container">
                     <div className="overlay-close-btn" onClick={hideInfo}>

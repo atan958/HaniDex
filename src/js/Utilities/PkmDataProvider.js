@@ -23,6 +23,9 @@ const providePkmData = async () => {
         const desc = pkmData.desc;
         const selected = defaultSelect;
 
+        const height = pkmData.height;
+        const weight = pkmData.weight;
+
         return { 
             name: {
                 default: pkmData.name,
@@ -37,6 +40,9 @@ const providePkmData = async () => {
             png,
             desc,
             selected,
+
+            height,
+            weight
         };
     }));
 }
