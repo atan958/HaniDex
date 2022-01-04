@@ -15,19 +15,19 @@ const pokeApiUrl_pkm = 'https://pokeapi.co/api/v2/pokemon';
 / Note: Total number of retrievable Pokemon species is 898
 */
 const retrievePokeApiData = async () => {
+    console.log('RUN ' + 1);
     let pokeApiData_pkmSpc = (await axios.get(pokeApiUrl_pkmSpc)).data;
     let filteredData = await getFilteredData(pokeApiData_pkmSpc);
 
     const maxEntriesPerCall = 20;
-    console.log('STARTING: ' + new Date().getTime());
+    
     for (let i=0; i<(pokeApiData_pkmSpc.count/maxEntriesPerCall)-1; i++) {
-        console.log('RUN ' + i)
+        console.log('RUN ' + i+1);
         let pokeApiNextUrl = pokeApiData_pkmSpc.next;
         pokeApiData_pkmSpc = (await axios.get(pokeApiNextUrl)).data;
         filteredData = filteredData.concat((await getFilteredData(pokeApiData_pkmSpc)));
     }
-    console.log('ENDING: ' + new Date().getTime());
-    console.log(filteredData);
+
     return filteredData;
 }
 
