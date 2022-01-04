@@ -1,8 +1,20 @@
-import { useState, useMemo } from 'react'
+import { useState, useRef, useMemo } from 'react'
+import { useEffect } from 'react/cjs/react.development';
 
 import '../../../animations/pkm-grid/pkmItem-anm.css'
 
 const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => {
+    /*
+    /
+    */
+    const firstRender = useRef(true);
+    /*
+    /
+    */
+    useEffect(() => {
+        firstRender.current = false;
+    }, []);
+
     /*
     / Controls the hover state of the highest-level container of the PkmItem component
     /
@@ -90,7 +102,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
                 {pkmData.selected? 'Remove' : (atMaxNumPkm? 'Team Full' :'Add')}
             </div>
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>
-                <img className={`pkmItem-img imgFadeIn-animation ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.reg}/>
+                <img className={`pkmItem-img ${firstRender.current && 'imgFadeIn-animation'} ${pkmData.selected && 'pkmRoar-animation'}`} src={pkmData.png.sprite.reg}/>
             </div>
             <h4 className={`imgFadeIn-animation ${pkmData.gender && (isMale? 'pkmGender-male' : 'pkmGender-female')}`}>
                 {leadingName}
