@@ -79,7 +79,7 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
             return entry.language.name === "en";
         })[0].flavor_text;
 
-        const height_m = Math.round(pkmData.height*10);
+        const height_m = Math.round(pkmData.height*10)/100;
         const weight_kg = Math.round(pkmData.weight/10);
 
         return ({
