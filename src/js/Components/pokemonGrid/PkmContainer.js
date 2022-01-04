@@ -48,8 +48,17 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
     )
 }
 
+/*
+/ Displays how much of the necessary data has been loaded into the application
+*/
 const PkmContainerLd = () => {
+    /*
+    / Loading state's value is never used => Only needed to re-render component
+    */
     const [loading, setLoading] = useState(0);
+    /*
+    / Schedules an update on the loading display every 0.1 seconds
+    */
     useEffect(() => {
         const myTimeout = setTimeout(() => {
             setLoading(loading + 1);
@@ -59,10 +68,16 @@ const PkmContainerLd = () => {
         clearTimeout(myTimeout)
         });
     });
+
     return (
         <div className="pkmItem-container-container-container fasterFadeIn-animation">
             <div className="loadingPkm-container-container">
-                {Math.round((numRuns.current/numRuns.total)*100)}%
+                <div className="pkmContainer-ld-progBar-container">
+                    <div className="pkmContainer-ld-progBar-fill" style={{ width: `${Math.round((numRuns.current/numRuns.total)*1000000)/10000}%` }}>
+                        {Math.round((numRuns.current/numRuns.total)*100)}%
+                    </div>
+                </div> 
+                
             </div>
         </div>
     );

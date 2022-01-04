@@ -9,6 +9,9 @@ const pokeApiUrl_pkmSpc = 'https://pokeapi.co/api/v2/pokemon-species';
 */
 const pokeApiUrl_pkm = 'https://pokeapi.co/api/v2/pokemon';
 
+/*
+/ Stores the number of API calls completed and still need to perform
+*/
 const numRuns = {
     current: 0,
     total: Number.MAX_VALUE
