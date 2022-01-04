@@ -78,9 +78,6 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
                 value: stat.base_stat
             }
         });
-        if(name=="bulbasaur") {
-            console.log(stats)
-        }
 
         return ({
             name: name,
