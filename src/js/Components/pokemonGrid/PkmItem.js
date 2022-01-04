@@ -1,5 +1,4 @@
-import { useState, useRef, useMemo } from 'react'
-import { useEffect } from 'react/cjs/react.development';
+import { useState, useEffect, useRef, useMemo } from 'react'
 
 import '../../../animations/pkm-grid/pkmItem-anm.css'
 

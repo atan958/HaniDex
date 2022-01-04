@@ -43,7 +43,7 @@ function App() {
       } 
   }, [pokemon]);
   /*
-  / Removes the loading state of the Pokeball after 2.5 seconds
+  / Removes the loading state of the Pokeball after a given amount of time (e.g. 0 secs)
   */
   const rmvPkbLoad = async () => {
     setTimeout(() => {
