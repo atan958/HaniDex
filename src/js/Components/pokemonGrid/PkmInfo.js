@@ -58,100 +58,16 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
             return <PkmTypeSym key={typePng} type={typePng}/>;
         });
     }
-    
-    const maleRatio = 3.5;
 
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
             <div className="pkmInfo-content">
-                <div className="pkmInfo-desc-container">
-                    <div className="pkmInfo-desc fadeIn-animation">
-                        <p>
-                            {descToShow}
-                        </p>
-                    </div>
-                </div>
+                <PkmDesc descToShow={descToShow}/>
                 <div className="progBar-container-container">
                     {renderStatProgBars()}
                 </div>
-                <div className="pkmInfo-profile-container">
-                    <div className="pkmInfo-profile1">
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Height: 
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                {pkmToShow.height} m
-                            </div>
-                        </div>
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Weight:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                {pkmToShow.weight} kg
-                            </div>
-                        </div>
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Catch Rate:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                
-                            </div>
-                        </div>
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Gender Ratio:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                <div className="gender-ratio-progBar-container">
-                                    <div className="male-ratio-progBar-fill" style={{ width: `${(maleRatio/8)*200}px` }}>
-                                        <div className="gender-ratio-text">{(maleRatio/8)*100}%</div>
-                                    </div>
-                                    <div className="female-ratio-progBar-fill" style={{ width: `${((8-maleRatio)/8)*200}px` }}>
-                                        <div className="gender-ratio-text">{((8-maleRatio)/8)*100}%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="pkmInfo-profile2">
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Egg Groups:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                
-                            </div>
-                        </div>
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Hatch Steps:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                
-                            </div>
-                        </div>
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                Abilities:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                
-                            </div>
-                        </div>
-                        <div className="pkmInfo-grid-item-container">
-                            <div className="pkmInfo-grid-item-title">
-                                EVs:
-                            </div>
-                            <div className="pkmInfo-grid-item-content">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <PkmProfile pkmToShow={pkmToShow}/>
                 <div className="overlay-closeBtn-container">
                     <div className="overlay-close-btn" onClick={hideInfo}>
                         &times;
@@ -254,6 +170,107 @@ const getStatDispName = (statName) => {
             break;
     }
     return statDispName;
+}
+
+const PkmDesc = ({ descToShow }) => {
+    return (
+        <div className="pkmInfo-desc-container">
+            <div className="pkmInfo-desc fasterFadeIn-animation">
+                <p>
+                    {descToShow}
+                </p>
+            </div>
+        </div>
+    );
+}
+
+/*
+/
+*/
+const PkmProfile = ({ pkmToShow }) => {
+    const pkmHeight = pkmToShow.height + ' m';
+    const pkmWeight = pkmToShow.weight + ' kg';
+    const maleRatio = 3.5;
+
+    return (
+        <div className="pkmInfo-profile-container fasterFadeIn-animation">
+            <div className="pkmInfo-profile1">
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Height: 
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        {pkmHeight}
+                    </div>
+                </div>
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Weight:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        {pkmWeight}
+                    </div>
+                </div>
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Catch Rate:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        
+                    </div>
+                </div>
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Gender Ratio:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        <div className="gender-ratio-progBar-container">
+                            <div className="male-ratio-progBar-fill" style={{ width: `${(maleRatio/8)*200}px` }}>
+                                <div className="gender-ratio-text">{(maleRatio/8)*100}%</div>
+                            </div>
+                            <div className="female-ratio-progBar-fill" style={{ width: `${((8-maleRatio)/8)*200}px` }}>
+                                <div className="gender-ratio-text">{((8-maleRatio)/8)*100}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="pkmInfo-profile2">
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Egg Groups:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        
+                    </div>
+                </div>
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Hatch Steps:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        
+                    </div>
+                </div>
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        Abilities:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        
+                    </div>
+                </div>
+                <div className="pkmInfo-grid-item-container">
+                    <div className="pkmInfo-grid-item-title">
+                        EVs:
+                    </div>
+                    <div className="pkmInfo-grid-item-content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 /*
