@@ -255,8 +255,8 @@
     font-size: 50px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    animation: animate 
-        1.5s linear infinite;
+    /*animation: animate 
+        1.5s linear infinite;*/
 }
 
 @keyframes animate {

@@ -9,23 +9,31 @@ const pokeApiUrl_pkmSpc = 'https://pokeapi.co/api/v2/pokemon-species';
 */
 const pokeApiUrl_pkm = 'https://pokeapi.co/api/v2/pokemon';
 
+const numRuns = {
+    current: 0,
+    total: Number.MAX_VALUE
+}
+
 /*
 / A service for retrieving Pokemon data from the public API PokeApi 
 /
 / Note: Total number of retrievable Pokemon species is 898
 */
 const retrievePokeApiData = async () => {
-    console.log('RUN ' + 1);
     let pokeApiData_pkmSpc = (await axios.get(pokeApiUrl_pkmSpc)).data;
     let filteredData = await getFilteredData(pokeApiData_pkmSpc);
 
     const maxEntriesPerCall = 20;
+
+     numRuns.current++; 
+     numRuns.total = Math.ceil(pokeApiData_pkmSpc.count/maxEntriesPerCall);
     
     for (let i=0; i<(pokeApiData_pkmSpc.count/maxEntriesPerCall)-1; i++) {
-        console.log('RUN ' + i+1);
         let pokeApiNextUrl = pokeApiData_pkmSpc.next;
         pokeApiData_pkmSpc = (await axios.get(pokeApiNextUrl)).data;
         filteredData = filteredData.concat((await getFilteredData(pokeApiData_pkmSpc)));
+
+        numRuns.current++;
     }
 
     return filteredData;
@@ -155,5 +163,5 @@ const getFilteredData1 = async (pokeApiData) => {
 
 
 
-export { retrievePokeApiData }
+export { retrievePokeApiData, numRuns }
 

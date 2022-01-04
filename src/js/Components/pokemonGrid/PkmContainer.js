@@ -1,4 +1,8 @@
+import { useState, useEffect } from 'react'
+
 import PkmItem from './PkmItem'
+
+import { numRuns } from '../../Utilities/PokeApiController'
 
 /*
 / Used to display all the Pokemon which made it through the filter
@@ -20,13 +24,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
     return (
         <>
         {loadingPkm? 
-            <div className="pkmItem-container-container-container fasterFadeIn-animation">
-                <div className="loadingPkm-container-container">
-                    <div className="loadingPkm-container">
-                        Loading...
-                    </div>
-                </div>
-            </div>
+            <PkmContainerLd/>
         :
             <div className="pkmItem-container-container-container">
                 {showPrevBtn 
@@ -49,5 +47,32 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
         </>
     )
 }
+
+const PkmContainerLd = () => {
+    const [loading, setLoading] = useState(0);
+    useEffect(() => {
+        const myTimeout = setTimeout(() => {
+            setLoading(loading + 1);
+        }, 100);
+
+        return(() => {
+        clearTimeout(myTimeout)
+        });
+    });
+    return (
+        <div className="pkmItem-container-container-container fasterFadeIn-animation">
+            <div className="loadingPkm-container-container">
+                {Math.round((numRuns.current/numRuns.total)*100)}%
+            </div>
+        </div>
+    );
+}
+
+/*
+<div className="loadingPkm-container">
+    Loading... {numRuns}
+</div>
+*/
+
 
 export default PkmContainer

@@ -5,6 +5,7 @@ import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
 import Footer from './js/Components/footer/Footer'
 
 import { providePkmData } from './js/Utilities/PkmDataProvider';
+import { numRuns } from './js/Utilities/PokeApiController'
 
 function App() {
   //console.log('Start: ' + new Date().getTime());
@@ -18,6 +19,12 @@ function App() {
   / Used to determine whether Pokemon data is being loaded into the application
   */
   const [loadingPkm, setLoadingPkm] = useState(true);
+
+  /*------------------------------------------------------------------------------------*/
+
+  //const [loadProg, setLoadProg] = useState(0);
+
+  /*------------------------------------------------------------------------------------*/
 
   /*
   / Retrieves the Pokemon data => Called AFTER the App component first mounts
