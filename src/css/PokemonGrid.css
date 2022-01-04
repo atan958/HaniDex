@@ -300,18 +300,19 @@
 }
 
 .pkbBtn-container {
+    position: relative;
     margin: auto;
     width: 30%;
     height: 36px;
 
-    padding: 45px 0px 0px 2px;
+    padding: 45px 2px 0px 0px;
 
     text-align: center;
 }
 
 .pkb-btn {
     position: absolute;
-    left: 35.5%;
+    left: 1.39px;
 
     width: 38px;
     height: 38px;
@@ -324,8 +325,7 @@
 }
 
 .pkb-btn:active {
-    margin: 2px 0px;
-    left: 37%;
+    margin: 2px;
 
     width: 34px;
     height: 34px;
@@ -345,6 +345,9 @@
 }
 
 .pkbLoading-btn {
+    position: absolute;
+    left: 3.39px;
+
     width: 38px;
     height: 38px;
 

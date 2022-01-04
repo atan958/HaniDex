@@ -21,6 +21,7 @@ const retrievePokeApiData = async () => {
     const maxEntriesPerCall = 20;
     console.log('STARTING: ' + new Date().getTime());
     for (let i=0; i<(pokeApiData_pkmSpc.count/maxEntriesPerCall)-1; i++) {
+        console.log('RUN ' + i)
         let pokeApiNextUrl = pokeApiData_pkmSpc.next;
         pokeApiData_pkmSpc = (await axios.get(pokeApiNextUrl)).data;
         filteredData = filteredData.concat((await getFilteredData(pokeApiData_pkmSpc)));
