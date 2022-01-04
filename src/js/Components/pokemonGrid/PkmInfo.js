@@ -122,7 +122,7 @@ const PkmTypeSym = ({ type }) => {
 };
 
 /*
-/ Generates a progress bar for a given stat type
+/ Component: Generates a progress bar for a given stat type
 */
 const PkmStatProgBar = ({ stat }) => {
     const statName = getStatDispName(stat.name);
@@ -146,9 +146,7 @@ const PkmStatProgBar = ({ stat }) => {
 }
 
 /*
-/ Helper Method to PkmStatProgBar component:
-/
-/ Returns the appropriate shortened title for each stat name
+/ Helper Method: Returns the appropriate shortened title for each stat name
 */
 const getStatDispName = (statName) => {
     let statDispName = "";
@@ -175,6 +173,9 @@ const getStatDispName = (statName) => {
     return statDispName;
 }
 
+/*
+/ Component: Displays a given Pokemon's Pokedex text entry
+*/
 const PkmDesc = ({ descToShow }) => {
     return (
         <div className="pkmInfo-desc-container">
@@ -188,14 +189,19 @@ const PkmDesc = ({ descToShow }) => {
 }
 
 /*
-/
+/ Component: Displays a given Pokemon's profile information
 */
 const PkmProfile = ({ pkmToShow }) => {
-    const pkmHeight = pkmToShow.height + ' m';
-    const pkmWeight = pkmToShow.weight + ' kg';
+    /*
+    / Content for the left half of PkmProfile
+    */
+    const pkmHeight = `${pkmToShow.height} m`;
+    const pkmWeight = `${pkmToShow.weight} kg`;
     const captureRate = `${Math.round(pkmToShow.captureRate*100)}%`;
     const femaleRatio = pkmToShow.genderRate;
-
+    /*
+    / Content for the right half of PkmProfile
+    */
     const eggGroups = pkmToShow.eggGroups.join(', ');
     const hatchSteps = pkmToShow.hatchSteps;
     const abilities = pkmToShow.abilities.join(', ');
