@@ -74,6 +74,9 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
                     </div>
                 </div>
                 <div className="pkmInfo-img-container">
+                    <div className="pkmInfo-id-container fasterFadeIn-animation">
+                        {`#${pkmToShow.id}`}
+                    </div>
                     <div className="pkmInfo-type-container-container">
                         {renderPkmTypeSyms()}
                     </div>
