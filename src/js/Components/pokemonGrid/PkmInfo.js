@@ -193,7 +193,14 @@ const PkmProfile = ({ pkmToShow }) => {
     const captureRate = `${Math.round(pkmToShow.captureRate*100)}%`;
     const femaleRatio = pkmToShow.genderRate;
 
-    
+    const eggGroups = pkmToShow.eggGroups.join(', ');
+    const hatchSteps = pkmToShow.hatchSteps;
+    const abilities = pkmToShow.abilities.join(', ');
+    const evs = pkmToShow.evs.map((evStat) => {
+        return (
+            `${evStat.effort} ${getStatDispName(evStat.stat.name).split(' ').join('')}`
+        );
+    }).join(', ');
 
     return (
         <div className="pkmInfo-profile-container fasterFadeIn-animation">
@@ -229,10 +236,10 @@ const PkmProfile = ({ pkmToShow }) => {
                     <div className="pkmInfo-grid-item-content">
                         <div className="gender-ratio-progBar-container">
                             <div className="male-ratio-progBar-fill" style={{ width: `${(1-femaleRatio)*200}px` }}>
-                                {(1-femaleRatio) && <div className="gender-ratio-text">{(1-femaleRatio)*100}%</div>}
+                                <div className={`gender-ratio-text ${((1-femaleRatio) > 0.15) && 'show-gender-ratio-text'}`}>{(1-femaleRatio)*100}%</div>
                             </div>
                             <div className="female-ratio-progBar-fill" style={{ width: `${femaleRatio*200}px` }}>
-                                {(femaleRatio) && <div className="gender-ratio-text">{femaleRatio*100}%</div>}
+                                <div className={`gender-ratio-text ${(femaleRatio > 0.15) && 'show-gender-ratio-text'}`}>{femaleRatio*100}%</div>
                             </div>
                         </div>
                     </div>
@@ -244,7 +251,7 @@ const PkmProfile = ({ pkmToShow }) => {
                         Egg Groups:
                     </div>
                     <div className="pkmInfo-grid-item-content">
-                        
+                        {eggGroups}
                     </div>
                 </div>
                 <div className="pkmInfo-grid-item-container">
@@ -252,7 +259,7 @@ const PkmProfile = ({ pkmToShow }) => {
                         Hatch Steps:
                     </div>
                     <div className="pkmInfo-grid-item-content">
-                        
+                        {hatchSteps}
                     </div>
                 </div>
                 <div className="pkmInfo-grid-item-container">
@@ -260,7 +267,7 @@ const PkmProfile = ({ pkmToShow }) => {
                         Abilities:
                     </div>
                     <div className="pkmInfo-grid-item-content">
-                        
+                        {abilities}
                     </div>
                 </div>
                 <div className="pkmInfo-grid-item-container">
@@ -268,7 +275,7 @@ const PkmProfile = ({ pkmToShow }) => {
                         EVs:
                     </div>
                     <div className="pkmInfo-grid-item-content">
-                        
+                        {evs}
                     </div>
                 </div>
             </div>

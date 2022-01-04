@@ -84,6 +84,22 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
         const capture_rate = pkmSpcData.capture_rate/255;
         const gender_rate = pkmSpcData.gender_rate/8;
 
+        const egg_groups = pkmSpcData.egg_groups.map((grp) => {
+            return (
+                grp.name.charAt(0).toUpperCase() + grp.name.slice(1,grp.name.length)
+            );
+        });
+        const hatch_steps = (pkmSpcData.hatch_counter + 1) * 255;
+        const abilities = pkmData.abilities.map((ability) => {
+            let ablName = ability.ability.name;
+            return (
+                ablName.charAt(0).toUpperCase() + ablName.slice(1,ablName.length)
+            );
+        });
+        const evs = pkmData.stats.filter((stat) => {
+            return (stat.effort > 0);
+        }); 
+
         return ({
             name: name,
             id: id,
@@ -92,10 +108,16 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
             desc: {
                 default: descDefault
             },
+
             height: height_m,
             weight: weight_kg,
             captureRate: capture_rate,
-            genderRate: gender_rate
+            genderRate: gender_rate,
+
+            eggGroups: egg_groups,
+            hatchSteps: hatch_steps,
+            abilities,
+            evs
         });
     }));
     return filteredData;

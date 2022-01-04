@@ -28,6 +28,11 @@ const providePkmData = async () => {
         const captureRate = pkmData.captureRate;
         const genderRate = pkmData.genderRate;
 
+        const eggGroups = pkmData.eggGroups;
+        const hatchSteps = pkmData.hatchSteps;
+        const abilities = pkmData.abilities;
+        const evs = pkmData.evs;
+
         return { 
             name: {
                 default: pkmData.name,
@@ -46,7 +51,12 @@ const providePkmData = async () => {
             height,
             weight,
             captureRate,
-            genderRate
+            genderRate,
+
+            eggGroups,
+            hatchSteps,
+            abilities,
+            evs
         };
     }));
 }
