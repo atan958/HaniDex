@@ -24,15 +24,6 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
     const descToShow = rmvEscChars(pkmToShow.desc.default);
 
     /*
-    /
-    */
-    const renderStatProgBars = () => {
-        return pkmToShow.stats.map((stat) => {
-            return <PkmStatProgBar key={stat.name} stat={stat}/>
-        });
-    }
-
-    /*
     / Creates the img components for the Pokemon's shiny and regular forms
     */
     const [shinyImg, regImg] = [pkmToShow.png.sprite.shiny, pkmToShow.png.sprite.reg].map((pkmPng) => {
@@ -64,9 +55,7 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
             <div className="pkmInfo-content">
                 <PkmDesc descToShow={descToShow}/>
-                <div className="progBar-container-container">
-                    {renderStatProgBars()}
-                </div>
+                <PkmStatProgBarGrid statsToShow={pkmToShow.stats}/>
                 <PkmProfile pkmToShow={pkmToShow}/>
                 <div className="overlay-closeBtn-container">
                     <div className="overlay-close-btn" onClick={hideInfo}>
@@ -74,7 +63,7 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
                     </div>
                 </div>
                 <div className="pkmInfo-img-container">
-                    <div className="pkmInfo-id-container fasterFadeIn-animation">
+                    <div className="pkmInfo-id-container fadeIn-animation">
                         {`#${pkmToShow.id}`}
                     </div>
                     <div className="pkmInfo-type-container-container">
@@ -122,7 +111,24 @@ const PkmTypeSym = ({ type }) => {
 };
 
 /*
-/ Component: Generates a progress bar for a given stat type
+/
+*/
+const PkmStatProgBarGrid = ({ statsToShow }) => {
+    const renderStatProgBars = () => {
+        return statsToShow.map((stat) => {
+            return <PkmStatProgBar key={stat.name} stat={stat}/>
+        });
+    }
+
+    return (
+        <div className="progBar-container-container">
+            {renderStatProgBars()}
+        </div>
+    );
+}
+
+/*
+/ Helper Component: Generates a progress bar for a given stat type
 */
 const PkmStatProgBar = ({ stat }) => {
     const statName = getStatDispName(stat.name);
