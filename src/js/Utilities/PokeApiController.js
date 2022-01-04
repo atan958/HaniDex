@@ -64,10 +64,6 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
         const name = pkmSpc.name;
         const id = pkmSpcData.id;
 
-        const descDefault = pkmSpcData.flavor_text_entries.filter((entry) => {
-            return entry.language.name === "en";
-        })[0].flavor_text;
-
         const types = pkmData.types.map((typeObj) => {
             return typeObj.type.name
         });
@@ -79,6 +75,13 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
             }
         });
 
+        const descDefault = pkmSpcData.flavor_text_entries.filter((entry) => {
+            return entry.language.name === "en";
+        })[0].flavor_text;
+
+        const height_m = Math.round(pkmData.height*10);
+        const weight_kg = Math.round(pkmData.weight/10);
+
         return ({
             name: name,
             id: id,
@@ -86,7 +89,9 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
             stats: stats,
             desc: {
                 default: descDefault
-            }
+            },
+            height: height_m,
+            weight: weight_kg
         });
     }));
     return filteredData;

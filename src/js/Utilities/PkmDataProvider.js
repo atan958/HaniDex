@@ -13,23 +13,30 @@ const providePkmData = async () => {
     
     return (pokeApiData.map((pkmData) => {
         const pkmItemName = providePkmItemName(pkmData.name);
-        const pkmGender = providePkmGender(pkmData.name);
-        const pkmPng = providePkmPng(pkmData.name);
-        const pkmStats = pkmData.stats;
+        const id = pkmData.id;
+        const types = pkmData.types;
+
+        const stats = pkmData.stats;
+        const gender = providePkmGender(pkmData.name);
+
+        const png = providePkmPng(pkmData.name);
+        const desc = pkmData.desc;
+        const selected = defaultSelect;
 
         return { 
             name: {
                 default: pkmData.name,
                 pkmItem: pkmItemName,
-                pkmMember: null
             }, 
-            id: pkmData.id,
-            types: pkmData.types,
-            stats: pkmStats,
-            gender: pkmGender,
-            png: pkmPng,
-            desc: pkmData.desc,
-            selected: defaultSelect
+            id,
+            types,
+
+            stats,
+            gender,
+
+            png,
+            desc,
+            selected,
         };
     }));
 }

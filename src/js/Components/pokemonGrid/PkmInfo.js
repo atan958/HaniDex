@@ -59,7 +59,6 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
         });
     }
 
-
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
