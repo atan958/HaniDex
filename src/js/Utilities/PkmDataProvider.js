@@ -25,6 +25,8 @@ const providePkmData = async () => {
 
         const height = pkmData.height;
         const weight = pkmData.weight;
+        const captureRate = pkmData.captureRate;
+        const genderRate = pkmData.genderRate;
 
         return { 
             name: {
@@ -42,7 +44,9 @@ const providePkmData = async () => {
             selected,
 
             height,
-            weight
+            weight,
+            captureRate,
+            genderRate
         };
     }));
 }

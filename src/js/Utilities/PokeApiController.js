@@ -81,6 +81,8 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
 
         const height_m = Math.round(pkmData.height*10)/100;
         const weight_kg = Math.round(pkmData.weight/10);
+        const capture_rate = pkmSpcData.capture_rate/255;
+        const gender_rate = pkmSpcData.gender_rate/8;
 
         return ({
             name: name,
@@ -91,7 +93,9 @@ const getFilteredData = async (pokeApiData_pkmSpc) => {
                 default: descDefault
             },
             height: height_m,
-            weight: weight_kg
+            weight: weight_kg,
+            captureRate: capture_rate,
+            genderRate: gender_rate
         });
     }));
     return filteredData;

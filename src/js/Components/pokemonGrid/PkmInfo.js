@@ -190,7 +190,10 @@ const PkmDesc = ({ descToShow }) => {
 const PkmProfile = ({ pkmToShow }) => {
     const pkmHeight = pkmToShow.height + ' m';
     const pkmWeight = pkmToShow.weight + ' kg';
-    const maleRatio = 3.5;
+    const captureRate = `${Math.round(pkmToShow.captureRate*100)}%`;
+    const femaleRatio = pkmToShow.genderRate;
+
+    
 
     return (
         <div className="pkmInfo-profile-container fasterFadeIn-animation">
@@ -216,7 +219,7 @@ const PkmProfile = ({ pkmToShow }) => {
                         Catch Rate:
                     </div>
                     <div className="pkmInfo-grid-item-content">
-                        
+                        {captureRate}
                     </div>
                 </div>
                 <div className="pkmInfo-grid-item-container">
@@ -225,11 +228,11 @@ const PkmProfile = ({ pkmToShow }) => {
                     </div>
                     <div className="pkmInfo-grid-item-content">
                         <div className="gender-ratio-progBar-container">
-                            <div className="male-ratio-progBar-fill" style={{ width: `${(maleRatio/8)*200}px` }}>
-                                <div className="gender-ratio-text">{(maleRatio/8)*100}%</div>
+                            <div className="male-ratio-progBar-fill" style={{ width: `${(1-femaleRatio)*200}px` }}>
+                                {(1-femaleRatio) && <div className="gender-ratio-text">{(1-femaleRatio)*100}%</div>}
                             </div>
-                            <div className="female-ratio-progBar-fill" style={{ width: `${((8-maleRatio)/8)*200}px` }}>
-                                <div className="gender-ratio-text">{((8-maleRatio)/8)*100}%</div>
+                            <div className="female-ratio-progBar-fill" style={{ width: `${femaleRatio*200}px` }}>
+                                {(femaleRatio) && <div className="gender-ratio-text">{femaleRatio*100}%</div>}
                             </div>
                         </div>
                     </div>
