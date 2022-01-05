@@ -252,12 +252,11 @@
 
 .pkmContainer-ld-progBar-container {
     position: absolute;
-    top: 30%;
+    top: 70%;
     left: 30%;
 
     width: 40%;
     height: 8%;
-
 
     background-color: black;
     overflow: hidden;
@@ -296,6 +295,20 @@
     100% {
         opacity: 0;
     }
+}
+
+.whos-that-pkm-container {
+    position: absolute;
+    top: 12%;
+    left: 46%;
+}
+
+.whos-that-pkm-img {
+    width: 180px;
+    height: 180px;
+    filter: brightness(0%);
+
+    transition: 0.5s ease;
 }
 
 /*---------------------------------Pokeball----------------------------------*/

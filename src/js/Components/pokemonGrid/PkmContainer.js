@@ -23,7 +23,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
 
     return (
         <>
-        {loadingPkm? 
+        {true? 
             <PkmContainerLd/>
         :
             <div className="pkmItem-container-container-container">
@@ -72,22 +72,21 @@ const PkmContainerLd = () => {
     return (
         <div className="pkmItem-container-container-container fasterFadeIn-animation">
             <div className="loadingPkm-container-container">
+                <div className="whos-that-pkm-container">
+                    <div>
+                        Who's that Poke
+                    </div>
+                    <img className="whos-that-pkm-img" src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png'} style={{ filter: (numRuns.current===numRuns.total) && 'brightness(100%)' }}/>
+                </div>
                 <div className="pkmContainer-ld-progBar-container">
                     <div className="pkmContainer-ld-progBar-fill" style={{ width: `${Math.round((numRuns.current/numRuns.total)*1000000)/10000}%` }}>
                         {Math.round((numRuns.current/numRuns.total)*100)}%
                     </div>
                 </div> 
-                
             </div>
         </div>
     );
 }
-
-/*
-<div className="loadingPkm-container">
-    Loading... {numRuns}
-</div>
-*/
 
 
 export default PkmContainer
