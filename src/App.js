@@ -48,7 +48,7 @@ function App() {
   const rmvPkbLoad = async () => {
     setTimeout(() => {
       setLoadingPkm(false)
-    }, 400);
+    }, 500);
   }
 
   return (

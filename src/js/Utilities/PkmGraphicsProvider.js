@@ -37,6 +37,9 @@ const provideMiscPng = (misc) => {
         case 'shiny-sym':
             miscPng = require('../../angelo-assets/shiny-sym.png');
             break;
+        case 'whos-sym':
+            miscPng = require('../../angelo-assets/whos-that-pkm-sym.png');
+            break;
         default:
             miscPng = '../../angelo-assets/missingno.png';
     }
@@ -62,4 +65,20 @@ const getPkmTypePng = (pkmType) => {
     return `https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-${pkmType}-badge-32px.png`;
 }
 
-export { providePkmPng, provideMiscPng, providePkmTypesPng }
+/*
+/
+*/
+const provideRandomPkmSprite = () => {
+    return (
+        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getRandomPkmId()}.png`
+    );
+}
+
+const getRandomPkmId = () => {
+    return (
+        Math.floor(Math.random() * 898) + 1
+    );
+}
+
+
+export { providePkmPng, provideMiscPng, providePkmTypesPng, provideRandomPkmSprite }

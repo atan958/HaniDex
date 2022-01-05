@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 import PkmItem from './PkmItem'
 
 import { numRuns } from '../../Utilities/PokeApiController'
+import { provideRandomPkmSprite, provideMiscPng } from '../../Utilities/PkmGraphicsProvider'
 
 /*
 / Used to display all the Pokemon which made it through the filter
@@ -23,7 +24,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
 
     return (
         <>
-        {true? 
+        {loadingPkm? 
             <PkmContainerLd/>
         :
             <div className="pkmItem-container-container-container">
@@ -69,19 +70,22 @@ const PkmContainerLd = () => {
         });
     });
 
+    const randomPkmSprite = useMemo(() => provideRandomPkmSprite(), []); 
+
+    const whosThatPkmSym = provideMiscPng('whos-sym');
+
     return (
         <div className="pkmItem-container-container-container fasterFadeIn-animation">
             <div className="loadingPkm-container-container">
-                <div className="whos-that-pkm-container">
-                    <div>
-                        Who's that Poke
-                    </div>
-                    <img className="whos-that-pkm-img" src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png'} style={{ filter: (numRuns.current===numRuns.total) && 'brightness(100%)' }}/>
+                <div className="whos-that-pkm-pkmImg-container">
+                    <img className={`whos-that-pkm-pkm-img ${(numRuns.current>=numRuns.total*0.75) && 'whos-that-pkm-imgShown pkmRoar-animation'}`} src={randomPkmSprite}/>
                 </div>
-                <div className="pkmContainer-ld-progBar-container">
-                    <div className="pkmContainer-ld-progBar-fill" style={{ width: `${Math.round((numRuns.current/numRuns.total)*1000000)/10000}%` }}>
-                        {Math.round((numRuns.current/numRuns.total)*100)}%
+                <div className="whos-that-pkm-titleImg-container">
+                        <img className="whos-that-pkm-title-img" src={whosThatPkmSym}/>
                     </div>
+                <div className="pkmContainer-ld-progBar-container">
+                    <div className="pkmContainer-ld-progBar-fill" style={{ width: `${Math.round((numRuns.current/numRuns.total)*100)}%` }}/>
+                    <div className="pkmContainer-ld-percent">{Math.round((numRuns.current/numRuns.total)*100)}%</div>
                 </div> 
             </div>
         </div>
