@@ -53,7 +53,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
 */
 const PkmContainerLd = () => {
     /*
-    / Loading state's value is never used => Only needed to re-render component
+    / The value of the 'loading' state is never used => Only need the state change to re-render component
     */
     const [loading, setLoading] = useState(0);
     /*
