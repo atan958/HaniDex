@@ -446,9 +446,11 @@
 
   overflow: hidden;
 
+  color: white;
   background-color:rgb(124, 0, 0);
 
   cursor: default;
+  text-align: center;
 }
 
 .male-ratio-progBar-fill {

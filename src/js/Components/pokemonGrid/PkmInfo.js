@@ -204,7 +204,14 @@ const PkmProfile = ({ pkmToShow }) => {
     const pkmHeight = `${pkmToShow.height} m`;
     const pkmWeight = `${pkmToShow.weight} kg`;
     const captureRate = `${Math.round(pkmToShow.captureRate*100)}%`;
-    const femaleRatio = pkmToShow.genderRate;
+    let femaleRatio = 0;
+    let maleRatio = 0;
+    if(pkmToShow.genderRate >= 0) {
+        femaleRatio= pkmToShow.genderRate;
+        maleRatio= 1 - pkmToShow.genderRate;
+    }
+    let genderless = (femaleRatio === 0) && (maleRatio === 0);
+
     /*
     / Content for the right half of PkmProfile
     */
@@ -250,8 +257,9 @@ const PkmProfile = ({ pkmToShow }) => {
                     </div>
                     <div className="pkmInfo-grid-item-content">
                         <div className="gender-ratio-progBar-container">
-                            <div className="male-ratio-progBar-fill" style={{ width: `${(1-femaleRatio)*200}px` }}>
-                                <div className={`gender-ratio-text ${((1-femaleRatio) > 0.15) && 'show-gender-ratio-text'}`}>{(1-femaleRatio)*100}%</div>
+                            {genderless && 'No Gender'}
+                            <div className="male-ratio-progBar-fill" style={{ width: `${maleRatio*200}px` }}>
+                                <div className={`gender-ratio-text ${(maleRatio > 0.15) && 'show-gender-ratio-text'}`}>{maleRatio*100}%</div>
                             </div>
                             <div className="female-ratio-progBar-fill" style={{ width: `${femaleRatio*200}px` }}>
                                 <div className={`gender-ratio-text ${(femaleRatio > 0.15) && 'show-gender-ratio-text'}`}>{femaleRatio*100}%</div>
