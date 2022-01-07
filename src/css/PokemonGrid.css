@@ -1,4 +1,4 @@
-/*---------------------------PkmContent-container------------------------------------*/
+/*----------------------------PkmContent-container---------------------------------*/
 
 .pkmGrid-container {
     background-color: #b92222;
@@ -10,7 +10,7 @@
     min-width: 1090px;
 }
 
-/*------------------------------HaniDex-logo----------------------------------------*/
+/*--------------------------------HaniDex-logo--------------------------------------*/
 
 .hanidex-logo-container {
     position: absolute;
@@ -79,7 +79,7 @@
 }
 
 .pkmItem-container {
-    position: relative;         /* I don't think needed */
+    position: relative;
     
     border-radius: 40px;
 
@@ -105,7 +105,7 @@
 .pkmItem-selected {
     color: gold;
 
-    background-color: #fd00009f;
+    background-color: #df00009f;
     background-image: radial-gradient(rgba(0, 0, 0, 0.295),#fd00009f);
 
     border-width: 5px;
@@ -183,7 +183,7 @@
     font-weight: bold; 
 }
 
-/*----------------------------------------------------------------------------------*/
+/*------------------------------Add/Remove PkmItem-----------------------------------*/
 
 .container {
     overflow: hidden;
@@ -247,7 +247,7 @@
     background-color: rgb(124, 0, 118);
 }
   
-/*-----------------------------LoadingPkm-container----------------------------------*/
+/*-----------------------------LoadingPkm Container----------------------------------*/
 
 .loadingPkm-container-container {
     position: absolute;
@@ -524,15 +524,12 @@
 
     display: grd;
     grid-template-columns: auto 64px;
-    
-    /*background-color:black;*/
   }
 
   .pkmTeamIcon-container {
     margin: 0px;
     padding: 0px;
 
-    /*background-color:yellow;*/
     float: right;
     position: relative;
 

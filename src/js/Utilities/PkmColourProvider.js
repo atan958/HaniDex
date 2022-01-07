@@ -1,6 +1,5 @@
-
 /*
-/
+/ Utility Method: Provides the hexadecimal colour code for  a given Pokemon type
 */
 const providePkmTypeColour = (types) => {
     const mainType = types[0];

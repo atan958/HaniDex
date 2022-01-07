@@ -7,7 +7,7 @@ import '../../../css/PkmInfo.css'
 import '../../../animations/pkm-grid/pkmInfo-anm.css'
 
 /*
-/ Displays the information of a specified Pokemon on an overlay
+/ Component: Displays the information of a specified Pokemon on an overlay
 */
 const PkmInfo = ({ pkmToShow, hideInfo }) => {
     const [showShiny, setShowShiny] = useState(false);
@@ -25,14 +25,6 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
     */
     const descToShow = rmvEscChars(pkmToShow.desc.default);
 
-
-
-
-    /*
-    /
-    */
-
-
     return (
     <div className="pkmInfo-overlay-container">
         <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
@@ -46,7 +38,6 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
                     </div>
                 </div>
                 <PkmInfoImgContainer pkmToShow={pkmToShow} showShiny={showShiny} toggleShowShiny={toggleShowShiny}/>
-
                 <div className="pkmInfo-title">
                     {displayName}
                 </div>
@@ -59,11 +50,11 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
 export default PkmInfo
 
 /*
-/
+/ Helper Component: 
 */
 const PkmInfoImgContainer = ({ pkmToShow, showShiny, toggleShowShiny }) => {
     /*
-    / Creates the img components for the Pokemon's shiny and regular forms respectively
+    / Creates the img element components of the given Pokemon's shiny and regular sprites respectively
     */
     const [shinyImg, regImg] = [pkmToShow.png.sprite.shiny, pkmToShow.png.sprite.reg].map((pkmPng) => {
         return(
@@ -72,12 +63,12 @@ const PkmInfoImgContainer = ({ pkmToShow, showShiny, toggleShowShiny }) => {
     });
 
     /*
-    /
+    / Gets the colour code for the given Pokemon's type(s)
     */
-    const shinySymbol = provideMiscPng('shiny-sym');
+    const pkmTypeColour = providePkmTypeColour(pkmToShow.types);
 
     /*
-    /
+    / Helper Method: Generates the PkmTypeSym components for the given Pokemon's types
     */
     const renderPkmTypeSyms = () => {
         const pkmTypesPng = providePkmTypesPng(pkmToShow.types);
@@ -86,8 +77,11 @@ const PkmInfoImgContainer = ({ pkmToShow, showShiny, toggleShowShiny }) => {
             return <PkmTypeSym key={typePng} type={typePng}/>;
         });
     }
-
-    const pkmTypeColour = providePkmTypeColour(pkmToShow.types);
+ 
+    /*
+    / Gets the png for the shiny symbol
+    */
+    const shinySymbol = provideMiscPng('shiny-sym');
 
     return (
         <div className="pkmInfo-img-container" style={{ backgroundImage: `radial-gradient(white, ${pkmTypeColour})` }}>
@@ -116,9 +110,8 @@ const PkmInfoImg = ({ imgSrc }) => {
     );
 };
 
-
 /*
-/ Creates the type symbol of the given Pokemon types
+/ Helper Helper Component: Creates the type symbol of the given Pokemon types
 */
 const PkmTypeSym = ({ type }) => {
     return (
@@ -132,7 +125,7 @@ const PkmTypeSym = ({ type }) => {
 };
 
 /*
-/ Component: Displays a given Pokemon's stats
+/ Helper Component: Displays a given Pokemon's stats
 */
 const PkmStatProgBarGrid = ({ pkmToShow }) => {
     const renderStatProgBars = () => {
@@ -149,7 +142,7 @@ const PkmStatProgBarGrid = ({ pkmToShow }) => {
 }
 
 /*
-/ Helper Component: Generates a progress bar for a given stat type
+/ Helper Helper Component: Generates a progress bar for a given stat type
 */
 const PkmStatProgBar = ({ stat, types }) => {
     const statName = getStatDispName(stat.name);
@@ -201,7 +194,7 @@ const getStatDispName = (statName) => {
 }
 
 /*
-/ Component: Displays a given Pokemon's Pokedex text entry
+/ Helper Component: Displays a given Pokemon's Pokedex text entry
 */
 const PkmDesc = ({ descToShow }) => {
     return (
@@ -216,7 +209,7 @@ const PkmDesc = ({ descToShow }) => {
 }
 
 /*
-/ Component: Displays a given Pokemon's profile information
+/ Helper Component: Displays a given Pokemon's profile information
 */
 const PkmProfile = ({ pkmToShow }) => {
     /*
@@ -328,7 +321,7 @@ const PkmProfile = ({ pkmToShow }) => {
 }
 
 /*
-/ Removes the escape character \f, \n from some of the Pokemon text entries which shows up as a black blotch
+/ Helper Method: Removes the escape character \f, \n from some of the Pokemon text entries which shows up as a black blotch
 */
 const rmvEscChars = (pkmDesc) => {
     let descDefault = pkmDesc;
