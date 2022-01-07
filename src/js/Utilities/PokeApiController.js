@@ -18,9 +18,7 @@ const numRuns = {
 }
 
 /*
-/ A service for retrieving Pokemon data from the public API PokeApi 
-/
-/ Note: Total number of retrievable Pokemon species is 898
+/ Utility Method: A service for retrieving Pokemon data from the public API PokeApi 
 */
 const retrievePokeApiData = async () => {
     console.log('STARTING ' + new Date().getTime());
@@ -44,9 +42,7 @@ const retrievePokeApiData = async () => {
 }
 
 /*
-/ Helper Method: Returns an array of Pokemon objects which contain the necessary data from PokeApi
-/
-/ Each object contains the respective pokemon's name, number, description, stats, etc.
+/ Helper Method: Returns an array of Pokemon objects which contain the necessary data from the PokeApi
 */
 const getFilteredData = async (pokeApiData_pkmSpc) => {
     /*
