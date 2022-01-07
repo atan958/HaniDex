@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 
 import { provideMiscPng, providePkmTypesPng } from '../../Utilities/PkmGraphicsProvider';
+import { providePkmTypeColour } from '../../Utilities/PkmColourProvider';
 
 import '../../../css/PkmInfo.css'
 
@@ -23,8 +24,45 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
     */
     const descToShow = rmvEscChars(pkmToShow.desc.default);
 
+
+
+
     /*
-    / Creates the img components for the Pokemon's shiny and regular forms
+    /
+    */
+
+
+    return (
+    <div className="pkmInfo-overlay-container">
+        <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
+            <div className="pkmInfo-content">
+                <PkmDesc descToShow={descToShow}/>
+                <PkmStatProgBarGrid pkmToShow={pkmToShow}/>
+                <PkmProfile pkmToShow={pkmToShow}/>
+                <div className="overlay-closeBtn-container">
+                    <div className="overlay-close-btn" onClick={hideInfo}>
+                        &times;
+                    </div>
+                </div>
+                <PkmInfoImgContainer pkmToShow={pkmToShow} showShiny={showShiny} toggleShowShiny={toggleShowShiny}/>
+
+                <div className="pkmInfo-title">
+                    {displayName}
+                </div>
+            </div>
+        </div>
+    </div>
+    )
+}
+
+export default PkmInfo
+
+/*
+/
+*/
+const PkmInfoImgContainer = ({ pkmToShow, showShiny, toggleShowShiny }) => {
+    /*
+    / Creates the img components for the Pokemon's shiny and regular forms respectively
     */
     const [shinyImg, regImg] = [pkmToShow.png.sprite.shiny, pkmToShow.png.sprite.reg].map((pkmPng) => {
         return(
@@ -40,53 +78,34 @@ const PkmInfo = ({ pkmToShow, hideInfo }) => {
     /*
     /
     */
-    const pkmTypesPng = providePkmTypesPng(pkmToShow.types);
-    /*
-    /
-    */
     const renderPkmTypeSyms = () => {
+        const pkmTypesPng = providePkmTypesPng(pkmToShow.types);
+
         return pkmTypesPng.map((typePng) => {
             return <PkmTypeSym key={typePng} type={typePng}/>;
         });
     }
 
+    const pkmTypeColour = providePkmTypeColour(pkmToShow.types);
+
     return (
-    <div className="pkmInfo-overlay-container">
-        <div className="pkmInfo-content-container content-centered fasterFadeIn-half-animation">
-            <div className="pkmInfo-content">
-                <PkmDesc descToShow={descToShow}/>
-                <PkmStatProgBarGrid statsToShow={pkmToShow.stats}/>
-                <PkmProfile pkmToShow={pkmToShow}/>
-                <div className="overlay-closeBtn-container">
-                    <div className="overlay-close-btn" onClick={hideInfo}>
-                        &times;
-                    </div>
-                </div>
-                <div className="pkmInfo-img-container">
-                    <div className="pkmInfo-id-container fadeIn-animation">
-                        {`#${pkmToShow.id}`}
-                    </div>
-                    <div className="pkmInfo-type-container-container">
-                        {renderPkmTypeSyms()}
-                    </div>
-                    <div className="shiny-sym-btn">
-                        <img src={shinySymbol} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
-                    </div>
-                    {showShiny? shinyImg : regImg}
-                </div>
-                <div className="pkmInfo-title">
-                    {displayName}
-                </div>
+        <div className="pkmInfo-img-container" style={{ backgroundImage: `radial-gradient(white, ${pkmTypeColour})` }}>
+            <div className="pkmInfo-id-container fadeIn-animation">
+                {`#${pkmToShow.id}`}
             </div>
+            <div className="pkmInfo-type-container-container">
+                {renderPkmTypeSyms()}
+            </div>
+            <div className="shiny-sym-btn">
+                <img src={shinySymbol} onClick={toggleShowShiny} style={{ filter: `${showShiny? 'invert(0%)' : 'invert(100%)'}` }}/>
+            </div>
+            {showShiny? shinyImg : regImg}
         </div>
-    </div>
-    )
+    );
 }
 
-export default PkmInfo
-
 /*
-/ Creates the sprite image of the given Pokemon png
+/ Helper Component: Creates the sprite image of the given Pokemon png
 */
 const PkmInfoImg = ({ imgSrc }) => {
     return (
@@ -95,6 +114,7 @@ const PkmInfoImg = ({ imgSrc }) => {
         </div>
     );
 };
+
 
 /*
 / Creates the type symbol of the given Pokemon types
@@ -111,12 +131,12 @@ const PkmTypeSym = ({ type }) => {
 };
 
 /*
-/
+/ Component: Displays a given Pokemon's stats
 */
-const PkmStatProgBarGrid = ({ statsToShow }) => {
+const PkmStatProgBarGrid = ({ pkmToShow }) => {
     const renderStatProgBars = () => {
-        return statsToShow.map((stat) => {
-            return <PkmStatProgBar key={stat.name} stat={stat}/>
+        return pkmToShow.stats.map((stat) => {
+            return <PkmStatProgBar key={stat.name} stat={stat} types={pkmToShow.types}/>
         });
     }
 
@@ -130,7 +150,7 @@ const PkmStatProgBarGrid = ({ statsToShow }) => {
 /*
 / Helper Component: Generates a progress bar for a given stat type
 */
-const PkmStatProgBar = ({ stat }) => {
+const PkmStatProgBar = ({ stat, types }) => {
     const statName = getStatDispName(stat.name);
     const statVal = stat.value;
 

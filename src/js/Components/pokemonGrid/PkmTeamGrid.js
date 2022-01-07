@@ -49,7 +49,7 @@ const PkmTeamMember = ({ pkmMember, rmvPkm, showInfo }) => {
         pkmName = pkmMember.name.default.charAt(0).toUpperCase() + pkmMember.name.default.slice(1, pkmMember.name.default.length);
         hoverTxt = <span className="tooltiptext">{pkmName}</span>;
         pkmImg = <img src={pkmMember.png.sprite.reg} className="pkmShake-animation-hovered" width="62" height="70" />
-        rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>X</button>;
+        rmvBtn = <button className={`rmvMember-btn`} onClick={() => rmvPkm(pkmMember)}>&times;</button>;
     } 
     /*
     / catch is used to produce an empty container;
