@@ -1,7 +1,7 @@
 import '../../../animations/pkm-grid/pkmTeamMember-anm.css'
 
 /*
-/ Displays the "selected" Pokemon (i.e. team members)
+/ Component: Displays all of the "selected" Pokemon (i.e. team members)
 */
 const PkmTeamGrid = ({ pkmTeam, rmvPkm, showInfo }) => {
     /*
@@ -34,7 +34,7 @@ const PkmTeamGrid = ({ pkmTeam, rmvPkm, showInfo }) => {
 }
 
 /*
-/ Used for displaying each of the selected Pokemon
+/ Helper Component: Creates the display for each of the selected Pokemon
 */
 const PkmTeamMember = ({ pkmMember, rmvPkm, showInfo }) => {
     /*

@@ -6,21 +6,15 @@ import { numRuns } from '../../Utilities/PokeApiController'
 import { provideRandomPkmSprite, provideMiscPng } from '../../Utilities/PkmGraphicsProvider'
 
 /*
-/ Used to display all the Pokemon which made it through the filter
+/ Component: Displays all the Pokemon which made it through the filtering process
 */
 const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, showInfo, incPkmContentIndex, decPkmContentIndex, showNextBtn, showPrevBtn, search }) => {
     /*
     / Creates a collection of PkmItem components; 1 for each Pokemon in the list
     */
     const pkmItemList = pkmDataList.map((pkmData) => {
-        //console.log(pkmData.name.default + ": " + pkmData.desc.default);
         return <PkmItem key={pkmData.name.default} pkmData={pkmData} addPkm={addPkm} rmvPkm={rmvPkm} atMaxNumPkm={atMaxNumPkm} showInfo={showInfo} search={search}/>
     });
-
-    /*
-    / *** TO BE REMOVED ***
-    */
-    console.log('Rendered at PkmContainer');
 
     return (
         <>
@@ -50,7 +44,7 @@ const PkmContainer = ({ pkmDataList, loadingPkm, addPkm, rmvPkm, atMaxNumPkm, sh
 }
 
 /*
-/ Displays how much of the necessary data has been loaded into the application
+/ Temporary Component: Displays how much of the necessary data has been loaded into the application
 */
 const PkmContainerLd = () => {
     /*
@@ -70,8 +64,13 @@ const PkmContainerLd = () => {
         });
     });
 
+    /*
+    / Obtains a random Pokemon sprite at startup (during loading time) which the component keeps for its entire lifetime
+    */
     const randomPkmSprite = useMemo(() => provideRandomPkmSprite(), []); 
-
+    /*
+    / Obtains the "Who's that Pokemon" symbol png
+    */
     const whosThatPkmSym = provideMiscPng('whos-sym');
 
     return (
@@ -91,6 +90,5 @@ const PkmContainerLd = () => {
         </div>
     );
 }
-
 
 export default PkmContainer

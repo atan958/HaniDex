@@ -4,11 +4,11 @@ import '../../../animations/pkm-grid/pkmItem-anm.css'
 
 const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => {
     /*
-    /
+    / Used to determine whether it's the first render of the PkmItem component => Can use in a logic expression to imitate a ComponentDidUpdate
     */
     const firstRender = useRef(true);
     /*
-    /
+    / This is executed AFTER the component first is mounted
     */
     useEffect(() => {
         firstRender.current = false;
@@ -70,7 +70,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
         :
         trailingName = pkmName.slice(indexOfSearch + searchLc.length, pkmName.length);
     /*
-    / *** FINISH *** 
+    / *** FINISH FOR SEARCH HIGHLIGHTING *** 
     */
 
     /*
@@ -91,9 +91,6 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     */
     const isMale = useMemo(() => pkmData.gender === 'male', [pkmData.gender]);
     
-    /*
-    / NOTE: Maybe place the boolean expressions outside of the JSX?
-    */
     return (
         <>
         <div className={`container grid-item pkmItem-container fasterFadeIn-half-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  onMouseOver={hoverOn} onMouseLeave={hoverOff}>

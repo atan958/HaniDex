@@ -28,7 +28,6 @@ function App() {
     */
     const getPkmData = async () => {
       let pkmData = await providePkmData();
-      //console.log(pkmData.slice(0,20));
       setPokemon(pkmData);
     }
     getPkmData();

@@ -5,7 +5,7 @@ import PkmTeamGrid from './PkmTeamGrid';
 import pkmTrainer from '../../../angelo-assets/pokemon-trainer.png'
 
 /*
-/ Used to display the Pokemon which are selected by the user
+/ Component: Used to display the Pokemon which are selected by the user
 */
 const PkmTeam = ({ pkmTeam, rmvPkm, showInfo }) => {
     /*

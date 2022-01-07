@@ -4,7 +4,7 @@ import { providePkmPng } from './PkmGraphicsProvider'
 import { retrievePokeApiData } from './PokeApiController';
 
 /*
-/ A service for providing Pokemon data to the application
+/ Utility Method: A service for providing Pokemon data to the application
 */
 const providePkmData = async () => {
     const defaultSelect = false;

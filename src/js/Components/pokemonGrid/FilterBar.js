@@ -1,5 +1,5 @@
 /*
-/ Holds all the components which deal with filtering the Pokemon shown in the container
+/ Component: Holds all the component(s) which deal with filtering the Pokemon shown in the container
 */
 const FilterBar = ({search, setSearch}) => {
     return (
@@ -10,7 +10,7 @@ const FilterBar = ({search, setSearch}) => {
 }
 
 /*
-/ Controls the search state passed down from the ancestor PkmGrid component
+/ Helper Component: Controls the search state passed down from the ancestor PkmGrid component
 */
 const SearchBar = ({ search, setSearch }) => {
     return (
@@ -19,6 +19,5 @@ const SearchBar = ({ search, setSearch }) => {
         </div>
     )
 }
-
 
 export default FilterBar
