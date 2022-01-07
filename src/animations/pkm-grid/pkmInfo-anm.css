@@ -1,0 +1,9 @@
+.progBar-animation {
+    animation: progBar-increase 1.5s;
+    animation-timing-function: cubic-bezier(1,3,6,10);
+  }
+  
+  @keyframes progBar-increase {
+    from { left: -100%; opacity: 0 }
+    to { left: 0; opacity: 1 }
+  }

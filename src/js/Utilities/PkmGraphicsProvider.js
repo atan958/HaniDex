@@ -1,5 +1,5 @@
 /*
-/ A service for providing png files for a given Pokemon
+/ Utility Method: A service for providing the sprite png of a given Pokemon
 */
 const providePkmPng = (pkmName) => {
     let spriteReg, spriteShiny = null;
@@ -27,6 +27,9 @@ const providePkmPng = (pkmName) => {
     };
 }
 
+/*
+/ Utility Method: A service for providing miscellaneous pngs to the components
+*/
 const provideMiscPng = (misc) => {
     let miscPng;
     
@@ -43,12 +46,12 @@ const provideMiscPng = (misc) => {
         default:
             miscPng = '../../angelo-assets/missingno.png';
     }
-
+    
     return miscPng;
 }
 
 /*
-/ Provides the PNGs of the types of a given Pokemon
+/ Utility Method: A service which provides the pngs for Pokemon type symbols
 */
 const providePkmTypesPng = (pkmTypes) => {
     const pkmTypesPng = [null, null];
@@ -61,12 +64,15 @@ const providePkmTypesPng = (pkmTypes) => {
     return pkmTypesPng;
 };
 
+/*
+/ Helper Method: Obtains the publically hosted png file of the Pokemon type symbols
+*/
 const getPkmTypePng = (pkmType) => {
     return `https://raw.githubusercontent.com/itsjavi/pokemon-assets/master/assets/img/symbols/type-${pkmType}-badge-32px.png`;
 }
 
 /*
-/
+/ Utility Method: A service which provides the sprite of a  random Pokemon
 */
 const provideRandomPkmSprite = () => {
     return (
@@ -74,11 +80,15 @@ const provideRandomPkmSprite = () => {
     );
 }
 
+/*
+/ Helper Method: Randomly generates a Pokedex id
+*/
 const getRandomPkmId = () => {
+    const totalNumOfPkm = 898;
+
     return (
-        Math.floor(Math.random() * 898) + 1
+        Math.floor(Math.random() * totalNumOfPkm) + 1
     );
 }
-
 
 export { providePkmPng, provideMiscPng, providePkmTypesPng, provideRandomPkmSprite }

@@ -4,6 +4,7 @@ import { provideMiscPng, providePkmTypesPng } from '../../Utilities/PkmGraphicsP
 import { providePkmTypeColour } from '../../Utilities/PkmColourProvider';
 
 import '../../../css/PkmInfo.css'
+import '../../../animations/pkm-grid/pkmInfo-anm.css'
 
 /*
 / Displays the information of a specified Pokemon on an overlay
@@ -187,10 +188,10 @@ const getStatDispName = (statName) => {
             statDispName = 'DEF'
             break;
         case 'special-attack':
-            statDispName = 'SP. ATK'
+            statDispName = 'SP.ATK'
             break;
         case 'special-defense':
-            statDispName = 'SP. DEF'
+            statDispName = 'SP.DEF'
             break;
         case 'speed':
             statDispName = 'SPD'
@@ -240,7 +241,7 @@ const PkmProfile = ({ pkmToShow }) => {
     const abilities = pkmToShow.abilities.join(', ');
     const evs = pkmToShow.evs.map((evStat) => {
         return (
-            `${evStat.effort} ${getStatDispName(evStat.stat.name).split(' ').join('')}`
+            `${evStat.effort} ${getStatDispName(evStat.stat.name)}`
         );
     }).join(', ');
 
