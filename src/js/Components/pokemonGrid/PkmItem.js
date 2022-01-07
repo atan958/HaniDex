@@ -97,7 +97,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
     return (
         <>
         <div className={`container grid-item pkmItem-container fasterFadeIn-half-animation ${pkmData.selected?'pkmItem-selected' : 'pkmItem-notSelected'}`}  onMouseOver={hoverOn} onMouseLeave={hoverOff}>
-            <div className={`overlay-div ${pkmData.selected? 'red-btn' : (atMaxNumPkm? 'cantSelectPkm' : 'green-btn')}`} onClick={toggleSelected}>
+            <div className={`overlay-div ${pkmData.selected? 'rmv-pkmItem-btn' : (atMaxNumPkm? 'cantSelectPkm' : 'add-pkmItem-btn')}`} onClick={toggleSelected}>
                 {pkmData.selected? 'Remove' : (atMaxNumPkm? 'Team Full' :'Add')}
             </div>
             <div className={`pkmItemImg-container ${(pkmData.selected || hovered) && 'shake-animation'}`} onClick={() => {showInfo(pkmData)}}>

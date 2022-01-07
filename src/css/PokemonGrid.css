@@ -224,12 +224,12 @@
     border-top: 8px solid black;
 }
 
-.green-btn {
+.add-pkmItem-btn {
     background-color: green;
 }
 
-.red-btn {
-    background-color: rgb(202, 0, 0);
+.rmv-pkmItem-btn {
+    background-color: goldenrod;
 }
 
 .pkmItem-container:hover .overlay-div{
