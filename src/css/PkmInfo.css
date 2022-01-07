@@ -1,0 +1,472 @@
+
+  /*---------------------------------------------------------------------------*/
+
+  .pkmInfo-overlay-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    background-color: rgba(0, 0, 0, 0.301);
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 1090px;
+    text-align: center;
+
+    z-index: 20;
+  }
+
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-content-container {
+  width: 900px;
+}
+
+.content-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-content {
+  position: relative;
+  box-sizing: border-box;
+
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 10px;
+
+  background-color: white;;
+
+  width: 900px;
+  height: 700px;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.overlay-closeBtn-container {
+  box-sizing: border-box;
+  width: 40px;
+  
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  text-align: right;
+}
+
+.overlay-close-btn {
+    display:inline-block;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.overlay-close-btn:hover {
+  transition: 0.1s ease;
+  color: rgb(238, 0, 0);
+  text-shadow: 1px 1px #000000;
+}
+
+.overlay-close-btn:active {
+    color: rgb(124, 0, 0);
+}
+
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-img-container {
+  box-sizing: border-box;
+  display: inline-block;
+
+  position: absolute;
+  top: 50px;
+  right: 80px;
+
+  padding: 0px 30px 60px 30px;
+
+  background-color: rgba(255, 0, 0, 0.226);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+
+  border: 3px solid black;
+}
+
+.pkmInfo-img-container:hover {
+  cursor: default;
+  transition: 0.5s ease;
+}
+
+.pkmInfo-img {
+  cursor: default;
+
+  width: 200px;
+  height: 255px;
+}
+
+.pkmInfo-type-container-container {
+  display: grid;
+  grid-template-columns: 40px 40px;
+
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+
+.pkmInfo-type-container {
+  box-sizing: border-box;
+
+  width: 36px;
+  height: 36px;
+
+  padding: 2px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  background-color: rgb(0, 0, 0);
+}
+
+.pkmInfo-id-container {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  box-sizing: border-box;
+
+  width: 63px;
+  height: 36px;
+
+  padding: 3px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  color: black;
+
+  border-radius: 14px;
+  border: 3px solid black;
+
+  background-color: gold;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-title {
+    position: absolute;
+    right: 80px;
+    top: 377px;
+
+    padding: 10px 20px 10px 20px;
+
+    background-color: rgba(255, 0, 0, 0.521);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+    border: 3px solid black;
+
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+
+    text-align: center;
+    width: 220px;
+    height: 45px;
+}
+
+.pkmInfo-title:hover {
+  transition: 1s ease;
+  cursor: default;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-desc-container {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 400px;
+  height: 150px;
+
+  left: 80px;
+  top: 60px;
+
+  overflow: hidden;
+  border: 3px solid green;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+}
+
+.pkmInfo-desc {
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 412px;
+  height: 162px;
+
+  overflow: scroll;
+  
+  padding: 25px;
+
+  background-color: rgb(172, 255, 47);
+
+  font-size: 16px;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.pkmInfo-desc:hover {
+  transition: 1s ease;
+  cursor:default;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.progBar-container-container {
+  box-sizing: border-box;
+
+  position: absolute;
+  top: 230px;
+  left: 80px;
+
+  border: 3px solid rgb(0, 0, 0);
+  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+  
+  width: 400px;
+  height: 208px;
+
+  text-align: center;
+}
+
+.pkmStat-progBar-container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 20% 80%;
+
+  margin: 10px;
+
+  height: 22px;
+}
+
+.progBar-container {
+  box-sizing: border-box;
+
+  position: relative;
+  display: inline-block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 2px solid black;
+  border-radius: 5px;
+
+  overflow: hidden;
+
+  background-color: rgba(255, 0, 255, 0.212);
+}
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  height: 100%;
+  background-color: rgb(255, 0, 255);
+}
+
+.stat-title {
+  box-sizing: border-box;
+  display: inline-block;
+
+  width: 90%;
+  height: 100%;
+
+  background-color: greenyellow;
+
+  border: 2px solid black;
+  border-radius: 5px;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  font-weight: bold;
+
+  padding-top: 1px;
+  color: black;
+}
+
+.stat-value {
+  box-sizing: border-box;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  font-weight: bold;
+
+  padding-top: 1px;
+  color: rgb(255, 255, 255);
+
+  z-index: 1;
+}
+
+.progBar-container-container:hover .stat-value {
+  opacity: 1;
+  transition: 1s ease;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.shiny-sym-btn {
+  position: absolute;
+
+  bottom: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.shiny-sym-btn:hover {
+  filter:contrast(40%);
+  transition: 0.5s ease;
+}
+
+.shiny-sym-btn:active {
+  filter:contrast(90%);
+  transition: 0.5s ease;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.pkmInfo-profile-container {
+  position: absolute;
+  top: 475px;
+  left: 37px;
+  
+  width: 810px;
+  height: 160px;
+
+  border: 3px solid rgb(0, 0, 0);
+  padding: 7px 2px 7px 2px;
+
+  display:grid;
+  grid-template-columns: 50% 50%;
+
+  background-color: rgba(250, 0, 0, 0.137);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pkmInfo-profile1 {
+  box-sizing: border-box;
+  text-align: center;
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  
+  padding: 0px;
+  
+  font-size: 16px;
+  font-family: "Courier New", "Courier New", monospace;
+}
+
+.pkmInfo-profile2 {
+  box-sizing: border-box;
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  font-family: "Couries New", "Courier New", monospace;
+}
+
+.pkmInfo-grid-item-container {
+  display: grid;
+  grid-template-columns: 37% 63%;
+
+  box-sizing: border-box;
+  
+  width: 400;
+  height: 25%;
+
+  padding: 0px;
+  font-weight: bold;
+}
+
+.pkmInfo-grid-item-title {
+  padding: 10px;
+  text-align: right;
+  font-size: 16px;
+}
+
+.pkmInfo-grid-item-content {
+  position: relative;
+  padding: 11px;
+  text-align: left;
+  font-size: 16px;
+}
+
+/*------------------------------------------------------------------------------*/
+
+.gender-ratio-progBar-container {
+  position: absolute;
+  left: 10px;
+  top: 4px;
+
+  width: 200px;
+  height: 25px;
+
+  border: 1px solid black;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  color: white;
+  background-color:rgb(132, 0, 255);
+
+  cursor: default;
+  text-align: center;
+}
+
+.male-ratio-progBar-fill {
+  height: 100%;
+  display:inline-block;
+  
+  text-align: center;
+  background-color:#0087fd;
+}
+
+.female-ratio-progBar-fill {
+  height: 100%;
+  display:inline-block;
+
+  text-align: center;
+  background-color:#ff6cee;
+}
+
+.gender-ratio-text {
+  padding-top: 4px;
+  opacity: 0;
+  color: rgb(255, 255, 255);
+}
+
+.show-gender-ratio-text {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------------*/

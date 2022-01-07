@@ -1,0 +1,106 @@
+.fadeIn-animation {
+    text-align: center;
+  
+    -webkit-animation: fadeIn 2s; /* Safari, Chrome and Opera > 12.1 */
+            animation: fadeIn 2s;
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+.shake-animation {
+    animation: shake 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.fasterFadeIn-animation {
+    text-align: center;
+  
+    -webkit-animation: fasterFadeIn 0.8s; /* Safari, Chrome and Opera > 12.1 */
+            animation: fasterFadeIn 0.8s;
+  }
+  
+  @-webkit-keyframes fasterFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes fasterFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .fasterFadeIn-half-animation {
+    text-align: center;
+  
+    -webkit-animation: fasterFadeInH 0.8s; /* Safari, Chrome and Opera > 12.1 */
+            animation: fasterFadeInH 0.8s;
+  }
+  
+  @-webkit-keyframes fasterFadeInH {
+    from { opacity: 0.5; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes fasterFadeInH {
+    from { opacity: 0.5; }
+    to   { opacity: 1; }
+  }
+
+  .rattle-animation {
+    animation: pkb-caught 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes pkb-caught {
+    25% {
+      transform: translate3d(-0.1px, 0, 0);
+    }
+    
+    50% {
+      transform: translate3d(0.2px, 0, 0);
+    }
+  
+    75% {
+      transform: translate3d(-0.5px, 0, 0);
+    }
+  
+    100% {
+      transform: translate3d(0.5px, 0, 0);
+    }
+  }
+
+  .imgFadeIn-animation {
+    position: relative;
+    top:0px;
+
+    animation: img-fadeIn 1.5s ease forwards;
+  }
+  
+  @keyframes img-fadeIn{
+    0%{opacity: 0}
+    100%{opacity: 1}
+  }

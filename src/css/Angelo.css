@@ -20,7 +20,7 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #ffffff4f;
+    background-color: #dadada;
   }
   
   .container:hover .overlay {
@@ -40,6 +40,10 @@
   div.centered {
     margin: auto;
     width: 703px;
-    /*border: 3px solid green;*/
-    padding: 10px;
   }
+
+  .angelo-container {
+    margin-top: 40px;
+  }
+
+

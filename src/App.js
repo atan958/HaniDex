@@ -1,34 +1,59 @@
-import { useState, useEffect } from 'react'
-import NavBar from './js/Components/navBar/NavBar'
-import PokemonGrid from './js/Components/pokemonGrid/PokemonGrid'
-import Footer from './js/Components/footer/Footer'
-import PokemonProvider from './js/Utilities/PokemonProvider';
+import { useState, useEffect, useRef } from 'react'
 
+import NavBar from './js/Components/navBar/NavBar'
+import PkmGrid from './js/Components/pokemonGrid/PkmGrid'
+import Footer from './js/Components/footer/Footer'
+
+import { providePkmData } from './js/Utilities/PkmDataProvider';
 
 function App() {
+  //console.log('Start: ' + new Date().getTime());
+  const numRnd = useRef(0); numRnd.current++; console.log('------------------- Render #' + numRnd.current + ' -------------------');
+  /*
+  / Used to store the Pokemon data inside the application
+  */
   const [pokemon, setPokemon] = useState([]);
 
-  console.log('Rendered at ' + new Date());
-  useEffect(() => {
-    console.log('Effected at ' + new Date());
-    setTimeout(() => {
-      setPokemon((prevPkm) => {
-        let pokemon = PokemonProvider();
-        return prevPkm.concat(pokemon)
-      })
-    }, 3000);
-  },[]);
-  
   /*
-  const getPokemon = async () => {
-    return PokeApiController.getPokemon();
-  }
+  / Used to determine whether Pokemon data is being loaded into the application
   */
+  const [loadingPkm, setLoadingPkm] = useState(true);
+
+  /*
+  / Retrieves the Pokemon data => Called AFTER the App component first mounts
+  */
+  useEffect(() => {
+    /*
+    / Used to transfer data from the PokeApiController to inside the app itself
+    */
+    const getPkmData = async () => {
+      let pkmData = await providePkmData();
+      setPokemon(pkmData);
+    }
+    getPkmData();
+  },[]);
+
+  /*
+  / Removes the loading state from Pokemon retrieval => Set to false ONLY AFTER Pokemon are retrieved (i.e. 0 < Pokemon)
+  */
+  useEffect(() => {
+      if(pokemon.length > 0) {
+        rmvPkbLoad();
+      } 
+  }, [pokemon]);
+  /*
+  / Removes the loading state of the Pokeball after a given amount of time (e.g. 0 secs)
+  */
+  const rmvPkbLoad = async () => {
+    setTimeout(() => {
+      setLoadingPkm(false)
+    }, 500);
+  }
 
   return (
     <>
       <NavBar />
-      <PokemonGrid pkmObjList={pokemon}/>
+      <PkmGrid pkmDataList={pokemon} loadingPkm={loadingPkm}/>
       <Footer />
     </>
   );

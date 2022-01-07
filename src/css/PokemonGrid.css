@@ -1,55 +1,359 @@
-.pokemonGrid {
-    background-color: #810101;
+/*----------------------------PkmContent-container---------------------------------*/
+
+.pkmGrid-container {
+    background-color: #b92222;
+
     padding: 25px 50px 50px 50px;
-    text-align: center;
     margin: 0px 0px 0px 0px;
-    min-height: calc(100vh - 100px);
+
+    min-height: calc(100vh - 100px - 150px + 26px);
     min-width: 1090px;
 }
 
+/*--------------------------------HaniDex-logo--------------------------------------*/
+
+.hanidex-logo-container {
+    position: absolute;
+
+    font-size: 70px;
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+    color: gold;
+    text-shadow: 2px 2px 5px #000000;
+
+    top: 110px;
+    left: 90px;
+
+    cursor: default;
+}
+
+.hanidex-logo-dex {
+    color: white;
+}
+
+/*--------------------------PkmItem-container-container-------------------------------*/
+
+.pkmItem-container-container-container {
+    box-sizing: border-box;
+    position: relative;
+
+    min-width: 990px;
+    min-height: 345px;
+
+    margin: 25px 0px;
+    background-color: rgb(180, 252, 255) !important;
+
+    border-radius: 40px;
+    border: 5px solid rgb(100, 100, 100);
+
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .grid-container {
-    margin-top: 25px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     padding: 20px;
 }
 
-.gcBG {
-    border-radius: 50px;
-    background-color: white;
-    overflow: visible;
-    min-width: 990px;
+.pkmItem-container-container {
+    position: relative;
+    box-sizing: border-box;
+
+    background-color: rgb(180, 252, 255);
+    background-image: radial-gradient(rgb(209, 253, 255), rgb(180, 252, 255));
+    
+    min-width: 100%;
+    min-height: 100%;
 }
+
+/*------------------------------PKmItem-container------------------------------------*/
 
 .grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
     font-size: 30px;
     text-align: center;
 
     margin: 30px;
-    border-radius: 50px;
     cursor: pointer;
 }
 
-.giExtras {
-    position: relative;         /* I don't think needed */
-    background-color: grey;
-    max-width: 430px;
+.pkmItem-container {
+    position: relative;
+    
+    border-radius: 40px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.giExtras:hover {
-    transform: scale(0.98, 0.99);
+.pkmItem-container:hover {
+    transform: scale(0.98, 0.98);
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease;
+}
+
+.pkmItem-notSelected {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+
+    background-color: rgb(133, 185, 185);
+    background-image: radial-gradient(rgb(173, 173, 173),rgb(121, 187, 187));
+
+    padding: 20px;
+}
+
+.pkmItem-selected {
+    color: gold;
+
+    background-color: #df00009f;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.295),#fd00009f);
+
+    border-width: 5px;
+
+    padding: 16px;
+}
+
+.pkmItem-selected:hover {
+    box-shadow: 0 4px 8px 0 rgba(218, 165, 32, 0.6), 0 6px 20px 0 rgba(218, 165, 32, 0.57);
+    transition: 0.3s ease;
+}
+
+.pkmItemImg-container {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.pkmItem-img {
+    width: 150px;
+    height: 180px;
+}
+
+/*----------------------------------Pokemon Gender----------------------------------*/
+
+.pkmGender-female:after {
+    content: ' \2640'
+}
+
+.pkmGender-male:after {
+    content: ' \2642'
+}
+
+/*---------------------------------------------------------------------------------*/
+
+.pkmItemsContainer-nav {
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    
+    width: 100px;
+    height: 100%;
+    text-align: center;
+
+    cursor: pointer;
+    opacity: 0;
+
+    padding-top: 45%;
+    display: inline-block;
+}
+
+.pkmItemsContainer-nav:hover {
+    opacity: 0.5;
+    transition: 0.7s ease;
+    width: 170px;
+}
+
+.nav-left {
+    background-image: linear-gradient(to left, rgba(100,100,100,0.2) , rgba(218, 165, 32, 1));
+    left: 0;
+}
+
+.nav-right {
+    background-image: linear-gradient(to right, rgba(100,100,100,0.2) , rgba(218, 165, 32, 1));
+    right: 0;
+}
+
+.left-btn {
+    position: relative;
+    font-size: 50px;
+    font-weight: bold; 
+}
+
+.right-btn {
+    position: relative;
+    font-size: 50px;
+    font-weight: bold; 
+}
+
+/*------------------------------Add/Remove PkmItem-----------------------------------*/
+
+.container {
+    overflow: hidden;
+  }
+  
+.overlay-div {
+    box-sizing: border-box;
+    position: absolute;
+    text-align: center;
+
+    bottom: -30%; 
+    left: 0;
+
+    width: 100%;
+    height: 30%;
+
+    transition: 0.8s ease;
+
+    color: white;
+    font-size: 40px;
+    font-family: "Courier New", "Courier", monospace;
+
+    opacity: 0;
+    cursor: pointer;
+
+    padding: 30px 0px 0px 0px;
+
+    z-index: 5;;
+}
+
+.overlay-div:hover {
+    transition: 0.3s;
+    border-top: 3px solid black;
+}
+
+.overlay-div:active {
+    transition: 0s;
+    border-top: 8px solid black;
+}
+
+.add-pkmItem-btn {
+    background-color: green;
+}
+
+.rmv-pkmItem-btn {
+    background-color: goldenrod;
+}
+
+.pkmItem-container:hover .overlay-div{
+    opacity: 1;
+    bottom: 0; 
+}
+
+.cantSelectPkm {
+    background-color: rgb(163, 0, 155);
+}
+
+.cantSelectPkm:active {
+    transition: 0s !important;
+    border-top: 8px solid rgb(170, 0, 0) !important;
+    background-color: rgb(124, 0, 118);
+}
+  
+/*-----------------------------LoadingPkm Container----------------------------------*/
+
+.loadingPkm-container-container {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    margin: auto;
+    padding: 0;
+
+    background-image: radial-gradient(rgb(209, 253, 255), rgb(180, 252, 255));
+}
+
+.pkmContainer-ld-progBar-container {
+    position: absolute;
+    top: 80%;
+    left: 30%;
+
+    width: 40%;
+    height: 8%;
+
+    background-color: black;
+    overflow: hidden;
+
+    border: 3px solid black;
+    border-radius: 60px;
+
     color: white;
 }
 
-/*-----------------------------------------------------------------------------------*/
-.pkb-container {
-    padding: 25px 0px 25px 0px;
+.pkmContainer-ld-progBar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
 
-    /*--hCenter--*/
+    height: 100%;
+
+    background-color: brown;
+    background-image: linear-gradient(to bottom right, rgb(143, 0, 0), rgb(255, 187, 0));
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    transition: 0.5s ease;
+}
+
+.pkmContainer-ld-percent {
+    position: absolute;
+    left: 45%;
+    top: 10%;
+
+    width: 10%;
+    height: 80%;
+
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    background-color: rgba(48, 48, 48, 0);
+
+    z-index: 5;
+}
+
+.whos-that-pkm-pkmImg-container {
+    position: absolute;
+    top: 5%;
+    left: 43%;
+
+    width: 220px;
+    height: 220px;
+}
+
+.whos-that-pkm-pkm-img {
+    filter: brightness(0%);
+
+    width: 100%;
+    height: 100%;    
+
+    transition: 0.5s ease;
+}
+
+.whos-that-pkm-imgShown {
+    transform: scaleX(-1);
+    filter: brightness(100%)
+}
+
+.whos-that-pkm-titleImg-container {
+    position: absolute; 
+    top: 28%;
+    left: 52%;
+
+    width: 140px;
+    height: 140px;
+}
+
+.whos-that-pkm-title-img {
+    width: 100%;
+    height: 100%;
+}
+
+/*---------------------------------Pokeball----------------------------------*/
+
+.pkb-container {
+    padding: 70px 0;
+
     margin: auto;
-    width: 7%;
+    width: 128px;
     padding: 10px;
 }
 
@@ -57,55 +361,118 @@
     background-image: url("../angelo-assets/pokeball-logo.png");
     width: 128px;
     height: 128px;
+
+    position: relative;
+    border-radius: 64px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pkbImg-container:hover {
+    transform: scale(0.985, 0.985);
+    transition: 2s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.27);
 }
 
 .pkbBtn-container {
-    /*--vCenter--*/
-    padding: 37px 0;
+    position: relative;
+    margin: auto;
+    width: 30%;
+    height: 36px;
+
+    padding: 45px 2px 0px 0px;
+
+    text-align: center;
 }
 
-.btnShowContainer {
-    width: 50px;
-    height: 50px;
+.pkb-btn {
+    position: absolute;
+    left: 1.39px;
+
+    width: 38px;
+    height: 38px;
+
     cursor: pointer;
+    opacity:0;
+
     border-radius: 50%;
-    border-width: 5px;
-    border-color: grey;
+    border-width: 3px;
 }
 
-.btnShowContainer:active {
-    background-color: rgb(204, 204, 204);
+.pkb-btn:active {
+    margin: 2px;
+
+    width: 34px;
+    height: 34px;
+
+    background-color: rgb(209, 209, 209);
 }
 
-.btnShowContainer:hover {
+.pkb-btn:hover {
+    box-sizing: border-box;
+
+    transform: scale(0.9, 0.9);
+    transition: 0.2s ease;
+    opacity: 1;
+
+    border-width: 3px;
+    border-color: black;
+}
+
+.pkbLoading-btn {
+    position: absolute;
+    left: 3.39px;
+
+    width: 38px;
+    height: 38px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    border-width: 0px;
+}
+
+.pkbLoading-btn:active {
     transform: scale(0.95,0.95);
+    background-color: rgb(209, 209, 209);
 }
 
 #pressPrompt {
     color: white;
 }
-/*-----------------------------------------------------------------------------------*/
+/*--------------------------------FilterBar------------------------------------*/
+
 .filter-container {
     display: block;
     color: white;
-    background-color: #333;
+    background-color: rgb(32, 32, 32);
     padding: 0px 0px 0px 0px;
     text-decoration: none;
     
     padding: 0px;
-    margin: 25px 0px 0px 0px;
-    border-radius: 20px;
+    margin: 25px 0px 25px 0px;
 
-    width: 100%;
+    border-radius: 40px;
+    border: 5px solid rgb(100, 100, 100);
+
+    width: 99.45%;
     min-height: 101px;
 
     position: relative;
     text-align: left;
+
+    transition: 0.3s ease;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .search-container {
+  .filter-container:hover {
+      border-color: rgb(109, 109, 109);
+      transform: scale(0.999, 0.999);
+  }
+
+  .search-input-container {
     text-align:left;
-    width: 40%;
+    width: 25%;
     height: 100%;
     padding: 30px;
   }
@@ -115,17 +482,174 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: Bold;
 
-    width: 70%;
+    width: 100%;
     max-height: 34px;
 
     background-color: white;
     color: black;
 
+    border-radius: 10px;
+
     padding: 10px;
-    border-radius: 5px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 10px;
+    display: inline-block;
 
     outline: none;
     float: none;
   }
 
+  .search-input:active {
+      border-width: 2px;
+      border-color: rgb(128, 0, 0);
+      
+      transform: scale(0.995, 0.995);
+  }
+  
+  .searched-word-highlight {
+    color: rgba(25, 0, 255, 0.568);
+  }
+
+  /*--------------------------------PkmTeam------------------------------------*/
+
+  .pkmTeam-container {
+    pointer-events:visiblePainted;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
+    float: right;
+    width: auto;
+    height: 100px;
+
+    margin: 20px 30px;
+    padding: 0px;
+    z-index: 6;
+
+    display: grd;
+    grid-template-columns: auto 64px;
+  }
+
+  .pkmTeamIcon-container {
+    margin: 0px;
+    padding: 0px;
+
+    float: right;
+    position: relative;
+
+    width: 64px;
+    height: 100px;
+  }
+  
+  .pkmTeamIcon-container-extension {
+      margin: 0px 0px 0px 20px;
+  }
+
+  .pkmTeamIcon {
+    cursor: pointer;
+    margin: 8px 0px;
+  }
+
+  .pkmTeamTitle {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color: gold;
+    height: 20px;
+  }
+
+.pkmTeamGrid-container {
+    position: relative;
+    float: left;
+
+    display: grid;
+    grid-template-columns: calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
+
+    background-color: #0a008f;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 5px 0px;
+
+    width: 450px;
+    height: 90px;
+}
+
+.pkmTeamMember-container {
+    background-image: url('../angelo-assets/pkm-member-bg.png');
+    cursor: pointer;
+    background-color: rgb(182, 248, 0);
+
+    margin: 5px;
+    padding: 0px 0px 5px 0px;
+
+    position: relative;
+    width: 66px;
+    height: 74px;
+}
+
+.pkmTeamMember-container:hover {
+    background-color: gold;
+}
+
+/*---------------------------------Hover Text-------------------------------------*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    margin: 0px 25px 20px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+
+    opacity: 0;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transition: 1.5s ease;
+}
+
+/*---------------------------Remove Member Button-----------------------------*/
+
+.rmvMember-btn {
+    cursor: pointer;
+    border-width: 0px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color:#0a008f;
+    color: rgb(182, 248, 0);
+    
+    margin: 5px 23.5px;
+    padding: 0px;
+
+    width: 15px;
+    height: 16px;
+
+    float: right;
+    position: relative;
+
+    opacity: 0;
+}
+
+.pkmTeamMember-container:hover .rmvMember-btn {
+    opacity: 1;
+    transition: 0.2s ease;
+}
+
+.rmvMember-btn:hover {
+    color: red;
+}
