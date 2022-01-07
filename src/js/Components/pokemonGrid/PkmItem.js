@@ -102,7 +102,7 @@ const PkmItem = ({ pkmData, addPkm, rmvPkm, atMaxNumPkm, showInfo, search }) => 
             </div>
             <h4 className={`imgFadeIn-animation ${pkmData.gender && (isMale? 'pkmGender-male' : 'pkmGender-female')}`}>
                 {leadingName}
-                <span style={{color: '#0046FF'}}>
+                <span className="searched-word-highlight">
                     {searchCased}
                 </span>
                 {trailingName}
