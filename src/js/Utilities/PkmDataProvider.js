@@ -1,6 +1,6 @@
 import { providePkmItemName } from './PkmDispNameProvider';
 import { providePkmGender } from './PkmGenderProvider';
-import { providePkmPng } from './PkmGraphicsProvider'
+import { providePkmItemPng } from './PkmGraphicsProvider'
 import { retrievePokeApiData } from './PokeApiController';
 
 /*
@@ -19,7 +19,7 @@ const providePkmData = async () => {
         const stats = pkmData.stats;
         const gender = providePkmGender(pkmData.name);
 
-        const png = providePkmPng(pkmData.name);
+        const png = providePkmItemPng(pkmData.name);
         const desc = pkmData.desc;
         const selected = defaultSelect;
 

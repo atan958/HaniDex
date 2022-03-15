@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 
-import { provideMiscPng, providePkmTypesPng } from '../../Utilities/PkmGraphicsProvider';
+import { provideMiscPng, providePkmTypesPng, providePkmInfoPng } from '../../Utilities/PkmGraphicsProvider';
 import { providePkmTypeColour } from '../../Utilities/PkmColourProvider';
 
 import '../../../css/PkmInfo.css'
@@ -56,11 +56,8 @@ const PkmInfoImgContainer = ({ pkmToShow, showShiny, toggleShowShiny }) => {
     /*
     / Creates the img element components of the given Pokemon's shiny and regular sprites respectively
     */
-    const [shinyImg, regImg] = [pkmToShow.png.sprite.shiny, pkmToShow.png.sprite.reg].map((pkmPng) => {
-        return(
-            <PkmInfoImg key={pkmPng} imgSrc={pkmPng}/>
-        );
-    });
+    const regImg = <PkmInfoImg imgSrc={ providePkmInfoPng(pkmToShow.id).reg }/>
+    const shinyImg = <PkmInfoImg imgSrc={ providePkmInfoPng(pkmToShow.id).shiny }/>
 
     /*
     / Gets the colour code for the given Pokemon's type(s)

@@ -1,7 +1,7 @@
 /*
-/ Utility Method: A service for providing the sprite png of a given Pokemon
+/ Utility Method: A service for providing the sprite png of a given Pokemon for the PkmItem component
 */
-const providePkmPng = (pkmName) => {
+const providePkmItemPng = (pkmName) => {
     let spriteReg, spriteShiny = null;
 
     try {    
@@ -26,6 +26,20 @@ const providePkmPng = (pkmName) => {
         }
     };
 }
+
+/*
+/   Utility Method: A service for providing the sprite png of a given Pokemon for the PkmItem component
+*/
+const providePkmInfoPng = (pkmId) => {
+    const regSprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pkmId}.png`;
+    const shinySprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pkmId}.png`;
+
+    return {
+        reg: regSprite,
+        shiny: shinySprite
+    };
+}
+
 
 /*
 / Utility Method: A service for providing miscellaneous pngs to the components
@@ -91,4 +105,4 @@ const getRandomPkmId = () => {
     );
 }
 
-export { providePkmPng, provideMiscPng, providePkmTypesPng, provideRandomPkmSprite }
+export { providePkmItemPng, provideMiscPng, providePkmTypesPng, provideRandomPkmSprite, providePkmInfoPng }
